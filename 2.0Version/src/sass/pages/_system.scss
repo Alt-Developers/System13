@@ -1,0 +1,93 @@
+.result {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "attack defend";
+  justify-content: space-between;
+  padding-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.attackers-wrapper {
+  grid-area: attack;
+  text-align: center;
+
+  .attackers__label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 6rem;
+    background-image: linear-gradient(to top left, rgb(207, 2, 2), orangered);
+    width: 50%;
+    margin: auto;
+    border-radius: 1.1rem;
+    margin-bottom: 2rem;
+  }
+
+  .attackers {
+    background-color: $gray-dark-2;
+    width: 50%;
+    height: 50rem;
+    margin: auto;
+    border-radius: 1.1rem;
+    text-align: center;
+    overflow: scroll;
+
+    &__row {
+      padding: 2.25rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 0.1rem solid rgba(105, 105, 105, 0.596);
+      font-size: 1.7rem;
+
+      &--label {
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+.defenders-wrapper {
+  grid-area: defend;
+  text-align: center;
+
+  .defenders__label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 6rem;
+    background-image: linear-gradient(
+      to top left,
+      rgb(2, 67, 207),
+      rgb(0, 119, 255)
+    );
+    width: 50%;
+    margin: auto;
+    border-radius: 1.1rem;
+    margin-bottom: 2rem;
+  }
+
+  .defenders {
+    background-color: $gray-dark-2;
+    width: 50%;
+    height: 50rem;
+    margin: auto;
+    border-radius: 1.1rem;
+    text-align: center;
+    overflow: scroll;
+
+    &__row {
+      padding: 2.25rem 4rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 0.1rem solid rgba(105, 105, 105, 0.596);
+      font-size: 1.7rem;
+
+      &--label {
+        font-weight: 600;
+      }
+    }
+  }
+}

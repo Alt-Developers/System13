@@ -1,0 +1,22 @@
+button {
+  color: $blinding-white;
+  text-decoration: none;
+  background-color: $gray-light-1;
+  border: none;
+  width: 40rem;
+  height: 5rem;
+  border-radius: 1.1rem;
+  margin-top: 5rem;
+  transition: color 0.5s;
+  transition: background-color 0.5s;
+  transition: box-shadow 0.5s;
+}
+button:hover {
+  color: $paragrph-text-1;
+  background-color: $blinding-white;
+  box-shadow: $blinding-white 0.5rem 0.5rem 0.5rem;
+}
+
+.dark-btn {
+  background-color: $gray-dark-2;
+}

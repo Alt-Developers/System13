@@ -1,0 +1,30 @@
+.hero {
+  text-align: center;
+  display: flex;
+  width: 100vw;
+  height: 80vh;
+  background-color: $gray-dark-3;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url("../img/vw.png");
+  background-size: 100%;
+  background-position-y: 50;
+
+  &__content {
+    h1 {
+      font-size: 3.5rem;
+      margin: 1.5rem;
+    }
+    p {
+      font-size: 2rem;
+      margin: 1.5rem;
+    }
+    a {
+      text-decoration: none;
+      color: $btn-red-1;
+      text-decoration: underline;
+      font-size: 1.5rem;
+    }
+  }
+}
