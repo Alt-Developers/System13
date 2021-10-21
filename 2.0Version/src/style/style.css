@@ -151,7 +151,6 @@ nav {
   overflow: hidden;
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
   padding: 0.5rem 2rem 0.5rem 2rem;
   background-color: #202020;
 }
