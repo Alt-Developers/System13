@@ -59,52 +59,52 @@ body {
         background-color: #ff424f;
         transform: scale(1.05); }
 
-/* line 2, src/sass/components/_learnmore.scss */
-.learn-more h3 {
-  font-size: 6rem;
-  margin-bottom: 2rem; }
-
-/* line 6, src/sass/components/_learnmore.scss */
-.learn-more p {
-  font-size: 3rem; }
-
-/* line 10, src/sass/components/_learnmore.scss */
-.learn-more__even {
-  display: grid;
-  grid-template-columns: 1fr 0.5fr 1fr;
-  grid-gap: 3rem;
-  grid-template-areas: "p2 big2 big2";
-  padding: 2rem 4rem 2rem 4rem;
-  background-color: #404040; }
-  /* line 18, src/sass/components/_learnmore.scss */
-  .learn-more__even img {
-    border-radius: 1.1rem;
-    width: 100%; }
-  /* line 22, src/sass/components/_learnmore.scss */
-  .learn-more__even .big2 {
-    grid-area: big2; }
-  /* line 25, src/sass/components/_learnmore.scss */
-  .learn-more__even .p2 {
-    grid-area: p2; }
-
-/* line 30, src/sass/components/_learnmore.scss */
-.learn-more__odd {
-  display: grid;
-  grid-template-columns: 1fr 0.5fr 1fr;
-  grid-gap: 3rem;
-  grid-template-areas: "big1 big1 p1";
-  padding: 2rem 4rem 2rem 4rem; }
-  /* line 37, src/sass/components/_learnmore.scss */
-  .learn-more__odd img {
-    border-radius: 1.1rem;
-    width: 100%; }
-  /* line 41, src/sass/components/_learnmore.scss */
-  .learn-more__odd .big1 {
-    grid-area: big1; }
-  /* line 45, src/sass/components/_learnmore.scss */
-  .learn-more__odd .p1 {
-    padding-top: 3rem;
-    grid-area: p1; }
+/* line 1, src/sass/components/_learnmore.scss */
+.learn-more {
+  padding: 1rem; }
+  /* line 3, src/sass/components/_learnmore.scss */
+  .learn-more h3 {
+    font-size: 5rem;
+    margin-bottom: 2rem; }
+  /* line 7, src/sass/components/_learnmore.scss */
+  .learn-more p {
+    font-size: 2rem; }
+  /* line 11, src/sass/components/_learnmore.scss */
+  .learn-more__even {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 3rem;
+    grid-template-areas: "p2 big2";
+    padding: 4rem 3rem 3rem 3rem;
+    background-color: #404040; }
+    /* line 19, src/sass/components/_learnmore.scss */
+    .learn-more__even img {
+      border-radius: 1.1rem;
+      width: 100%; }
+    /* line 23, src/sass/components/_learnmore.scss */
+    .learn-more__even .big2 {
+      grid-area: big2; }
+    /* line 26, src/sass/components/_learnmore.scss */
+    .learn-more__even .p2 {
+      grid-area: p2; }
+  /* line 31, src/sass/components/_learnmore.scss */
+  .learn-more__odd {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 3rem;
+    grid-template-areas: "big1 p1";
+    padding: 3rem; }
+    /* line 38, src/sass/components/_learnmore.scss */
+    .learn-more__odd img {
+      border-radius: 1.1rem;
+      width: 100%; }
+    /* line 42, src/sass/components/_learnmore.scss */
+    .learn-more__odd .big1 {
+      grid-area: big1; }
+    /* line 46, src/sass/components/_learnmore.scss */
+    .learn-more__odd .p1 {
+      padding-top: 3rem;
+      grid-area: p1; }
 
 /* line 1, src/sass/components/_button.scss */
 button {
