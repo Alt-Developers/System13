@@ -14,7 +14,8 @@ nav {
   grid-template-areas: "logo a1 a2 a3 a4";
 
   img {
-    padding: 1% 0 0 1%;
+    padding: 2% 0 0 2%;
+    width: 20rem;
     height: 6rem;
     grid-area: logo;
   }
@@ -53,6 +54,7 @@ nav {
   }
   .active {
     background-color: $search-red-1;
+    border-radius: .6rem;
   }
 }
 

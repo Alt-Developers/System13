@@ -16,32 +16,48 @@ body {
   background: #303030;
   color: #fff; }
 
+/* line 1, src/sass/base/_utilities.scss */
+.u-remove-a-eff {
+  text-decoration: none;
+  color: white; }
+
 /* line 1, src/sass/components/_hero.scss */
 .hero {
   text-align: center;
-  display: flex;
   width: 100vw;
   height: 80vh;
   background-color: #1b1b1b;
-  justify-content: center;
-  align-items: center;
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../img/vw.png");
   background-size: 100%;
   background-position-y: 50; }
-  /* line 15, src/sass/components/_hero.scss */
-  .hero__content h1 {
-    font-size: 3.5rem;
-    margin: 1.5rem; }
-  /* line 19, src/sass/components/_hero.scss */
-  .hero__content p {
-    font-size: 2rem;
-    margin: 1.5rem; }
-  /* line 23, src/sass/components/_hero.scss */
-  .hero__content a {
-    text-decoration: none;
-    color: #dc3d4b;
-    text-decoration: underline;
-    font-size: 1.5rem; }
+  /* line 14, src/sass/components/_hero.scss */
+  .hero__content {
+    font-size: 5rem;
+    margin: 1.5rem;
+    display: inline-block;
+    position: absolute;
+    left: 5%;
+    top: 20%;
+    text-align: left; }
+    /* line 23, src/sass/components/_hero.scss */
+    .hero__content p {
+      font-size: 2rem;
+      margin-top: 5%;
+      margin-bottom: 5%; }
+    /* line 28, src/sass/components/_hero.scss */
+    .hero__content a {
+      border-radius: .5rem;
+      background-color: #dc3d4b;
+      font-size: 2rem;
+      padding: 1.5rem;
+      margin-top: 2rem;
+      font-weight: 400;
+      outline-offset: 1rem;
+      transition: all .2s; }
+      /* line 38, src/sass/components/_hero.scss */
+      .hero__content a:hover {
+        background-color: #ff424f;
+        transform: scale(1.05); }
 
 /* line 2, src/sass/components/_learnmore.scss */
 .learn-more h3 {
@@ -163,10 +179,11 @@ nav {
   grid-template-areas: "logo a1 a2 a3 a4"; }
   /* line 16, src/sass/layout/_navigation.scss */
   nav img {
-    padding: 1% 0 0 1%;
+    padding: 2% 0 0 2%;
+    width: 20rem;
     height: 6rem;
     grid-area: logo; }
-  /* line 22, src/sass/layout/_navigation.scss */
+  /* line 23, src/sass/layout/_navigation.scss */
   nav li {
     height: 100%;
     transition: background-color 0.5s;
@@ -179,7 +196,7 @@ nav {
     text-transform: uppercase;
     font-weight: 600;
     border-radius: .6rem; }
-  /* line 37, src/sass/layout/_navigation.scss */
+  /* line 38, src/sass/layout/_navigation.scss */
   nav a {
     height: 100%;
     background-color: #202020;
@@ -187,26 +204,27 @@ nav {
     margin: 0.5rem;
     text-decoration: none;
     grid-area: auto; }
-    /* line 50, src/sass/layout/_navigation.scss */
+    /* line 51, src/sass/layout/_navigation.scss */
     nav a :hover {
       background-color: #fa4454; }
-  /* line 54, src/sass/layout/_navigation.scss */
+  /* line 55, src/sass/layout/_navigation.scss */
   nav .active {
-    background-color: #dc3d4b; }
+    background-color: #dc3d4b;
+    border-radius: .6rem; }
 
-/* line 60, src/sass/layout/_navigation.scss */
+/* line 62, src/sass/layout/_navigation.scss */
 .nav__1 {
   grid-area: a1; }
 
-/* line 63, src/sass/layout/_navigation.scss */
+/* line 65, src/sass/layout/_navigation.scss */
 .nav__1 {
   grid-area: a2; }
 
-/* line 66, src/sass/layout/_navigation.scss */
+/* line 68, src/sass/layout/_navigation.scss */
 .nav__1 {
   grid-area: a3; }
 
-/* line 69, src/sass/layout/_navigation.scss */
+/* line 71, src/sass/layout/_navigation.scss */
 .nav__1 {
   grid-area: a4; }
 
