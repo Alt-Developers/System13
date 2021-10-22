@@ -21,44 +21,6 @@ body {
   text-decoration: none;
   color: white; }
 
-/* line 1, src/sass/components/_hero.scss */
-.hero {
-  text-align: center;
-  width: 100vw;
-  height: 80vh;
-  background-color: #1b1b1b;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../img/vw.png");
-  background-size: 100%;
-  background-position-y: 50; }
-  /* line 14, src/sass/components/_hero.scss */
-  .hero__content {
-    font-size: 5rem;
-    margin: 1.5rem;
-    display: inline-block;
-    position: absolute;
-    left: 5%;
-    top: 20%;
-    text-align: left; }
-    /* line 23, src/sass/components/_hero.scss */
-    .hero__content p {
-      font-size: 2rem;
-      margin-top: 5%;
-      margin-bottom: 5%; }
-    /* line 28, src/sass/components/_hero.scss */
-    .hero__content a {
-      border-radius: .5rem;
-      background-color: #dc3d4b;
-      font-size: 2rem;
-      padding: 1.5rem;
-      margin-top: 2rem;
-      font-weight: 400;
-      outline-offset: 1rem;
-      transition: all .2s; }
-      /* line 38, src/sass/components/_hero.scss */
-      .hero__content a:hover {
-        background-color: #ff424f;
-        transform: scale(1.05); }
-
 /* line 1, src/sass/components/_learnmore.scss */
 .learn-more {
   padding: 1rem; }
@@ -154,8 +116,12 @@ button:hover {
   /* line 22, src/sass/components/_modal.scss */
   .modal p {
     font-size: 2rem; }
+  /* line 25, src/sass/components/_modal.scss */
+  .modal .small-text {
+    font-size: 1rem;
+    margin-top: 1rem; }
 
-/* line 27, src/sass/components/_modal.scss */
+/* line 31, src/sass/components/_modal.scss */
 .overlay {
   position: absolute;
   top: 0;
@@ -165,6 +131,44 @@ button:hover {
   background-color: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(3px);
   z-index: 5; }
+
+/* line 1, src/sass/layout/_header.scss */
+.hero {
+  text-align: center;
+  width: 100vw;
+  height: 80vh;
+  background-color: #1b1b1b;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../img/vw.png");
+  background-size: 100%;
+  background-position-y: 50; }
+  /* line 14, src/sass/layout/_header.scss */
+  .hero__content {
+    font-size: 5rem;
+    margin: 1.5rem;
+    display: inline-block;
+    position: absolute;
+    left: 5%;
+    top: 20%;
+    text-align: left; }
+    /* line 23, src/sass/layout/_header.scss */
+    .hero__content p {
+      font-size: 2rem;
+      margin-top: 5%;
+      margin-bottom: 5%; }
+    /* line 28, src/sass/layout/_header.scss */
+    .hero__content a {
+      border-radius: .5rem;
+      background-color: #dc3d4b;
+      font-size: 2rem;
+      padding: 1.5rem;
+      margin-top: 2rem;
+      font-weight: 400;
+      outline-offset: 1rem;
+      transition: all .2s; }
+      /* line 38, src/sass/layout/_header.scss */
+      .hero__content a:hover {
+        background-color: #ff424f;
+        transform: scale(1.05); }
 
 /* line 1, src/sass/layout/_navigation.scss */
 nav {
@@ -178,12 +182,16 @@ nav {
   grid-template-rows: 100%;
   grid-template-areas: "logo a1 a2 a3 a4"; }
   /* line 16, src/sass/layout/_navigation.scss */
-  nav img {
-    padding: 2% 0 0 2%;
-    width: 20rem;
-    height: 6rem;
-    grid-area: logo; }
-  /* line 23, src/sass/layout/_navigation.scss */
+  nav .logo {
+    display: flex;
+    align-items: center; }
+    /* line 20, src/sass/layout/_navigation.scss */
+    nav .logo img {
+      padding: 2% 0 0 2%;
+      width: 20rem;
+      height: 6rem;
+      grid-area: logo; }
+  /* line 28, src/sass/layout/_navigation.scss */
   nav li {
     height: 100%;
     transition: background-color 0.5s;
@@ -195,8 +203,8 @@ nav {
     font-size: 1.7rem;
     text-transform: uppercase;
     font-weight: 600;
-    border-radius: .6rem; }
-  /* line 38, src/sass/layout/_navigation.scss */
+    border-radius: 0.6rem; }
+  /* line 43, src/sass/layout/_navigation.scss */
   nav a {
     height: 100%;
     background-color: #202020;
@@ -204,27 +212,27 @@ nav {
     margin: 0.5rem;
     text-decoration: none;
     grid-area: auto; }
-    /* line 51, src/sass/layout/_navigation.scss */
+    /* line 56, src/sass/layout/_navigation.scss */
     nav a :hover {
       background-color: #fa4454; }
-  /* line 55, src/sass/layout/_navigation.scss */
+  /* line 60, src/sass/layout/_navigation.scss */
   nav .active {
     background-color: #dc3d4b;
-    border-radius: .6rem; }
+    border-radius: 0.6rem; }
 
-/* line 62, src/sass/layout/_navigation.scss */
+/* line 67, src/sass/layout/_navigation.scss */
 .nav__1 {
   grid-area: a1; }
 
-/* line 65, src/sass/layout/_navigation.scss */
+/* line 70, src/sass/layout/_navigation.scss */
 .nav__1 {
   grid-area: a2; }
 
-/* line 68, src/sass/layout/_navigation.scss */
+/* line 73, src/sass/layout/_navigation.scss */
 .nav__1 {
   grid-area: a3; }
 
-/* line 71, src/sass/layout/_navigation.scss */
+/* line 76, src/sass/layout/_navigation.scss */
 .nav__1 {
   grid-area: a4; }
 
