@@ -13,11 +13,16 @@ nav {
 
   grid-template-areas: "logo a1 a2 a3 a4";
 
-  img {
-    padding: 2% 0 0 2%;
-    width: 20rem;
-    height: 6rem;
-    grid-area: logo;
+  .logo {
+    display: flex;
+    align-items: center;
+
+    img {
+      padding: 2% 0 0 2%;
+      width: 20rem;
+      height: 6rem;
+      grid-area: logo;
+    }
   }
 
   li {
@@ -32,7 +37,7 @@ nav {
     font-size: 1.7rem;
     text-transform: uppercase;
     font-weight: 600;
-    border-radius: .6rem;
+    border-radius: 0.6rem;
   }
 
   a {
@@ -41,7 +46,7 @@ nav {
     // width: 30rem;
     height: 100%;
     // justify-content: center;
-    
+
     background-color: $gray-dark-2;
     margin-left: 3rem;
     margin: 0.5rem;
@@ -54,7 +59,7 @@ nav {
   }
   .active {
     background-color: $search-red-1;
-    border-radius: .6rem;
+    border-radius: 0.6rem;
   }
 }
 
