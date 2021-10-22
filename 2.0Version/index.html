@@ -6,23 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="./src/img/icon.png" />
     <link rel="stylesheet" href="./src/style/style.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
+      rel="stylesheet"
+    />
     <title>System 13</title>
   </head>
   <body>
     <nav>
       <img src="./src/img/logo.png" alt="SS System 13 Logo" />
-      <ul>
-        <a href="#"><li class="active">Home</li></a>
-        <a href="./system.html"><li>System</li></a>
-        <a href="./github.html"><li>Github</li></a>
-        <a href="https://ssdevelopers.xyz"><li>Portals</li></a>
-      </ul>
+      <a href="#"><li class="active nav__1">Home</li></a>
+      <a href="./system.html" class="nav__2"><li>System</li></a>
+      <a href="./github.html" class="nav__3"><li>Github</li></a>
+      <a href="https://ssdevelopers.xyz" class="nav__4"><li>Portals</li></a>
     </nav>
     <section class="hero" id="hero">
       <div class="hero__content">
-        <h1>What if match making was easy?</h1>
-        <p>Come to an end, Matches I organize never fair!</p>
-        <a href="#learnMore">Learn More &darr;</a>
+        <div class="hero__text-wrapper">
+          <h1 class="hero__text--1">
+            What if <br />Matchmaking <br />Was Easy?
+          </h1>
+          <p>It's time to end "My team isn't fair"</p>
+        </div>
+
+        <a href="#learnMore" class="u-remove-a-eff">Learn More &darr;</a>
       </div>
     </section>
     <section class="learn-more" id="learnMore">
