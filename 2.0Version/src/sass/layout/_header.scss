@@ -36,7 +36,12 @@
       border: none;
 
       &:hover {
-        background-color: $nav-background-red-1;
+        background: rgb(250, 68, 84);
+        background: linear-gradient(
+          137deg,
+          rgba(250, 68, 84, 1) 0%,
+          rgb(255, 0, 0) 100%
+        );
         transform: scale(1.1);
       }
       &:active {

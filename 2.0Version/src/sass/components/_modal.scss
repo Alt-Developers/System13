@@ -7,7 +7,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 50%;
+  width: 55%;
   background-color: $gray-dark-3;
   padding: 6rem;
   border-radius: 1.1rem;
@@ -47,12 +47,12 @@
   z-index: 5;
 }
 
-.show-modal{
+.show-modal {
   visibility: visible;
   opacity: 1;
 }
 
-.show-modal .modal{
+.show-modal .modal {
   /*=== Effect 1 ===*/
   transform: translateY(0);
 

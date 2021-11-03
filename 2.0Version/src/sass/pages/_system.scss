@@ -16,8 +16,8 @@
   &::-webkit-scrollbar {
     display: none;
   }
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 
   .attackers__label {
     display: flex;
@@ -158,7 +158,7 @@
     grid-template-areas:
       "playerleft playerright"
       "submit submit";
-      background-color: #303030;
+    background-color: #303030;
 
     button {
       padding-left: 2%;
@@ -182,11 +182,12 @@
         padding: 1rem;
         background-color: #303030;
         color: white;
+        border: 1px rgb(77, 77, 77) solid;
+
         &:focus {
           padding: 2rem;
         }
       }
-
     }
     &--right {
       padding: 2rem;
@@ -203,6 +204,7 @@
         transition: all 0.2s;
         background-color: #303030;
         color: white;
+        border: 1px rgb(77, 77, 77) solid;
 
         &:focus {
           padding: 2rem;

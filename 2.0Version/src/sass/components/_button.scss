@@ -15,9 +15,11 @@
     color: $paragrph-text-1;
     background-color: $blinding-white;
     transform: scale(1.05);
+    box-shadow: white 0px 0px 10px;
   }
 
   &:active {
+    box-shadow: rgb(0, 0, 0) 0px 0px 10px;
     transform: scale(0.9);
   }
 }

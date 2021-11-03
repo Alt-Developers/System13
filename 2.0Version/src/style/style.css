@@ -1,36 +1,27 @@
 @import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;700&display=swap");
-/* line 1, src/sass/base/_base.scss */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Fira Sans", sans-serif; }
 
-/* line 8, src/sass/base/_base.scss */
 html {
   font-size: 10px;
   scroll-behavior: smooth; }
 
-/* line 13, src/sass/base/_base.scss */
 body {
   background: #303030;
   color: #fff; }
 
-/* line 1, src/sass/base/_utilities.scss */
 .u-remove-a-eff {
   text-decoration: none;
   color: white; }
 
-/* line 3, src/sass/components/_learnmore.scss */
 .learn-more h3 {
   font-size: 5rem;
   margin-bottom: 2rem; }
-
-/* line 7, src/sass/components/_learnmore.scss */
 .learn-more p {
   font-size: 2rem; }
-
-/* line 11, src/sass/components/_learnmore.scss */
 .learn-more__even {
   padding: 1rem;
   display: grid;
@@ -39,18 +30,13 @@ body {
   grid-template-areas: "p2 big2";
   padding: 4rem 3rem 3rem 5rem;
   background-color: #404040; }
-  /* line 20, src/sass/components/_learnmore.scss */
   .learn-more__even img {
     border-radius: 1.1rem;
     width: 100%; }
-  /* line 24, src/sass/components/_learnmore.scss */
   .learn-more__even .big2 {
     grid-area: big2; }
-  /* line 27, src/sass/components/_learnmore.scss */
   .learn-more__even .p2 {
     grid-area: p2; }
-
-/* line 32, src/sass/components/_learnmore.scss */
 .learn-more__odd {
   padding: 1rem;
   display: grid;
@@ -58,19 +44,15 @@ body {
   grid-gap: 5rem;
   grid-template-areas: "big1 p1";
   padding: 3rem; }
-  /* line 40, src/sass/components/_learnmore.scss */
   .learn-more__odd img {
     border-radius: 1.1rem;
     width: 100%; }
-  /* line 44, src/sass/components/_learnmore.scss */
   .learn-more__odd .big1 {
     grid-area: big1; }
-  /* line 48, src/sass/components/_learnmore.scss */
   .learn-more__odd .p1 {
     padding-top: 3rem;
     grid-area: p1; }
 
-/* line 1, src/sass/components/_button.scss */
 .btn {
   color: #fff;
   text-decoration: none;
@@ -81,52 +63,45 @@ body {
   border-radius: 1.1rem;
   margin-top: 5rem;
   transition: all 0.4s; }
-  /* line 14, src/sass/components/_button.scss */
   .btn:hover {
     color: #272727;
     background-color: #fff;
-    transform: scale(1.05); }
-  /* line 20, src/sass/components/_button.scss */
+    transform: scale(1.05);
+    box-shadow: white 0px 0px 10px; }
   .btn:active {
+    box-shadow: black 0px 0px 10px;
     transform: scale(0.9); }
 
-/* line 25, src/sass/components/_button.scss */
 .dark-btn {
   background-color: #202020; }
 
-/* line 1, src/sass/components/_modal.scss */
 .hidden {
   display: none; }
 
-/* line 5, src/sass/components/_modal.scss */
 .modal {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 50%;
+  width: 55%;
   background-color: #1b1b1b;
   padding: 6rem;
   border-radius: 1.1rem;
   z-index: 10;
   text-align: left; }
-  /* line 17, src/sass/components/_modal.scss */
   .modal__img {
     position: absolute;
     top: 17%;
     right: 10%;
     width: 25%;
     height: 70%; }
-  /* line 25, src/sass/components/_modal.scss */
   .modal h3 {
     font-size: 4rem;
     color: #dc3d4b;
     padding-bottom: 2rem; }
-  /* line 30, src/sass/components/_modal.scss */
   .modal p {
     font-size: 2rem; }
 
-/* line 39, src/sass/components/_modal.scss */
 .overlay {
   position: absolute;
   top: 0;
@@ -137,12 +112,10 @@ body {
   filter: blur(10px);
   z-index: 5; }
 
-/* line 50, src/sass/components/_modal.scss */
 .show-modal {
   visibility: visible;
   opacity: 1; }
 
-/* line 55, src/sass/components/_modal.scss */
 .show-modal .modal {
   /*=== Effect 1 ===*/
   transform: translateY(0);
@@ -151,7 +124,6 @@ body {
   /*=== Effect 3 ===*/
   /* transform: rotateX(0) scale(1) translateY(0); */ }
 
-/* line 1, src/sass/layout/_header.scss */
 .hero {
   text-align: center;
   width: 100vw;
@@ -160,7 +132,6 @@ body {
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../img/vw.png");
   background-size: 100%;
   background-position-y: 50; }
-  /* line 14, src/sass/layout/_header.scss */
   .hero__content {
     font-size: 5rem;
     margin: 1.5rem;
@@ -169,12 +140,10 @@ body {
     left: 5%;
     top: 20%;
     text-align: left; }
-    /* line 23, src/sass/layout/_header.scss */
     .hero__content p {
       font-size: 2rem;
       margin-top: 5%;
       margin-bottom: 5%; }
-    /* line 28, src/sass/layout/_header.scss */
     .hero__content button {
       border-radius: 0.5rem;
       background-color: #b1333e;
@@ -184,18 +153,16 @@ body {
       font-weight: 400;
       transition: all 0.2s;
       border: none; }
-      /* line 38, src/sass/layout/_header.scss */
       .hero__content button:hover {
-        background-color: #fa4454;
+        background: #fa4454;
+        background: linear-gradient(137deg, #fa4454 0%, red 100%);
         transform: scale(1.1); }
-      /* line 42, src/sass/layout/_header.scss */
       .hero__content button:active {
         background-color: #b1333e;
         transform: scale(0.9); }
 
-/* line 1, src/sass/layout/_navigation.scss */
 nav {
-  width: 100vw;
+  width: 100%;
   overflow: hidden;
   height: 9rem;
   padding-bottom: 1rem;
@@ -204,18 +171,15 @@ nav {
   grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 100%;
   grid-template-areas: "logo a1 a2 a3 a4"; }
-  /* line 16, src/sass/layout/_navigation.scss */
   nav .logo {
     display: flex;
     align-items: center; }
-    /* line 20, src/sass/layout/_navigation.scss */
     nav .logo img {
       padding: 2% 0 0 2%;
       width: 20rem;
       height: 6rem;
       grid-area: logo;
       cursor: pointer; }
-  /* line 29, src/sass/layout/_navigation.scss */
   nav li {
     height: 100%;
     transition: background-color 0.5s;
@@ -228,7 +192,6 @@ nav {
     text-transform: uppercase;
     font-weight: 600;
     border-radius: 0.6rem; }
-  /* line 44, src/sass/layout/_navigation.scss */
   nav a {
     height: 100%;
     background-color: #202020;
@@ -236,60 +199,45 @@ nav {
     margin: 0.5rem;
     text-decoration: none;
     grid-area: auto; }
-    /* line 57, src/sass/layout/_navigation.scss */
     nav a :hover {
       background-color: #fa4454; }
-  /* line 61, src/sass/layout/_navigation.scss */
   nav .active {
     background-color: #b1333e;
     border-radius: 0.6rem; }
 
-/* line 68, src/sass/layout/_navigation.scss */
 .nav__1 {
   grid-area: a1; }
-
-/* line 71, src/sass/layout/_navigation.scss */
 .nav__1 {
   grid-area: a2; }
-
-/* line 74, src/sass/layout/_navigation.scss */
 .nav__1 {
   grid-area: a3; }
-
-/* line 77, src/sass/layout/_navigation.scss */
 .nav__1 {
   grid-area: a4; }
 
-/* line 1, src/sass/layout/_footer.scss */
 footer {
   display: flex;
   justify-content: space-between;
   padding: 2rem 5rem 2rem 5rem;
-  font-size: 1.3rem; }
-  /* line 7, src/sass/layout/_footer.scss */
+  font-size: 1.3rem;
+  width: 100%; }
   footer li {
     list-style: none;
     display: inline-block;
     margin-left: 5rem; }
-  /* line 12, src/sass/layout/_footer.scss */
   footer a {
     color: #fff;
     text-decoration: none;
     transition: color 0.5s; }
-  /* line 17, src/sass/layout/_footer.scss */
   footer a:hover {
     color: #fa4454; }
 
-/* line 22, src/sass/layout/_footer.scss */
 .dark-footer {
   background-color: #202020; }
 
-/* line 1, src/sass/pages/_docs.scss */
 .pdf-embedded {
   width: 100%;
   height: 81.5vh; }
 
-/* line 1, src/sass/pages/_system.scss */
 .result {
   width: 100%;
   display: grid;
@@ -299,7 +247,6 @@ footer {
   padding-top: 2rem;
   margin-bottom: 2rem; }
 
-/* line 11, src/sass/pages/_system.scss */
 .attackers-wrapper {
   grid-area: attack;
   text-align: left;
@@ -308,10 +255,8 @@ footer {
   /* IE and Edge */
   scrollbar-width: none;
   /* Firefox */ }
-  /* line 16, src/sass/pages/_system.scss */
   .attackers-wrapper::-webkit-scrollbar {
     display: none; }
-  /* line 22, src/sass/pages/_system.scss */
   .attackers-wrapper .attackers__label {
     display: flex;
     justify-content: left;
@@ -322,7 +267,6 @@ footer {
     width: 90%;
     margin: auto;
     border-radius: 1.1rem 1.1rem 0 0; }
-  /* line 34, src/sass/pages/_system.scss */
   .attackers-wrapper .attackers {
     background-color: #202020;
     width: 90%;
@@ -331,7 +275,6 @@ footer {
     border-radius: 0 0 1.1rem 1.1rem;
     text-align: center;
     overflow: scroll; }
-    /* line 43, src/sass/pages/_system.scss */
     .attackers-wrapper .attackers__row {
       padding: 2.25rem 4rem;
       display: flex;
@@ -339,15 +282,12 @@ footer {
       align-items: center;
       border-bottom: 0.1rem solid rgba(105, 105, 105, 0.596);
       font-size: 1.7rem; }
-      /* line 51, src/sass/pages/_system.scss */
       .attackers-wrapper .attackers__row--label {
         font-weight: 600; }
 
-/* line 58, src/sass/pages/_system.scss */
 .defenders-wrapper {
   grid-area: defend;
   text-align: center; }
-  /* line 62, src/sass/pages/_system.scss */
   .defenders-wrapper .defenders__label {
     display: flex;
     justify-content: left;
@@ -358,7 +298,6 @@ footer {
     margin: auto;
     padding: 6% 0 0 5%;
     border-radius: 1.1rem 1.1rem 0 0; }
-  /* line 78, src/sass/pages/_system.scss */
   .defenders-wrapper .defenders {
     background-color: #202020;
     width: 90%;
@@ -367,7 +306,6 @@ footer {
     border-radius: 0 0 1.1rem 1.1rem;
     text-align: center;
     overflow: scroll; }
-    /* line 87, src/sass/pages/_system.scss */
     .defenders-wrapper .defenders__row {
       padding: 2.25rem 4rem;
       display: flex;
@@ -375,29 +313,22 @@ footer {
       align-items: center;
       border-bottom: 0.1rem solid rgba(105, 105, 105, 0.596);
       font-size: 1.7rem; }
-      /* line 95, src/sass/pages/_system.scss */
       .defenders-wrapper .defenders__row--label {
         font-weight: 600; }
 
-/* line 129, src/sass/pages/_system.scss */
 .start {
   color: black; }
-  /* line 131, src/sass/pages/_system.scss */
   .start__wrapper {
     grid-area: start;
     background-color: #202020;
     border-radius: 1.1rem; }
-  /* line 137, src/sass/pages/_system.scss */
   .start__text {
     padding: 5% 0 5% 5%;
     border-bottom: 1px solid rgba(105, 105, 105, 0.596); }
-    /* line 142, src/sass/pages/_system.scss */
     .start__text h1 {
       font-size: 4rem; }
-    /* line 146, src/sass/pages/_system.scss */
     .start__text p {
       font-size: 1.5rem; }
-  /* line 151, src/sass/pages/_system.scss */
   .start__form {
     display: grid;
     margin: 2rem;
@@ -405,21 +336,18 @@ footer {
     border-radius: 1.1rem;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 2.5fr 0.6fr;
-    grid-template-areas: "playerleft playerright" "submit submit";
+    grid-template-areas: "playerleft playerright" "submit submit";
     background-color: #303030; }
-    /* line 163, src/sass/pages/_system.scss */
     .start__form button {
       padding-left: 2%;
       grid-area: submit;
       margin: 0 0 5% 5%;
       width: 90%; }
-    /* line 170, src/sass/pages/_system.scss */
     .start__form--left {
       padding: 2rem;
       grid-area: playerleft;
       display: flex;
       flex-direction: column; }
-      /* line 176, src/sass/pages/_system.scss */
       .start__form--left input {
         border: none;
         height: 3rem;
@@ -428,17 +356,15 @@ footer {
         transition: all 0.2s;
         padding: 1rem;
         background-color: #303030;
-        color: white; }
-        /* line 185, src/sass/pages/_system.scss */
+        color: white;
+        border: 1px #4d4d4d solid; }
         .start__form--left input:focus {
           padding: 2rem; }
-    /* line 191, src/sass/pages/_system.scss */
     .start__form--right {
       padding: 2rem;
       grid-area: playerright;
       display: flex;
       flex-direction: column; }
-      /* line 197, src/sass/pages/_system.scss */
       .start__form--right input {
         border: none;
         height: 3rem;
@@ -447,30 +373,22 @@ footer {
         padding: 1rem;
         transition: all 0.2s;
         background-color: #303030;
-        color: white; }
-        /* line 207, src/sass/pages/_system.scss */
+        color: white;
+        border: 1px #4d4d4d solid; }
         .start__form--right input:focus {
           padding: 2rem; }
 
-/* line 1, src/sass/pages/_github.scss */
-h1 {
-  font-size: 4vw; }
-
-/* line 6, src/sass/pages/_github.scss */
-p {
-  font-size: 1vw;
-  margin-bottom: 2rem; }
-
-/* line 11, src/sass/pages/_github.scss */
-h2 {
-  font-size: 2vw;
-  margin-bottom: 2rem; }
-
-/* line 16, src/sass/pages/_github.scss */
 .github {
   padding: 2vw;
-  margin-bottom: 30vh; }
-  /* line 20, src/sass/pages/_github.scss */
+  overflow-x: hidden; }
+  .github h1 {
+    font-size: 4vw; }
+  .github p {
+    font-size: 1vw;
+    margin-bottom: 2rem; }
+  .github h2 {
+    font-size: 2vw;
+    margin-bottom: 2rem; }
   .github__container {
     display: grid;
     grid-template-columns: 1fr 1.5fr;
@@ -478,19 +396,16 @@ h2 {
     grid-template-areas: "img text";
     grid-gap: 2vw;
     margin-top: 3rem; }
-  /* line 30, src/sass/pages/_github.scss */
   .github__img {
     grid-area: img;
     height: fit-content;
     width: 100%;
     border-radius: 1.1rem; }
-  /* line 38, src/sass/pages/_github.scss */
   .github__text {
     border-radius: 1.1rem;
     background-color: #272727;
     padding: 3rem;
     position: relative; }
-  /* line 46, src/sass/pages/_github.scss */
   .github__btn-wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -498,7 +413,6 @@ h2 {
     position: absolute;
     bottom: 4vh;
     width: 100%; }
-  /* line 57, src/sass/pages/_github.scss */
   .github__btn {
     color: #fff;
     text-decoration: none;
@@ -506,14 +420,14 @@ h2 {
     border: none;
     width: 30rem;
     height: 5rem;
-    margin-right: 1rem;
+    margin-right: 2rem;
     border-radius: 1.1rem;
     transition: all 0.4s; }
-    /* line 71, src/sass/pages/_github.scss */
     .github__btn:hover {
       color: #272727;
       background-color: #fff;
       transform: scale(1.05); }
-    /* line 77, src/sass/pages/_github.scss */
     .github__btn:active {
       transform: scale(0.9); }
+
+/*# sourceMappingURL=style.css.map */
