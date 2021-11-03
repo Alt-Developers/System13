@@ -104,7 +104,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 60%;
+  width: 50%;
   background-color: #1b1b1b;
   padding: 6rem;
   border-radius: 1.1rem;
@@ -302,8 +302,16 @@ footer {
 /* line 11, src/sass/pages/_system.scss */
 .attackers-wrapper {
   grid-area: attack;
-  text-align: left; }
-  /* line 15, src/sass/pages/_system.scss */
+  text-align: left;
+  overflow: hidden;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */ }
+  /* line 16, src/sass/pages/_system.scss */
+  .attackers-wrapper::-webkit-scrollbar {
+    display: none; }
+  /* line 22, src/sass/pages/_system.scss */
   .attackers-wrapper .attackers__label {
     display: flex;
     justify-content: left;
@@ -314,7 +322,7 @@ footer {
     width: 90%;
     margin: auto;
     border-radius: 1.1rem 1.1rem 0 0; }
-  /* line 27, src/sass/pages/_system.scss */
+  /* line 34, src/sass/pages/_system.scss */
   .attackers-wrapper .attackers {
     background-color: #202020;
     width: 90%;
@@ -323,7 +331,7 @@ footer {
     border-radius: 0 0 1.1rem 1.1rem;
     text-align: center;
     overflow: scroll; }
-    /* line 36, src/sass/pages/_system.scss */
+    /* line 43, src/sass/pages/_system.scss */
     .attackers-wrapper .attackers__row {
       padding: 2.25rem 4rem;
       display: flex;
@@ -331,15 +339,15 @@ footer {
       align-items: center;
       border-bottom: 0.1rem solid rgba(105, 105, 105, 0.596);
       font-size: 1.7rem; }
-      /* line 44, src/sass/pages/_system.scss */
+      /* line 51, src/sass/pages/_system.scss */
       .attackers-wrapper .attackers__row--label {
         font-weight: 600; }
 
-/* line 51, src/sass/pages/_system.scss */
+/* line 58, src/sass/pages/_system.scss */
 .defenders-wrapper {
   grid-area: defend;
   text-align: center; }
-  /* line 55, src/sass/pages/_system.scss */
+  /* line 62, src/sass/pages/_system.scss */
   .defenders-wrapper .defenders__label {
     display: flex;
     justify-content: left;
@@ -350,7 +358,7 @@ footer {
     margin: auto;
     padding: 6% 0 0 5%;
     border-radius: 1.1rem 1.1rem 0 0; }
-  /* line 71, src/sass/pages/_system.scss */
+  /* line 78, src/sass/pages/_system.scss */
   .defenders-wrapper .defenders {
     background-color: #202020;
     width: 90%;
@@ -359,7 +367,7 @@ footer {
     border-radius: 0 0 1.1rem 1.1rem;
     text-align: center;
     overflow: scroll; }
-    /* line 80, src/sass/pages/_system.scss */
+    /* line 87, src/sass/pages/_system.scss */
     .defenders-wrapper .defenders__row {
       padding: 2.25rem 4rem;
       display: flex;
@@ -367,29 +375,29 @@ footer {
       align-items: center;
       border-bottom: 0.1rem solid rgba(105, 105, 105, 0.596);
       font-size: 1.7rem; }
-      /* line 88, src/sass/pages/_system.scss */
+      /* line 95, src/sass/pages/_system.scss */
       .defenders-wrapper .defenders__row--label {
         font-weight: 600; }
 
-/* line 122, src/sass/pages/_system.scss */
+/* line 129, src/sass/pages/_system.scss */
 .start {
   color: black; }
-  /* line 124, src/sass/pages/_system.scss */
+  /* line 131, src/sass/pages/_system.scss */
   .start__wrapper {
     grid-area: start;
     background-color: #202020;
     border-radius: 1.1rem; }
-  /* line 130, src/sass/pages/_system.scss */
+  /* line 137, src/sass/pages/_system.scss */
   .start__text {
     padding: 5% 0 5% 5%;
     border-bottom: 1px solid rgba(105, 105, 105, 0.596); }
-    /* line 135, src/sass/pages/_system.scss */
+    /* line 142, src/sass/pages/_system.scss */
     .start__text h1 {
       font-size: 4rem; }
-    /* line 139, src/sass/pages/_system.scss */
+    /* line 146, src/sass/pages/_system.scss */
     .start__text p {
       font-size: 1.5rem; }
-  /* line 144, src/sass/pages/_system.scss */
+  /* line 151, src/sass/pages/_system.scss */
   .start__form {
     display: grid;
     margin: 2rem;
@@ -398,44 +406,114 @@ footer {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 2.5fr 0.6fr;
     grid-template-areas: "playerleft playerright" "submit submit";
-    background: #404040; }
-    /* line 156, src/sass/pages/_system.scss */
+    background-color: #303030; }
+    /* line 163, src/sass/pages/_system.scss */
     .start__form button {
       padding-left: 2%;
       grid-area: submit;
       margin: 0 0 5% 5%;
       width: 90%; }
-    /* line 163, src/sass/pages/_system.scss */
+    /* line 170, src/sass/pages/_system.scss */
     .start__form--left {
       padding: 2rem;
       grid-area: playerleft;
       display: flex;
       flex-direction: column; }
-      /* line 169, src/sass/pages/_system.scss */
+      /* line 176, src/sass/pages/_system.scss */
       .start__form--left input {
         border: none;
         height: 3rem;
         border-radius: 0.5rem;
         margin-bottom: 1rem;
         transition: all 0.2s;
-        padding: 1rem; }
-        /* line 177, src/sass/pages/_system.scss */
+        padding: 1rem;
+        background-color: #303030;
+        color: white; }
+        /* line 185, src/sass/pages/_system.scss */
         .start__form--left input:focus {
           padding: 2rem; }
-    /* line 182, src/sass/pages/_system.scss */
+    /* line 191, src/sass/pages/_system.scss */
     .start__form--right {
       padding: 2rem;
       grid-area: playerright;
       display: flex;
       flex-direction: column; }
-      /* line 188, src/sass/pages/_system.scss */
+      /* line 197, src/sass/pages/_system.scss */
       .start__form--right input {
         border: none;
         height: 3rem;
         border-radius: 0.5rem;
         margin-bottom: 1rem;
         padding: 1rem;
-        transition: all 0.2s; }
-        /* line 196, src/sass/pages/_system.scss */
+        transition: all 0.2s;
+        background-color: #303030;
+        color: white; }
+        /* line 207, src/sass/pages/_system.scss */
         .start__form--right input:focus {
           padding: 2rem; }
+
+/* line 1, src/sass/pages/_github.scss */
+h1 {
+  font-size: 4vw; }
+
+/* line 6, src/sass/pages/_github.scss */
+p {
+  font-size: 1vw;
+  margin-bottom: 2rem; }
+
+/* line 11, src/sass/pages/_github.scss */
+h2 {
+  font-size: 2vw;
+  margin-bottom: 2rem; }
+
+/* line 16, src/sass/pages/_github.scss */
+.github {
+  padding: 2vw;
+  margin-bottom: 30vh; }
+  /* line 20, src/sass/pages/_github.scss */
+  .github__container {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    height: 60vh;
+    grid-template-areas: "img text";
+    grid-gap: 2vw;
+    margin-top: 3rem; }
+  /* line 30, src/sass/pages/_github.scss */
+  .github__img {
+    grid-area: img;
+    height: fit-content;
+    width: 100%;
+    border-radius: 1.1rem; }
+  /* line 38, src/sass/pages/_github.scss */
+  .github__text {
+    border-radius: 1.1rem;
+    background-color: #272727;
+    padding: 3rem;
+    position: relative; }
+  /* line 46, src/sass/pages/_github.scss */
+  .github__btn-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    position: absolute;
+    bottom: 4vh;
+    width: 100%; }
+  /* line 57, src/sass/pages/_github.scss */
+  .github__btn {
+    color: #fff;
+    text-decoration: none;
+    background-color: #404040;
+    border: none;
+    width: 30rem;
+    height: 5rem;
+    margin-right: 1rem;
+    border-radius: 1.1rem;
+    transition: all 0.4s; }
+    /* line 71, src/sass/pages/_github.scss */
+    .github__btn:hover {
+      color: #272727;
+      background-color: #fff;
+      transform: scale(1.05); }
+    /* line 77, src/sass/pages/_github.scss */
+    .github__btn:active {
+      transform: scale(0.9); }

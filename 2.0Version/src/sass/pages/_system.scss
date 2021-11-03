@@ -11,6 +11,13 @@
 .attackers-wrapper {
   grid-area: attack;
   text-align: left;
+  overflow: hidden;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 
   .attackers__label {
     display: flex;
@@ -151,7 +158,7 @@
     grid-template-areas:
       "playerleft playerright"
       "submit submit";
-    background: $gray-light-1;
+      background-color: #303030;
 
     button {
       padding-left: 2%;
@@ -173,11 +180,13 @@
         margin-bottom: 1rem;
         transition: all 0.2s;
         padding: 1rem;
-
+        background-color: #303030;
+        color: white;
         &:focus {
           padding: 2rem;
         }
       }
+
     }
     &--right {
       padding: 2rem;
@@ -192,6 +201,8 @@
         margin-bottom: 1rem;
         padding: 1rem;
         transition: all 0.2s;
+        background-color: #303030;
+        color: white;
 
         &:focus {
           padding: 2rem;
