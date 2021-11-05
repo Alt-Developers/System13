@@ -55,12 +55,16 @@ nav {
     grid-area: auto;
 
     :hover {
-      background-color: $nav-background-red-1;
+      background-color: $search-red-1;
     }
   }
   .active {
-    background-color: $search-red-1;
+    background-color: $nav-background-red-1;
     border-radius: 0.6rem;
+
+    :hover {
+      background-color: $search-red-1;
+    }
   }
 }
 

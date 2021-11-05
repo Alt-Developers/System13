@@ -1,0 +1,46 @@
+.other {
+  padding: 1rem;
+
+  margin: 3rem 5rem 3rem 3rem;
+
+  h1 {
+    font-size: 5rem;
+    padding-bottom: 3rem;
+  }
+
+  &__List {
+    height: 60vh;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 40%;
+    grid-template-areas: "Portal DevNews";
+    grid-gap: 2rem;
+
+    &--Portal {
+      grid-area: Portal;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url("../img/valorant4.png");
+      border-radius: 1.1rem;
+
+      padding: 2.5rem;
+
+      h3 {
+        font-size: 5rem;
+      }
+    }
+    &--DevNews {
+      grid-area: DevNews;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+        url("../img/Developer.jpg");
+      border-radius: 1.1rem;
+      background-size: 100%;
+      background-position-y: 50;
+
+      padding: 2.5rem;
+
+      h3 {
+        font-size: 5rem;
+      }
+    }
+  }
+}

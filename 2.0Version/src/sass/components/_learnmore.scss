@@ -9,9 +9,8 @@
   }
 
   &__even {
-    padding: 1rem;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0.8fr 1fr;
     grid-gap: 5rem;
     grid-template-areas: "p2 big2";
 
@@ -36,7 +35,7 @@
     grid-gap: 5rem;
     grid-template-areas: "big1 p1";
 
-    padding: 3rem;
+    margin: 3rem 5rem 3rem 3rem;
     img {
       border-radius: 1.1rem;
       width: 100%;
