@@ -36,7 +36,11 @@
       border: none;
 
       &:hover {
-        background: rgb(250, 68, 84);
+        background: linear-gradient(
+          137deg,
+          rgba(250, 68, 84, 1) 33%,
+          rgba(255, 0, 0, 1) 100%
+        );
         transform: scale(1.1);
       }
       &:active {

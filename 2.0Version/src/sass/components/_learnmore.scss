@@ -9,13 +9,12 @@
   }
 
   &__odd {
-    padding: 1rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 5rem;
     grid-template-areas: "big1 p1";
 
-    padding: 4rem 3rem 4rem 4rem;
+    padding: 4rem 4rem 4rem 4rem;
     img {
       border-radius: 1.1rem;
       width: 100%;
@@ -32,23 +31,23 @@
 
   &__even {
     display: grid;
-    height: 70vh;
-    grid-template-columns: 0.8fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-gap: 5rem;
     grid-template-areas: "p2 big2";
+    background-color: $gray-light-1;
 
-    padding: 4rem 2rem 4rem 5rem;
-
+    padding: 4rem 4rem 4rem 4rem;
     img {
       border-radius: 1.1rem;
-      width: 45vw;
+      width: 100%;
     }
     .big2 {
       grid-area: big2;
     }
+
     .p2 {
+      padding-top: 3rem;
       grid-area: p2;
     }
-    background-color: $gray-light-1;
   }
 }
