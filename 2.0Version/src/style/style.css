@@ -31,43 +31,44 @@ body {
   font-size: 2rem; }
 
 /* line 11, src/sass/components/_learnmore.scss */
-.learn-more__even {
-  display: grid;
-  grid-template-columns: 0.8fr 1fr;
-  grid-gap: 5rem;
-  grid-template-areas: "p2 big2";
-  padding: 4rem 3rem 3rem 5rem;
-  background-color: #404040; }
-  /* line 19, src/sass/components/_learnmore.scss */
-  .learn-more__even img {
-    border-radius: 1.1rem;
-    width: 100%; }
-  /* line 23, src/sass/components/_learnmore.scss */
-  .learn-more__even .big2 {
-    grid-area: big2; }
-  /* line 26, src/sass/components/_learnmore.scss */
-  .learn-more__even .p2 {
-    grid-area: p2; }
-
-/* line 31, src/sass/components/_learnmore.scss */
 .learn-more__odd {
   padding: 1rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 5rem;
   grid-template-areas: "big1 p1";
-  margin: 3rem 5rem 3rem 3rem; }
-  /* line 39, src/sass/components/_learnmore.scss */
+  padding: 4rem 3rem 4rem 4rem; }
+  /* line 19, src/sass/components/_learnmore.scss */
   .learn-more__odd img {
     border-radius: 1.1rem;
     width: 100%; }
-  /* line 43, src/sass/components/_learnmore.scss */
+  /* line 23, src/sass/components/_learnmore.scss */
   .learn-more__odd .big1 {
     grid-area: big1; }
-  /* line 47, src/sass/components/_learnmore.scss */
+  /* line 27, src/sass/components/_learnmore.scss */
   .learn-more__odd .p1 {
     padding-top: 3rem;
     grid-area: p1; }
+
+/* line 33, src/sass/components/_learnmore.scss */
+.learn-more__even {
+  display: grid;
+  height: 70vh;
+  grid-template-columns: 0.8fr 1fr;
+  grid-gap: 5rem;
+  grid-template-areas: "p2 big2";
+  padding: 4rem 2rem 4rem 5rem;
+  background-color: #404040; }
+  /* line 42, src/sass/components/_learnmore.scss */
+  .learn-more__even img {
+    border-radius: 1.1rem;
+    width: 45vw; }
+  /* line 46, src/sass/components/_learnmore.scss */
+  .learn-more__even .big2 {
+    grid-area: big2; }
+  /* line 49, src/sass/components/_learnmore.scss */
+  .learn-more__even .p2 {
+    grid-area: p2; }
 
 /* line 1, src/sass/components/_button.scss */
 .btn {
@@ -171,22 +172,37 @@ body {
     .other__List--Portal {
       grid-area: Portal;
       background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../img/valorant4.png");
+      transition: all 0.3s;
       border-radius: 1.1rem;
       padding: 2.5rem; }
-      /* line 27, src/sass/components/_other.scss */
+      /* line 6, src/sass/abstracts/_mixins.scss */
+      .other__List--Portal:hover {
+        transform: scale(1.05); }
+      /* line 10, src/sass/abstracts/_mixins.scss */
       .other__List--Portal h3 {
         font-size: 5rem; }
-    /* line 31, src/sass/components/_other.scss */
+      /* line 13, src/sass/abstracts/_mixins.scss */
+      .other__List--Portal p {
+        font-size: 1.5rem; }
+    /* line 27, src/sass/components/_other.scss */
     .other__List--DevNews {
       grid-area: DevNews;
       background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../img/Developer.jpg");
       border-radius: 1.1rem;
       background-size: 100%;
       background-position-y: 50;
+      transition: all 0.3s;
+      border-radius: 1.1rem;
       padding: 2.5rem; }
-      /* line 41, src/sass/components/_other.scss */
+      /* line 6, src/sass/abstracts/_mixins.scss */
+      .other__List--DevNews:hover {
+        transform: scale(1.05); }
+      /* line 10, src/sass/abstracts/_mixins.scss */
       .other__List--DevNews h3 {
         font-size: 5rem; }
+      /* line 13, src/sass/abstracts/_mixins.scss */
+      .other__List--DevNews p {
+        font-size: 1.5rem; }
 
 /* line 1, src/sass/layout/_header.scss */
 .hero {
@@ -213,8 +229,8 @@ body {
       margin-bottom: 5%; }
     /* line 28, src/sass/layout/_header.scss */
     .hero__content button {
-      border-radius: 0.5rem;
-      background-color: #b1333e;
+      border-radius: 0.9rem;
+      background-color: #fa4454;
       font-size: 2rem;
       padding: 1.5rem;
       margin-top: 2rem;
@@ -224,9 +240,8 @@ body {
       /* line 38, src/sass/layout/_header.scss */
       .hero__content button:hover {
         background: #fa4454;
-        background: linear-gradient(137deg, #fa4454 0%, red 100%);
         transform: scale(1.1); }
-      /* line 47, src/sass/layout/_header.scss */
+      /* line 42, src/sass/layout/_header.scss */
       .hero__content button:active {
         background-color: #b1333e;
         transform: scale(0.9); }

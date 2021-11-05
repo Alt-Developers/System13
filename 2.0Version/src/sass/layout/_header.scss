@@ -26,8 +26,8 @@
       margin-bottom: 5%;
     }
     button {
-      border-radius: 0.5rem;
-      background-color: $search-red-1;
+      border-radius: 0.9rem;
+      background-color: rgb(250, 68, 84);
       font-size: 2rem;
       padding: 1.5rem;
       margin-top: 2rem;
@@ -37,11 +37,6 @@
 
       &:hover {
         background: rgb(250, 68, 84);
-        background: linear-gradient(
-          137deg,
-          rgba(250, 68, 84, 1) 0%,
-          rgb(255, 0, 0) 100%
-        );
         transform: scale(1.1);
       }
       &:active {
