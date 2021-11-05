@@ -44,6 +44,8 @@ const getPlayer = function () {
   // Check if there's even number of players
   if (players.length % 2 !== 0) {
     console.error(`This team is impossible`);
+    // notEven();
+    notEven();
     return false;
   } else {
     return true;
@@ -129,11 +131,20 @@ const display = function (player, score) {
 };
 
 const cancel = function () {
-  modalHeader.textContent = `Something went worng`;
-  modalInfo.innerHTML = `The seires of problem are<br>1.Number of players inputted are not even. <br>2.It's impossible. <br>3.We have tried over 200 combinations`;
+  openModal();
+  modalHeader.textContent = `There seems to be an error`;
+  modalInfo.innerHTML = `1. Number of players inputted are not even. <br>2. It's impossible. <br>3. We have tried over 200 combinations`;
   modalBtn.textContent = `Close`;
   modalText.textContent = ``;
+  players = [];
+};
+
+const notEven = function () {
   openModal();
+  modalHeader.textContent = `Odd amount of players`;
+  modalInfo.innerHTML = `System13 can only randomize if the number of players are <b>Even</b>`;
+  modalBtn.textContent = `Close`;
+  modalText.textContent = ``;
   players = [];
 };
 
