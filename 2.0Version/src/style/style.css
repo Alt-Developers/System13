@@ -164,11 +164,12 @@ body {
   /* line 11, src/sass/components/_other.scss */
   .other__List {
     height: 60vh;
+    width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr 40%;
-    grid-template-areas: "Portal DevNews";
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: "Portal DevNews League";
     grid-gap: 2rem; }
-    /* line 19, src/sass/components/_other.scss */
+    /* line 20, src/sass/components/_other.scss */
     .other__List--Portal {
       grid-area: Portal;
       background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../img/valorant4.png");
@@ -184,7 +185,7 @@ body {
       /* line 13, src/sass/abstracts/_mixins.scss */
       .other__List--Portal p {
         font-size: 1.5rem; }
-    /* line 27, src/sass/components/_other.scss */
+    /* line 28, src/sass/components/_other.scss */
     .other__List--DevNews {
       grid-area: DevNews;
       background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../img/Developer.jpg");
@@ -202,6 +203,24 @@ body {
         font-size: 5rem; }
       /* line 13, src/sass/abstracts/_mixins.scss */
       .other__List--DevNews p {
+        font-size: 1.5rem; }
+    /* line 40, src/sass/components/_other.scss */
+    .other__List--ValoLeague {
+      grid-area: League;
+      border-radius: 1.1rem;
+      background-size: 100%;
+      background-position-y: 50;
+      transition: all 0.3s;
+      border-radius: 1.1rem;
+      padding: 2.5rem; }
+      /* line 6, src/sass/abstracts/_mixins.scss */
+      .other__List--ValoLeague:hover {
+        transform: scale(1.05); }
+      /* line 10, src/sass/abstracts/_mixins.scss */
+      .other__List--ValoLeague h3 {
+        font-size: 5rem; }
+      /* line 13, src/sass/abstracts/_mixins.scss */
+      .other__List--ValoLeague p {
         font-size: 1.5rem; }
 
 /* line 1, src/sass/layout/_header.scss */
