@@ -1,0 +1,20 @@
+{
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15",
+    "sass": "^1.43.4"
+  },
+  "name": "3.0version",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "sass": "sass --watch ./src/sass/main.scss:./src/style/style.css",
+    "start": "nodemon app.js"
+  },
+  "author": "SS Developers",
+  "license": "ISC",
+  "description": ""
+}
