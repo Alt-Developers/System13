@@ -1,49 +1,17 @@
 import React, { useState } from "react";
-import ResultItem from "./ResultsItem";
+import Attackers from "./Results/Attackers";
+import Defenders from "./Results/Defenders";
 
 const System13 = (props) => {
   // Testing Text
-  const defPlayers = ["John Doe//1", "Jane Doe//1", "Yoee//2", "Yalle//3"];
-  const atkPlayers = ["John Doe//1", "Jane Doe//1", "Yallow//3"];
+  const [defResults, setDefResults] = useState(["John Doe//3"]);
+  const [atkResults, setAtkResults] = useState(["Jane Doe//2"]);
 
   return (
     <section className="result">
-      <div className="attackers-wrapper">
-        <div className="attackers__label">
-          <h2>Attackers</h2>
-        </div>
-        <div className="attackers">
-          <div className="attackers__row">
-            <div className="attackers--label">Player Name</div>
-            <div className="attackers__row--label">Score</div>
-          </div>
-          {atkPlayers.map((cur, i) => (
-            <ResultItem
-              team="atk"
-              playerName={cur.slice(0, -3)}
-              playerNumber={cur.slice(-1)}
-            ></ResultItem>
-          ))}
-        </div>
-      </div>
-      <div className="defenders-wrapper">
-        <div className="defenders__label">
-          <h2>Defenders</h2>
-        </div>
-        <div className="defenders">
-          <div className="defenders__row">
-            <div className="defenders--label">Player Name</div>
-            <div className="defenders__row--label">Score</div>
-          </div>
-          {defPlayers.map((cur, i) => (
-            <ResultItem
-              team="def"
-              playerName={cur.slice(0, -3)}
-              playerNumber={cur.slice(-1)}
-            ></ResultItem>
-          ))}
-        </div>
-      </div>
+      <Attackers atkPlayers={atkResults} />
+      <Defenders defPlayers={defResults} />
+
       <div className="start__wrapper">
         <div className="start__text">
           <h1>Welcome to System13</h1>
@@ -51,7 +19,7 @@ const System13 = (props) => {
           <p>Not all fields need to be filled</p>
         </div>
 
-        <form className="start__form" action="player=">
+        <form className="start__form">
           <div className="start__form--left">
             <input
               className="form__start--Player-input"
