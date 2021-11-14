@@ -15,8 +15,8 @@ const Defenders = (props) => {
         {props.defPlayers.map((cur, i) => (
           <ResultItem
             team="def"
-            playerName={cur.slice(0, -3)}
-            playerNumber={cur.slice(-1)}
+            playerName={cur[0]}
+            playerNumber={cur[1]}
           ></ResultItem>
         ))}
       </div>
