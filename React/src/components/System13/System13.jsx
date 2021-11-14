@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import Attackers from "./Results/Attackers";
 import Defenders from "./Results/Defenders";
 
-const System13 = (props) => {
+const System13 = function (props) {
   // Testing Text
-  const [defResults, setDefResults] = useState(["John Doe//3"]);
+  const [defResults, setDefResults] = useState(["John Doe//3"]  );
   const [atkResults, setAtkResults] = useState(["Jane Doe//2"]);
 
   return (

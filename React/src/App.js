@@ -1,7 +1,7 @@
 import React from "react";
-import Navigation from "./components/Layout/Navigation";
-import Footer from "./components/Layout/Footer";
-import System13 from "./components/System13/System13";
+import Navigation from "./components/Layout/Navigation.jsx";
+import Footer from "./components/Layout/Footer.jsx";
+import System13 from "./components/System13/System13.jsx";
 import "./style/index.css";
 
 function App() {
