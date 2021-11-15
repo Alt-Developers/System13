@@ -6,13 +6,13 @@ const Navigation = () => (
     <div className="logo">
       <img src="./logo.png" alt="SS System 13 Logo" />
     </div>
-    <a href="./index.html">
+    <a href="https://ssdevelopers.xyz/system13/">
       <li className="nav__1">Home</li>
     </a>
     <a href="#" className="active nav__2">
       <li>System</li>
     </a>
-    <a href="./github.html" className="nav__3">
+    <a href="https://ssdevelopers.xyz/system13/github.html" className="nav__3">
       <li>Github</li>
     </a>
     <a href="https://ssdevelopers.xyz" className="nav__4">

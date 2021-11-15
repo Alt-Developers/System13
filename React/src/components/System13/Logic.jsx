@@ -13,7 +13,7 @@ const Logic = (props) => {
   const [playerInp9, setPlayerInp9] = useState("");
   const [playerInp10, setPlayerInp10] = useState("");
 
-  const [modalVisible, setModalVisible] = useState(false);
+  const [modalVisible, setModalVisible] = useState(true);
   const [modalText, setModalText] = useState(["Reminders","This program is not perfect, this program may lagged or worse crash your computer.","I Understand all of the possible consequence"])
 
   const playerInpHander1 = (event) => {
@@ -116,6 +116,13 @@ const Logic = (props) => {
 
     console.warn(calc.length % 2 === 0)
 
+    arr.forEach((cur) => {
+      if (cur === "undefined") {
+        console.log("player don't exist")
+      return "err3"
+      }
+    })
+
     if (calc.length % 2 === 0) {
       console.log("stage 0 is possible");
     } else {
@@ -150,7 +157,7 @@ const Logic = (props) => {
     let currentIndex = array.length,
       randomIndex;
     // While there remain elements to shuffle...
-    while (currentIndex != 0) {
+    while (currentIndex !== 0) {
       // Pick a remaining element...
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
@@ -183,6 +190,11 @@ const Logic = (props) => {
       setModalText(["Odd amount of players","Seems like this team is imposible to randomized","Try agian?"])
       setModalVisible(true);
       return false;
+    } else if (checkForError === "err3") {
+      // players number is odd!
+      setModalText(["Player dosen't exist!","Seems like your miss spell a player(s) na","Try agian?"])
+      setModalVisible(true);
+      return false;
     }
     while (finishedEqulazing === false || timesEqualized <= 200) {
       processingPlayers = randomizer(players);
@@ -211,7 +223,7 @@ const Logic = (props) => {
       .filter((player) => player !== "")
       .map((player) => player.replaceAll(" ", "").toUpperCase().slice(0, 3));
 
-    if (active && players.length % 2 === 0) {
+    if (active) { 
       main(players);
     }
     console.log(players);
