@@ -42,7 +42,6 @@ const Logic = (props) => {
   const playerInpHander10 = (event) => {
     setPlayerInp10(event.target.value);
   };
-  ////////////////////////////////////////
 
   const playerList = {
     p4: 4,
@@ -90,7 +89,7 @@ const Logic = (props) => {
     const reactFormatArr = [];
 
     console.log(score, newScore, resultArr);
-    score.forEach((result, i) => {
+    score.forEach((_, i) => {
       newScore.push(...score[i]);
     });
     resultArr.forEach((result, i) => {
@@ -186,6 +185,7 @@ const Logic = (props) => {
 
   return (
     <div className="start__wrapper">
+
       <div className="start__text">
         <h1>Welcome to System13</h1>
         <p>To start input all players that are playing</p>
