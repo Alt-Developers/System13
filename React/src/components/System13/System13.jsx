@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Attackers from "./Results/Attackers";
 import Defenders from "./Results/Defenders";
 import Logic from "./Logic";
-import Modal from "../Layout/Modal";
 
 const System13 = function (props) {
   const [defResults, setDefResults] = useState([["Jane Doe", 2]]);
@@ -12,13 +11,12 @@ const System13 = function (props) {
     setDefResults(defResults);
     setAtkResults(atkResults);
   }
-
+  
   return (
     <section className="result">
       <Attackers atkPlayers={atkResults} />
       <Defenders defPlayers={defResults} />
       <Logic liftResults={liftResultsHandler}/>
-      <Modal />
     </section>
   );
 };

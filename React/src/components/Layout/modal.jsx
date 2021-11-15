@@ -1,18 +1,20 @@
-import React from "react";
+import React , { useState } from "react";
 
-const modal = (props) => {
+const Modal = (props) => {
   return (
-    <section className="modal warning">
-      <h3 className="modal-header">Reminder for everyone</h3>
+    <div>
+    <section className={props.isVisible ? "modal warning" : "modal warning hidden"}>
+      <h3 className="modal-header">{props.modalH}</h3>
       <p className="modal-info">
-        The following program isn't perfect. <br />
-        So if there are bugs please contact the SS Developers
+        {props.modalP}
       </p>
-      <button className="btn-understand btn">
-        I Understand the possible consequences
+      <button className="btn-understand btn" onClick={props.liftingModalCancle}>
+        {props.modalBtn}
       </button>
     </section>
+    <section className={props.isVisible ? "overlay" : "overlay hidden"}></section>
+    </div>
   );
 };
 
-export default modal;
+export default Modal;

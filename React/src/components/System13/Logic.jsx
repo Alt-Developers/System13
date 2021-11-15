@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Modal from "../Layout/Modal";
 
 const Logic = (props) => {
   const [playerInp1, setPlayerInp1] = useState("");
@@ -11,6 +12,9 @@ const Logic = (props) => {
   const [playerInp8, setPlayerInp8] = useState("");
   const [playerInp9, setPlayerInp9] = useState("");
   const [playerInp10, setPlayerInp10] = useState("");
+
+  const [modalVisible, setModalVisible] = useState(false);
+  const [modalText, setModalText] = useState(["Reminders","This program is not perfect, this program may lagged or worse crash your computer.","I Understand all of the possible consequence"])
 
   const playerInpHander1 = (event) => {
     setPlayerInp1(event.target.value);
@@ -109,10 +113,26 @@ const Logic = (props) => {
     arr.forEach(function (cur, i) {
       calc.push(playerList[cur]);
     });
-    if (calc.reduce((acc, cur) => acc + cur) % 2 === 0) {
-      console.log("Hello");
+
+    console.warn(calc.length % 2 === 0)
+
+    if (calc.length % 2 === 0) {
+      console.log("stage 0 is possible");
     } else {
-      return "impossible";
+      console.error("Impossible [stage 0]")
+      return "err0"
+    }
+
+    if (calc.reduce((acc, cur) => acc + cur) % 2 === 0) {
+      console.log("stage 1 is possible");
+    } else {
+      console.error("Impossible [stage 1]")
+      return "err1";
+    }
+
+    if (calc.length === 2 && calc[0] !== calc[1]) {
+      console.error("Impossible [stage 2]")
+      return "err2"
     }
 
     const attackers = calc.slice(0, playerPerTeam);
@@ -147,7 +167,21 @@ const Logic = (props) => {
     let finishedEqulazing = false;
     let timesEqualized = 0;
     let processingPlayers = randomizer(players);
-    if (checkScore(processingPlayers) === "impossible") {
+    let checkForError = checkScore(processingPlayers);
+    if (checkForError === "err1") {
+      // err1 = player added up score is not event
+      setModalText(["Scores are odd","Seems like this team is imposible to randomized","Try agian?"])
+      setModalVisible(true);
+      return false;
+    } else if (checkForError === "err2") {
+      // There's 2 players and this two is impossiblr
+      setModalText(["These 2 players are not a match","Seems like this team is imposible to randomized","Try agian?"])
+      setModalVisible(true);
+      return false;
+    } else if (checkForError === "err0") {
+      // players number is odd!
+      setModalText(["Odd amount of players","Seems like this team is imposible to randomized","Try agian?"])
+      setModalVisible(true);
       return false;
     }
     while (finishedEqulazing === false || timesEqualized <= 200) {
@@ -183,9 +217,12 @@ const Logic = (props) => {
     console.log(players);
   };
 
+  const liftingModalVisible = () => {
+    setModalVisible(false);
+  }
+
   return (
     <div className="start__wrapper">
-
       <div className="start__text">
         <h1>Welcome to System13</h1>
         <p>To start input all players that are playing</p>
@@ -281,6 +318,7 @@ const Logic = (props) => {
           Start the randomization!
         </button>
       </form>
+      <Modal liftingModalCancle={liftingModalVisible} isVisible={modalVisible} modalBtn={modalText[2]} modalH={modalText[0]} modalP={modalText[1]}/>
     </div>
   );
 };
