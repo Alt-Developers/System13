@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import Modal from "../Layout/Modal";
+
+import Modal from "../Layout/Modal.jsx";
 
 const Logic = (props) => {
   const [playerInp1, setPlayerInp1] = useState("");

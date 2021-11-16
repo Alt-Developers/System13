@@ -7,15 +7,17 @@
 @import "base/animations";
 @import "base/base";
 @import "base/typography";
+@import "base/utilities";
 
-@import "components/hero.scss";
-@import "components/learnmore.scss";
+@import "components/learnmore";
 @import "components/button";
 @import "components/modal";
+@import "components/other";
 
 @import "layout/header";
 @import "layout/navigation";
 @import "layout/footer";
 
+@import "pages/docs";
 @import "pages/system";
 @import "pages/github";
