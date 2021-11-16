@@ -4,8 +4,8 @@ import Defenders from "./Results/Defenders";
 import Logic from "./Logic";
 
 const System13 = function (props) {
-  const [defResults, setDefResults] = useState([["Jane Doe", 2]]);
-  const [atkResults, setAtkResults] = useState([["John Doe", 3]]);
+  const [defResults, setDefResults] = useState([["John Doe", 2]]);
+  const [atkResults, setAtkResults] = useState([["Jane Doe", 3]]);
 
   const liftResultsHandler = (defResults , atkResults) => {
     setDefResults(defResults);

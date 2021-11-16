@@ -14,7 +14,12 @@ const Logic = (props) => {
   const [playerInp10, setPlayerInp10] = useState("");
 
   const [modalVisible, setModalVisible] = useState(true);
-  const [modalText, setModalText] = useState({modalH: "Reminders", modalP:"This program is not perfect, this program may lagged or worse crash your computer.",modalBtn:"I Understand all of the possible consequence"})
+  const [modalText, setModalText] = useState({
+    modalH: "Reminder",
+    modalP:
+      "This program isnt perfect, this program might lag or worse crash your computer.",
+    modalBtn: "I Understand all of the possible consequence",
+  });
 
   const playerInpHander1 = (event) => {
     setPlayerInp1(event.target.value);
@@ -104,7 +109,7 @@ const Logic = (props) => {
     const atkFreshResults = reactFormatArr.slice(0, teamPlayerAmount);
     const defFreshResults = reactFormatArr.slice(teamPlayerAmount);
 
-    props.liftResults(sort(atkFreshResults),sort(defFreshResults))
+    props.liftResults(sort(atkFreshResults), sort(defFreshResults));
   };
 
   const checkScore = function (arr) {
@@ -114,32 +119,32 @@ const Logic = (props) => {
       calc.push(playerList[cur]);
     });
 
-    console.warn(calc.length % 2 === 0)
+    console.warn(calc.length % 2 === 0);
 
     arr.forEach((cur) => {
       if (cur === "undefined") {
-        console.log("player don't exist")
-      return "err3"
+        console.log("player don't exist");
+        return "err3";
       }
-    })
+    });
 
     if (calc.length % 2 === 0) {
       console.log("stage 0 is possible");
     } else {
-      console.error("Impossible [stage 0]")
-      return "err0"
+      console.error("Impossible [stage 0]");
+      return "err0";
     }
 
     if (calc.reduce((acc, cur) => acc + cur) % 2 === 0) {
       console.log("stage 1 is possible");
     } else {
-      console.error("Impossible [stage 1]")
+      console.error("Impossible [stage 1]");
       return "err1";
     }
 
     if (calc.length === 2 && calc[0] !== calc[1]) {
-      console.error("Impossible [stage 2]")
-      return "err2"
+      console.error("Impossible [stage 2]");
+      return "err2";
     }
 
     const attackers = calc.slice(0, playerPerTeam);
@@ -177,22 +182,38 @@ const Logic = (props) => {
     let checkForError = checkScore(processingPlayers);
     if (checkForError === "err1") {
       // err1 = player added up score is not event
-      setModalText({modalH:"Scores are odd",modalP:"Seems like this team is imposible to randomized",modalBtn:"Try agian?"})
+      setModalText({
+        modalH: "Scores are odd",
+        modalP: "This team is an imposible team , please try a new team",
+        modalBtn: "Try agian?",
+      });
       setModalVisible(true);
       return false;
     } else if (checkForError === "err2") {
       // There's 2 players and this two is impossiblr
-      setModalText({modalH:"These 2 players are not a match",modalP:"Seems like this team is imposible to randomized",modalBtn:"Try agian?"})
+      setModalText({
+        modalH: "These 2 players are not a match",
+        modalP: "This team is an imposible team , please try a new team",
+        modalBtn: "Try agian?",
+      });
       setModalVisible(true);
       return false;
     } else if (checkForError === "err0") {
       // players number is odd!
-      setModalText({modalH:"Odd amount of players",modalP:"Seems like this team is imposible to randomized",modalBtn:"Try agian?"})
+      setModalText({
+        modalH: "Odd amount of players",
+        modalP: "For system13 to randomize the team players needs to be even",
+        modalBtn: "Try agian?",
+      });
       setModalVisible(true);
       return false;
     } else if (checkForError === "err3") {
       // players number is odd!
-      setModalText({modalH:"Player dosen't exist!",modalP:"Seems like your miss spell a player(s) na",modalBtn:"Try agian?"})
+      setModalText({
+        modalH: "Player dosen't exist!",
+        modalP: "Seems like your miss spell a player(s) na",
+        modalBtn: "Try agian?",
+      });
       setModalVisible(true);
       return false;
     }
@@ -200,6 +221,7 @@ const Logic = (props) => {
       processingPlayers = randomizer(players);
       finishedEqulazing = checkScore(processingPlayers);
       timesEqualized++;
+      console.log(timesEqualized)
     }
     display(processingPlayers, finishedEqulazing);
   };
@@ -224,9 +246,13 @@ const Logic = (props) => {
       .map((player) => player.replaceAll(" ", "").toUpperCase().slice(0, 3));
 
     if (players.length === 0) {
-      setModalText({modalH:"No players?",modalP:"System13 can't randomize a team without players",modalBtn:"Okay..."})
+      setModalText({
+        modalH: "No players?",
+        modalP: "System13 can't randomize a team without players",
+        modalBtn: "Okay...",
+      });
       setModalVisible(true);
-    } else if (active){
+    } else if (active) {
       main(players);
     }
     console.log(players);
@@ -234,7 +260,7 @@ const Logic = (props) => {
 
   const liftingModalVisible = () => {
     setModalVisible(false);
-  }
+  };
 
   return (
     <div className="start__wrapper">
@@ -246,6 +272,7 @@ const Logic = (props) => {
 
       <form className="start__form" onSubmit={startSystem}>
         <div className="start__form--left">
+
           <input
             className="form__start--Player-input"
             type="text"
@@ -333,7 +360,13 @@ const Logic = (props) => {
           Start the randomization!
         </button>
       </form>
-      <Modal liftingModalCancle={liftingModalVisible} isVisible={modalVisible} modalBtn={modalText.modalBtn} modalH={modalText.modalH} modalP={modalText.modalP}/>
+      <Modal
+        liftingModalCancle={liftingModalVisible}
+        isVisible={modalVisible}
+        modalBtn={modalText.modalBtn}
+        modalH={modalText.modalH}
+        modalP={modalText.modalP}
+      />
     </div>
   );
 };

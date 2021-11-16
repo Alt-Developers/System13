@@ -27,8 +27,8 @@ const Overlay = (props) => {
   return (
     <motion.section
       className={props.isVisible ? "overlay" : "overlay hidden"}
-      animate={props.isVisible ? { x: 0 } : { x: "-100vw" }}
-      transition={{ type: "tween", duration: 0.5, delay: 0.3 }}
+      animate={props.isVisible ? { opacity:1 } : { opacity:0 }}
+      transition={{ type: "tween", duration: 0.5, delay: 0.2 }}
     ></motion.section>
   );
 };
@@ -36,6 +36,7 @@ const Overlay = (props) => {
 const Modal = (props) => {
   return (
     <Fragment>
+      {/* Using portals to goto #modal , #overlay */}
       {ReactDOM.createPortal(
         <SubModal
           liftingModalCancle={props.liftingModalCancle}

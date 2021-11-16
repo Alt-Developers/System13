@@ -9,7 +9,7 @@ const Navigation = () => (
     <a href="https://ssdevelopers.xyz/system13/">
       <li className="nav__1">Home</li>
     </a>
-    <a href="#" className="active nav__2">
+    <a href="#" className="active nav__2"> {/* FIXME */}
       <li>System</li>
     </a>
     <a href="https://ssdevelopers.xyz/system13/github.html" className="nav__3">
