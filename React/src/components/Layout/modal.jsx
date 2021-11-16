@@ -26,8 +26,8 @@ const SubModal = (props) => {
 const Overlay = (props) => {
   return (
     <motion.section
-      className={props.isVisible ? "overlay" : "overlay hidden"}
-      animate={props.isVisible ? { opacity:1 } : { opacity:0 }}
+      className={"overlay"}
+      animate={props.isVisible ? { opacity:1,zIndex:5 } : { opacity:0, zIndex:-1 }}
       transition={{ type: "tween", duration: 0.5, delay: 0.2 }}
     ></motion.section>
   );
