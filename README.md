@@ -3,7 +3,8 @@ System13 is a Web-application for  Valorant Matchmaking <br/>
 by providing you with the fairest team by looking at the player's skill. <br/>
 To check out the real website go to ...
 ## Versions
-v2.3 | **Converted System page to react , Framer Motion animations , Better bug prevention** <br/>
+v2.4 | **Major debugging release , most bugs should be gone!** <br/>
+v2.3 | Converted System page to react , Framer Motion animations , Better bug prevention <br/>
 v2.2 | Made Other Products section and better layout <br/>
 v2.1 | Improved overall website feeling , Better buttons , New Github page <br/>
 v2.0 | Huge improvements to UI , Better error detection , Enhanced responsive design <br/>
