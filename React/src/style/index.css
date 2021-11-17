@@ -256,15 +256,8 @@ footer {
 .attackers-wrapper {
   grid-area: attack;
   text-align: left;
-  overflow: hidden;
-  -ms-overflow-style: none;
-  /* IE and Edge */
-  scrollbar-width: none;
-  /* Firefox */ }
+  overflow: hidden; }
   /* line 16, src/sass/pages/_system.scss */
-  .attackers-wrapper::-webkit-scrollbar {
-    display: none; }
-  /* line 22, src/sass/pages/_system.scss */
   .attackers-wrapper .attackers__label {
     display: flex;
     justify-content: left;
@@ -275,7 +268,7 @@ footer {
     width: 90%;
     margin: auto;
     border-radius: 1.1rem 1.1rem 0 0; }
-  /* line 34, src/sass/pages/_system.scss */
+  /* line 28, src/sass/pages/_system.scss */
   .attackers-wrapper .attackers {
     background-color: #202020;
     width: 90%;
@@ -283,8 +276,15 @@ footer {
     margin: auto;
     border-radius: 0 0 1.1rem 1.1rem;
     text-align: center;
-    overflow: scroll; }
-    /* line 43, src/sass/pages/_system.scss */
+    overflow: scroll;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */ }
+    /* line 36, src/sass/pages/_system.scss */
+    .attackers-wrapper .attackers::-webkit-scrollbar {
+      display: none; }
+    /* line 42, src/sass/pages/_system.scss */
     .attackers-wrapper .attackers__row {
       padding: 2.25rem 4rem;
       display: flex;
@@ -292,15 +292,15 @@ footer {
       align-items: center;
       border-bottom: 0.1rem solid rgba(105, 105, 105, 0.596);
       font-size: 1.7rem; }
-      /* line 51, src/sass/pages/_system.scss */
+      /* line 50, src/sass/pages/_system.scss */
       .attackers-wrapper .attackers__row--label {
         font-weight: 600; }
 
-/* line 58, src/sass/pages/_system.scss */
+/* line 57, src/sass/pages/_system.scss */
 .defenders-wrapper {
   grid-area: defend;
   text-align: center; }
-  /* line 62, src/sass/pages/_system.scss */
+  /* line 61, src/sass/pages/_system.scss */
   .defenders-wrapper .defenders__label {
     display: flex;
     justify-content: left;
@@ -311,7 +311,7 @@ footer {
     margin: auto;
     padding: 6% 0 0 5%;
     border-radius: 1.1rem 1.1rem 0 0; }
-  /* line 78, src/sass/pages/_system.scss */
+  /* line 77, src/sass/pages/_system.scss */
   .defenders-wrapper .defenders {
     background-color: #202020;
     width: 90%;
@@ -319,8 +319,15 @@ footer {
     margin: auto;
     border-radius: 0 0 1.1rem 1.1rem;
     text-align: center;
-    overflow: scroll; }
-    /* line 87, src/sass/pages/_system.scss */
+    overflow: scroll;
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */ }
+    /* line 85, src/sass/pages/_system.scss */
+    .defenders-wrapper .defenders::-webkit-scrollbar {
+      display: none; }
+    /* line 91, src/sass/pages/_system.scss */
     .defenders-wrapper .defenders__row {
       padding: 2.25rem 4rem;
       display: flex;
@@ -328,29 +335,29 @@ footer {
       align-items: center;
       border-bottom: 0.1rem solid rgba(105, 105, 105, 0.596);
       font-size: 1.7rem; }
-      /* line 95, src/sass/pages/_system.scss */
+      /* line 99, src/sass/pages/_system.scss */
       .defenders-wrapper .defenders__row--label {
         font-weight: 600; }
 
-/* line 129, src/sass/pages/_system.scss */
+/* line 133, src/sass/pages/_system.scss */
 .start {
   color: black; }
-  /* line 131, src/sass/pages/_system.scss */
+  /* line 135, src/sass/pages/_system.scss */
   .start__wrapper {
     grid-area: start;
     background-color: #202020;
     border-radius: 1.1rem; }
-  /* line 137, src/sass/pages/_system.scss */
+  /* line 141, src/sass/pages/_system.scss */
   .start__text {
     padding: 5% 0 5% 5%;
     border-bottom: 1px solid rgba(105, 105, 105, 0.596); }
-    /* line 142, src/sass/pages/_system.scss */
+    /* line 145, src/sass/pages/_system.scss */
     .start__text h1 {
       font-size: 4rem; }
-    /* line 146, src/sass/pages/_system.scss */
+    /* line 148, src/sass/pages/_system.scss */
     .start__text p {
       font-size: 1.5rem; }
-  /* line 151, src/sass/pages/_system.scss */
+  /* line 153, src/sass/pages/_system.scss */
   .start__form {
     display: grid;
     margin: 2rem;
@@ -358,21 +365,21 @@ footer {
     border-radius: 1.1rem;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 2.5fr 0.6fr;
-    grid-template-areas: "playerleft playerright" "submit submit";
+    grid-template-areas: "playerleft playerright" "submit submit";
     background-color: #303030; }
-    /* line 163, src/sass/pages/_system.scss */
+    /* line 165, src/sass/pages/_system.scss */
     .start__form button {
       padding-left: 2%;
       grid-area: submit;
       margin: 0 0 5% 5%;
       width: 90%; }
-    /* line 170, src/sass/pages/_system.scss */
+    /* line 172, src/sass/pages/_system.scss */
     .start__form--left {
       padding: 2rem;
       grid-area: playerleft;
       display: flex;
       flex-direction: column; }
-      /* line 176, src/sass/pages/_system.scss */
+      /* line 178, src/sass/pages/_system.scss */
       .start__form--left input {
         border: none;
         height: 3rem;
@@ -383,16 +390,16 @@ footer {
         background-color: #303030;
         color: white;
         border: 1px #4d4d4d solid; }
-        /* line 187, src/sass/pages/_system.scss */
+        /* line 189, src/sass/pages/_system.scss */
         .start__form--left input:focus {
           padding: 2rem; }
-    /* line 192, src/sass/pages/_system.scss */
+    /* line 194, src/sass/pages/_system.scss */
     .start__form--right {
       padding: 2rem;
       grid-area: playerright;
       display: flex;
       flex-direction: column; }
-      /* line 198, src/sass/pages/_system.scss */
+      /* line 200, src/sass/pages/_system.scss */
       .start__form--right input {
         border: none;
         height: 3rem;
@@ -403,7 +410,7 @@ footer {
         background-color: #303030;
         color: white;
         border: 1px #4d4d4d solid; }
-        /* line 209, src/sass/pages/_system.scss */
+        /* line 211, src/sass/pages/_system.scss */
         .start__form--right input:focus {
           padding: 2rem; }
 

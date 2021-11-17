@@ -14,6 +14,7 @@ const Attackers = (props) => {
         </div>
         {props.atkPlayers.map((cur) => (
           <ResultItem
+            key={Math.random().toString()}
             team="atk"
             playerName={cur[0]}
             playerNumber={cur[1]}

@@ -13,12 +13,6 @@
   text-align: left;
   overflow: hidden;
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-
   .attackers__label {
     display: flex;
     justify-content: left;
@@ -39,6 +33,11 @@
     border-radius: 0 0 1.1rem 1.1rem;
     text-align: center;
     overflow: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
 
     &__row {
       padding: 2.25rem 4rem;
@@ -83,6 +82,11 @@
     border-radius: 0 0 1.1rem 1.1rem;
     text-align: center;
     overflow: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
 
     &__row {
       padding: 2.25rem 4rem;
@@ -136,13 +140,11 @@
 
   &__text {
     padding: 5% 0 5% 5%;
-
     border-bottom: 1px solid rgba(105, 105, 105, 0.596);
 
     h1 {
       font-size: 4rem;
     }
-
     p {
       font-size: 1.5rem;
     }

@@ -27,7 +27,9 @@ const Overlay = (props) => {
   return (
     <motion.section
       className={"overlay"}
-      animate={props.isVisible ? { opacity:1,zIndex:5 } : { opacity:0, zIndex:-1 }}
+      animate={
+        props.isVisible ? { opacity: 1, zIndex: 5 } : { opacity: 0, zIndex: -1 }
+      }
       transition={{ type: "tween", duration: 0.5, delay: 0.2 }}
     ></motion.section>
   );
