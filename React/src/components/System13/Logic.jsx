@@ -1,9 +1,4 @@
-<<<<<<< Updated upstream
-import React, { useState } from "react";
-
-=======
 import React, { useState, useRef, useEffect } from "react";
->>>>>>> Stashed changes
 import Modal from "../Layout/Modal.jsx";
 
 const Logic = (props) => {
@@ -92,34 +87,40 @@ const Logic = (props) => {
       calc.push(playerList[cur]);
     });
 
-    let error;
-
     // Does player exist?
+    let err3 = false;
     calc.forEach((cur) => {
       if (cur === undefined) {
-        console.error("❌ : This player doesnt exist");
-        error = "err3";
+        console.log("❌ : This player doesnt exist");
+        err3 = "err3";
       } else {
         console.log("✅ : This player exist");
       }
     });
+    if (err3) {
+      endl();
+      console.info("🗂 : Troubleshooted Code [err3]");
+      return "err3";
+    }
 
     // Are players odd?
     if (calc.length % 2 === 0) {
       console.log("✅ : Players amount arent odd");
     } else {
-      console.error("❌ : Players amount are odd");
+      console.log("❌ : Players amount are odd");
       endl();
-      error = "err0";
+      console.info("🗂 : Troubleshooted Code [err0]");
+      return "err0";
     }
 
     // Are tier scores odd?
     if (calc.reduce((acc, cur) => acc + cur) % 2 === 0) {
       console.log("✅ : Tiers add up to even");
     } else {
-      console.error("❌ : Tiers add up to odd");
+      console.log("❌ : Tiers add up to odd");
       endl();
-      error = "err1";
+      console.info("🗂 : Troubleshooted Code [err1]");
+      return "err1";
     }
 
     const scoreExisted = [];
@@ -137,8 +138,9 @@ const Logic = (props) => {
     });
     timesExisted.forEach((exist) => {
       if (exist[1] % 2 !== 0) {
-        console.error("❌ : Odd amount of tier(s)");
-        error = "err4";
+        console.log("❌ : Odd amount of tier(s)");
+        console.info("🗂 : Troubleshooted Code [err4]");
+        return "err4";
       } else {
         console.log("✅ : Even amount of tier(s)");
       }
@@ -147,9 +149,10 @@ const Logic = (props) => {
     if (calc.length === 2) {
       // 2 players are not a match
       if (calc[0] !== calc[1]) {
-        console.error("❌ : 2 players are not a match");
+        console.log("❌ : 2 players are not a match");
         endl();
-        error = "err2";
+        console.info("🗂 : Troubleshooted Code [err2]");
+        return "err2";
       } else {
         console.log("✅ : These 2 players are a match");
       }
@@ -157,27 +160,8 @@ const Logic = (props) => {
       console.log("🔎 : There's more than 2 players");
     }
 
-    switch (error) {
-      case "err0":
-        console.info("🗂 : Troubleshooted Code [err0]");
-        return "err0";
-      case "err1":
-        console.info("🗂 : Troubleshooted Code [err1]");
-        return "err1";
-      case "err2":
-        console.info("🗂 : Troubleshooted Code [err2]");
-        return "err2";
-      case "err3":
-        console.info("🗂 : Troubleshooted Code [err3]");
-        return "err3";
-      case "err4":
-        console.info("🗂 : Troubleshooted Code [err4]");
-        return "err4";
-      default:
-        console.info("✅ : Passed all tests!");
-        endl();
-        break;
-    }
+    console.info("✅ : Passed all tests!");
+    endl();
   };
 
   const randomizer = function (array) {
@@ -256,6 +240,8 @@ const Logic = (props) => {
 
   const startSystem = (event) => {
     event.preventDefault();
+    console.clear();
+    boldEndl();
     const players = [
       playerInpRef1.current.value,
       playerInpRef2.current.value,
@@ -282,7 +268,6 @@ const Logic = (props) => {
       setModalVisible(true);
     } else {
       main(players);
-      console.info("🛑 : Finished System 13");
     }
     boldEndl();
   };

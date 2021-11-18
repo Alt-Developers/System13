@@ -12,7 +12,7 @@ const playerList = {
   VOR: 3,
   POR: 3,
   HRO: 3,
-  SKA: 3,
+  SAI: 3,
   //Tier2 vvv
   p2: 2,
   PAN: 2,
