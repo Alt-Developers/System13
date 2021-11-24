@@ -21,4 +21,4 @@ const Navigation = () => (
   </nav>
 );
 
-export default Navigation;
+export default React.memo(Navigation);

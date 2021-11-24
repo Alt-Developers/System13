@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect } from "react";
-import Modal from "../Layout/Modal.jsx";
+import React, { useState, useRef, useEffect, useCallback } from "react";
+import Modal from "../Layout/modal.jsx";
 import { FullNamesList, playerList } from "./Constants";
 
 const Logic = (props) => {
@@ -22,13 +22,6 @@ const Logic = (props) => {
     modalBtn: "I Understand all of the possible consequence",
   });
 
-  const sort = (Arr) => {
-    // This is what function will be receiving
-    // [["John Smith", 1], ["Jane Smith", 2]]
-    const sortedArr = Arr.sort((a, b) => b[1] - a[1]);
-    return sortedArr;
-  };
-
   const display = (resultArr, score) => {
     const newScore = [];
     const reactFormatArr = [];
@@ -50,7 +43,7 @@ const Logic = (props) => {
     const defFreshResults = reactFormatArr.slice(teamPlayerAmount);
 
     // Lifts processed results to System13 component
-    props.liftResults(sort(atkFreshResults), sort(defFreshResults));
+    props.liftResults(atkFreshResults, defFreshResults);
   };
 
   const checkScore = function (arr) {
@@ -123,6 +116,7 @@ const Logic = (props) => {
 
     const scoreExisted = [];
     const timesExisted = [];
+    let err4 = false;
     scoreExisted.push(calc[0]);
     timesExisted.push([calc[0], 0]);
     calc.forEach((score) => {
@@ -138,11 +132,12 @@ const Logic = (props) => {
       if (exsisted[1] % 2 !== 0) {
         console.log("❌ : Odd amount of tier(s)");
         console.info("🗂 : Troubleshooted Code [err4]");
-        return "err4";
+        err4 = true;
       } else {
         console.log("✅ : Even amount of tier(s)");
       }
     });
+    if (err4) return "err4";
 
     if (calc.length === 2) {
       // 2 players are not a match
@@ -270,9 +265,9 @@ const Logic = (props) => {
     boldEndl();
   };
 
-  const liftingModalVisible = () => {
+  const liftingModalVisible = useCallback(() => {
     setModalVisible(false);
-  };
+  }, []);
 
   useEffect(() => {
     boldEndl();
