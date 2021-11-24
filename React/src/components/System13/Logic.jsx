@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import Modal from "../Layout/Modal.jsx";
+import { FullNamesList, playerList } from "./Constants";
 
 const Logic = (props) => {
   const playerInpRef1 = useRef("");
@@ -12,9 +13,6 @@ const Logic = (props) => {
   const playerInpRef8 = useRef("");
   const playerInpRef9 = useRef("");
   const playerInpRef10 = useRef("");
-
-  const playerList = require("./Constants/playerList");
-  const fullNamesList = require("./Constants/fullNamesList");
 
   const [modalVisible, setModalVisible] = useState(true);
   const [modalText, setModalText] = useState({
@@ -42,7 +40,7 @@ const Logic = (props) => {
     // Changes codenames to full names
     resultArr.forEach((result, i) => {
       const fullName = playerList.hasOwnProperty(result)
-        ? fullNamesList[result]
+        ? FullNamesList[result]
         : result;
       reactFormatArr.push([fullName, newScore[i]]);
     });
@@ -51,14 +49,14 @@ const Logic = (props) => {
     const atkFreshResults = reactFormatArr.slice(0, teamPlayerAmount);
     const defFreshResults = reactFormatArr.slice(teamPlayerAmount);
 
-    // Lifts processed results to System13.jsx
+    // Lifts processed results to System13 component
     props.liftResults(sort(atkFreshResults), sort(defFreshResults));
   };
 
   const checkScore = function (arr) {
     const calc = [];
     const playerPerTeam = arr.length / 2;
-    arr.forEach(function (cur, i) {
+    arr.forEach((cur) => {
       calc.push(playerList[cur]);
     });
 
@@ -136,8 +134,8 @@ const Logic = (props) => {
         timesExisted.push([score, 1]);
       }
     });
-    timesExisted.forEach((exist) => {
-      if (exist[1] % 2 !== 0) {
+    timesExisted.forEach((exsisted) => {
+      if (exsisted[1] % 2 !== 0) {
         console.log("❌ : Odd amount of tier(s)");
         console.info("🗂 : Troubleshooted Code [err4]");
         return "err4";
