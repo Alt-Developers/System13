@@ -4,11 +4,7 @@ System13 is a Web-application for Valorant Matchmaking <br/>
 by providing you with the fairest team by looking at the player's skill. <br/>
 To check out the real website go to ...
 
-> If you have any questions and problems please contact
->
-> > Discord: S Ξ N#3334
->
-> > Discord: saikaaawastaken#8066
+> If you have any questions and problems please open an issue.
 
 ## Versions
 
