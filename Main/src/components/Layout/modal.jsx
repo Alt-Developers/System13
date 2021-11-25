@@ -36,6 +36,45 @@ const Overlay = (props) => {
 };
 
 const Modal = (props) => {
+  let modalH;
+  let modalP;
+  let modalBtn;
+
+  switch (props.text) {
+    case "err0":
+      modalH = "Odd amount of players";
+      modalP = "For system13 to randomize the team players needs to be even";
+      modalBtn = "Try agian?";
+      break;
+    case "err1":
+      modalH = "Sum of tiers are odd";
+      modalP = "This team is an imposible team , please try a new team";
+      modalBtn = "Try agian?";
+      break;
+    case "err2":
+      modalH = "These 2 players are not a match";
+      modalP = "This team is an imposible team , please try a new team";
+      modalBtn = "Try agian?";
+      break;
+    case "err3":
+      modalH = "Player dosen't exist!";
+      modalP =
+        "Seems like you mispelled or that player isnt registered in the database";
+      modalBtn = "Try agian?";
+      break;
+    case "err4":
+      modalH = "Odd amount of tiers";
+      modalP = "Apparently this team cant be randomized";
+      modalBtn = "Try agian?";
+      break;
+    default:
+      modalH = "Reminder";
+      modalP =
+        "This program isnt perfect, this program might lag or worse crash your computer.";
+      modalBtn = "I Understand all of the possible consequence";
+      break;
+  }
+
   return (
     <Fragment>
       {/* Using portals to goto #modal , #overlay */}
@@ -43,9 +82,9 @@ const Modal = (props) => {
         <SubModal
           liftingModalCancle={props.liftingModalCancle}
           isVisible={props.isVisible}
-          modalBtn={props.modalBtn}
-          modalH={props.modalH}
-          modalP={props.modalP}
+          modalBtn={modalBtn}
+          modalH={modalH}
+          modalP={modalP}
         />,
         document.getElementById("modal")
       )}

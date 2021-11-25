@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
-import Modal from "../Layout/modal.jsx";
+
 import { FullNamesList, playerList } from "./Constants";
+import Modal from "../Layout/Modal.jsx";
 
 const Logic = (props) => {
   const playerInpRef1 = useRef("");
@@ -15,12 +16,7 @@ const Logic = (props) => {
   const playerInpRef10 = useRef("");
 
   const [modalVisible, setModalVisible] = useState(true);
-  const [modalText, setModalText] = useState({
-    modalH: "Reminder",
-    modalP:
-      "This program isnt perfect, this program might lag or worse crash your computer.",
-    modalBtn: "I Understand all of the possible consequence",
-  });
+  const [modalText, setModalText] = useState("default");
 
   const display = (resultArr, score) => {
     const newScore = [];
@@ -176,48 +172,29 @@ const Logic = (props) => {
     let timesEqualized = 0;
     let processingPlayers;
     let checkForError = checkForImpossible(players);
+
     if (checkForError === "err1") {
-      setModalText({
-        modalH: "Sum of tiers are odd",
-        modalP: "This team is an imposible team , please try a new team",
-        modalBtn: "Try agian?",
-      });
+      setModalText("err1");
       setModalVisible(true);
       return false;
     } else if (checkForError === "err2") {
-      setModalText({
-        modalH: "These 2 players are not a match",
-        modalP: "This team is an imposible team , please try a new team",
-        modalBtn: "Try agian?",
-      });
+      setModalText("err2");
       setModalVisible(true);
       return false;
     } else if (checkForError === "err0") {
-      setModalText({
-        modalH: "Odd amount of players",
-        modalP: "For system13 to randomize the team players needs to be even",
-        modalBtn: "Try agian?",
-      });
+      setModalText("err0");
       setModalVisible(true);
       return false;
     } else if (checkForError === "err3") {
-      setModalText({
-        modalH: "Player dosen't exist!",
-        modalP:
-          "Seems like you mispelled or that player isnt registered in the database",
-        modalBtn: "Try agian?",
-      });
+      setModalText("err3");
       setModalVisible(true);
       return false;
     } else if (checkForError === "err4") {
-      setModalText({
-        modalH: "Odd amount of tiers",
-        modalP: "Apparently this team cant be randomized",
-        modalBtn: "Try agian?",
-      });
+      setModalText("err4");
       setModalVisible(true);
       return false;
     }
+
     while (finishedEqulazing === false && timesEqualized <= 200) {
       processingPlayers = randomizer(players);
       finishedEqulazing = checkScore(processingPlayers);
@@ -283,88 +260,18 @@ const Logic = (props) => {
 
       <form className="start__form" onSubmit={startSystem}>
         <div className="start__form--left">
-          <input
-            className="form__start--Player-input"
-            type="text"
-            name=""
-            id=""
-            placeholder="Player 1"
-            ref={playerInpRef1}
-          />
-          <input
-            className="form__start--Player-input"
-            type="text"
-            name=""
-            id=""
-            placeholder="Player 2"
-            ref={playerInpRef2}
-          />
-          <input
-            className="form__start--Player-input"
-            type="text"
-            name=""
-            id=""
-            placeholder="Player 3"
-            ref={playerInpRef3}
-          />
-          <input
-            className="form__start--Player-input"
-            type="text"
-            name=""
-            id=""
-            placeholder="Player 4"
-            ref={playerInpRef4}
-          />
-          <input
-            className="form__start--Player-input"
-            type="text"
-            name=""
-            id=""
-            placeholder="Player 5"
-            ref={playerInpRef5}
-          />
+          <input type="text" placeholder="Player 1" ref={playerInpRef1} />
+          <input type="text" placeholder="Player 2" ref={playerInpRef2} />
+          <input type="text" placeholder="Player 3" ref={playerInpRef3} />
+          <input type="text" placeholder="Player 4" ref={playerInpRef4} />
+          <input type="text" placeholder="Player 5" ref={playerInpRef5} />
         </div>
         <div className="start__form--right">
-          <input
-            className="form__start--Player-input"
-            type="text"
-            name=""
-            id=""
-            placeholder="Player 6"
-            ref={playerInpRef6}
-          />
-          <input
-            className="form__start--Player-input"
-            type="text"
-            name=""
-            id=""
-            placeholder="Player 7"
-            ref={playerInpRef7}
-          />
-          <input
-            className="form__start--Player-input"
-            type="text"
-            name=""
-            id=""
-            placeholder="Player 8"
-            ref={playerInpRef8}
-          />
-          <input
-            className="form__start--Player-input"
-            type="text"
-            name=""
-            id=""
-            placeholder="Player 9"
-            ref={playerInpRef9}
-          />
-          <input
-            className="form__start--Player-input"
-            type="text"
-            name=""
-            id=""
-            placeholder="Player 10"
-            ref={playerInpRef10}
-          />
+          <input type="text" placeholder="Player 6" ref={playerInpRef6} />
+          <input type="text" placeholder="Player 7" ref={playerInpRef7} />
+          <input type="text" placeholder="Player 8" ref={playerInpRef8} />
+          <input type="text" placeholder="Player 9" ref={playerInpRef9} />
+          <input type="text" placeholder="Player 10" ref={playerInpRef10} />
         </div>
         <button type="submit" className="submit__form--start dark-btn btn">
           Start the randomization!
@@ -373,9 +280,7 @@ const Logic = (props) => {
       <Modal
         liftingModalCancle={liftingModalVisible}
         isVisible={modalVisible}
-        modalBtn={modalText.modalBtn}
-        modalH={modalText.modalH}
-        modalP={modalText.modalP}
+        text={modalText}
       />
     </div>
   );

@@ -11,7 +11,7 @@ const sortArr = (arr) => {
 const resultsReducer = (_, action) => {
   switch (action.type) {
     // If the dispatched type is Results then
-    // update the results state and displays
+    // update the results state and displays results
     case "RESULTS":
       return { def: sortArr(action.def), atk: sortArr(action.atk) };
     default:
