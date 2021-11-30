@@ -19,7 +19,8 @@ body {
 /* line 1, src/sass/base/_utilities.scss */
 .u-remove-a-eff {
   text-decoration: none;
-  color: white; }
+  color: white;
+  list-style: none; }
 
 /* line 3, src/sass/components/_learnmore.scss */
 .learn-more h3 {
@@ -106,7 +107,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
   width: 55%;
-  background-color: #1b1b1b;
+  background-color: #101010;
   padding: 6rem;
   border-radius: 1.1rem;
   z-index: 10;
@@ -143,74 +144,86 @@ body {
   opacity: 1; }
 
 /* line 1, src/sass/layout/_navigation.scss */
-nav {
+.nav {
   width: 100%;
+  height: 10rem;
   overflow: hidden;
-  height: 9rem;
-  padding-bottom: 1rem;
-  background-color: #202020;
+  background: #202020;
+  font-size: 1.8rem;
+  font-weight: 600;
+  transition: all 10s;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 100%;
-  grid-template-areas: "logo a1 a2 a3 a4"; }
-  /* line 16, src/sass/layout/_navigation.scss */
-  nav .logo {
-    display: flex;
-    align-items: center; }
-    /* line 20, src/sass/layout/_navigation.scss */
-    nav .logo img {
-      padding: 2% 0 0 2%;
-      width: 20rem;
-      height: 6rem;
-      grid-area: logo;
+  grid-template-columns: 4fr 1fr 1fr 1fr 1.5fr;
+  grid-template-areas: "logo 1 2 3 Explore";
+  align-items: center;
+  grid-gap: 1rem; }
+  /* line 17, src/sass/layout/_navigation.scss */
+  .nav__center {
+    text-align: center; }
+    /* line 19, src/sass/layout/_navigation.scss */
+    .nav__center > * {
+      transition: all 0.2s; }
+  /* line 23, src/sass/layout/_navigation.scss */
+  .nav__logo {
+    grid-area: "logo";
+    padding-left: 1rem; }
+    /* line 27, src/sass/layout/_navigation.scss */
+    .nav__logo img {
+      height: 5.5rem;
+      width: auto; }
+    /* line 32, src/sass/layout/_navigation.scss */
+    .nav__logo:hover {
       cursor: pointer; }
-  /* line 29, src/sass/layout/_navigation.scss */
-  nav li {
-    height: 100%;
-    transition: background-color 0.5s;
-    text-decoration: none;
-    list-style: none;
-    text-align: center;
-    padding-top: 10%;
-    color: #fff;
-    font-size: 1.7rem;
-    text-transform: uppercase;
-    font-weight: 600;
-    border-radius: 0.6rem; }
-  /* line 44, src/sass/layout/_navigation.scss */
-  nav a {
-    height: 100%;
-    background-color: #202020;
-    margin-left: 3rem;
-    margin: 0.5rem;
-    text-decoration: none;
-    grid-area: auto; }
+  /* line 37, src/sass/layout/_navigation.scss */
+  .nav__1 {
+    grid-area: "1"; }
+    /* line 40, src/sass/layout/_navigation.scss */
+    .nav__1 > :hover {
+      color: #fa4454; }
+  /* line 45, src/sass/layout/_navigation.scss */
+  .nav__2 {
+    grid-area: "2"; }
+    /* line 47, src/sass/layout/_navigation.scss */
+    .nav__2 > {
+      transition: all 0.2s; }
+    /* line 50, src/sass/layout/_navigation.scss */
+    .nav__2 > :hover {
+      color: #fa4454; }
+  /* line 55, src/sass/layout/_navigation.scss */
+  .nav__3 {
+    grid-area: "3"; }
     /* line 57, src/sass/layout/_navigation.scss */
-    nav a :hover {
-      background-color: #b1333e; }
-  /* line 61, src/sass/layout/_navigation.scss */
-  nav .active {
-    background-color: #fa4454;
-    border-radius: 0.6rem; }
-    /* line 65, src/sass/layout/_navigation.scss */
-    nav .active :hover {
-      background-color: #b1333e; }
+    .nav__3 > {
+      transition: all 0.2s; }
+    /* line 60, src/sass/layout/_navigation.scss */
+    .nav__3 > :hover {
+      color: #fa4454; }
+  /* line 64, src/sass/layout/_navigation.scss */
+  .nav__4 {
+    grid-area: "Explore";
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 1.5rem;
+    border-radius: 1.1rem;
+    margin-right: 2rem;
+    transition: all 0.4s;
+    background-color: #404040; }
+    /* line 76, src/sass/layout/_navigation.scss */
+    .nav__4:hover {
+      background-color: #fff;
+      box-shadow: #fff 0 0 10px;
+      transform: scale(1.05);
+      color: #272727; }
+    /* line 82, src/sass/layout/_navigation.scss */
+    .nav__4:active {
+      transform: scale(0.9);
+      box-shadow: #272727 0 0 10px; }
 
-/* line 72, src/sass/layout/_navigation.scss */
-.nav__1 {
-  grid-area: a1; }
-
-/* line 75, src/sass/layout/_navigation.scss */
-.nav__1 {
-  grid-area: a2; }
-
-/* line 78, src/sass/layout/_navigation.scss */
-.nav__1 {
-  grid-area: a3; }
-
-/* line 81, src/sass/layout/_navigation.scss */
-.nav__1 {
-  grid-area: a4; }
+/* line 89, src/sass/layout/_navigation.scss */
+.active > * {
+  color: #fa4454; }
 
 /* line 1, src/sass/layout/_footer.scss */
 footer {

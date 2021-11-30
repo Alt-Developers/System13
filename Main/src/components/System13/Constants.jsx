@@ -1,4 +1,4 @@
-export const FullNamesList = {
+export const playerNamesData = {
   TS4: "Tier 4 test subject",
   TLK: "Teelek",
   LVI: "Levi",
@@ -27,7 +27,7 @@ export const FullNamesList = {
   BRY: "Berry",
 };
 
-export const playerList = {
+export const playersScore = {
   TS4: 4,
   TLK: 4,
   LVI: 4,

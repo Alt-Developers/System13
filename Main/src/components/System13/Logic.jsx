@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 
-import { FullNamesList, playerList } from "./Constants";
+// import { FullNamesList, playerList } from "./Constants";
 import Modal from "../Layout/Modal.jsx";
 
 const Logic = (props) => {
@@ -18,6 +18,11 @@ const Logic = (props) => {
   const [modalVisible, setModalVisible] = useState(true);
   const [modalText, setModalText] = useState("default");
 
+  // Complete this code when REST Api finished ->
+  const playerNamesData = fetch("http://localhost:3000/playerNameData");
+  const playerScoreData = fetch("http://localhost:3000/playerScoreData");
+  // ------------------------------------------->
+
   const display = (resultArr, score) => {
     const newScore = [];
     const reactFormatArr = [];
@@ -28,8 +33,8 @@ const Logic = (props) => {
     });
     // Changes codenames to full names
     resultArr.forEach((result, i) => {
-      const fullName = playerList.hasOwnProperty(result)
-        ? FullNamesList[result]
+      const fullName = playerScoreData.hasOwnProperty(result)
+        ? playerNamesData[result]
         : result;
       reactFormatArr.push([fullName, newScore[i]]);
     });
@@ -46,7 +51,7 @@ const Logic = (props) => {
     const calc = [];
     const playerPerTeam = arr.length / 2;
     arr.forEach((cur) => {
-      calc.push(playerList[cur]);
+      calc.push(playerScoreData[cur]);
     });
 
     const attackers = calc.slice(0, playerPerTeam);
@@ -71,7 +76,7 @@ const Logic = (props) => {
     console.log("Checking if team is possible ---");
     const calc = [];
     arr.forEach(function (cur, i) {
-      calc.push(playerList[cur]);
+      calc.push(playerScoreData[cur]);
     });
 
     // Does player exist?
