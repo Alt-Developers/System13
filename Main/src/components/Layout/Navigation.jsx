@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
+import { NavLink, useLocation } from "react-router-dom";
 import "../../style/index.css";
 
 const Navigation = () => {
-  const [isActive, setIsActive] = useState("System");
+  const curRoute = useLocation();
 
   return (
     <nav className="nav">
@@ -12,29 +13,31 @@ const Navigation = () => {
         </a>
       </div>
       <div
-        className={`nav__1 nav__center ${isActive === "Home" ? "active" : ""}`}
+        className={`nav__1 nav__center ${
+          curRoute.pathname === "/home" ? "active" : ""
+        }`}
       >
-        <a href="#" className="u-remove-a-eff">
+        <NavLink to="/home" className="u-remove-a-eff">
           Home
-        </a>
+        </NavLink>
       </div>
       <div
         className={`nav__2 nav__center ${
-          isActive === "System" ? "active" : ""
+          curRoute.pathname === "/system" ? "active" : ""
         }`}
       >
-        <a href="#" className="u-remove-a-eff">
+        <NavLink to="/system" className="u-remove-a-eff">
           System
-        </a>
+        </NavLink>
       </div>
       <div
         className={`nav__3 nav__center ${
-          isActive === "Github" ? "active" : ""
+          curRoute.pathname === "/github" ? "active" : ""
         }`}
       >
-        <a href="#" className="u-remove-a-eff">
+        <NavLink to="/github" className="u-remove-a-eff">
           Github
-        </a>
+        </NavLink>
       </div>
       <a href="https://ssdevelopers.xyz" className="u-remove-a-eff">
         <div className="nav__4 nav__center nav__btn">Explore More</div>

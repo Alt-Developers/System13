@@ -17,11 +17,10 @@ const Logic = (props) => {
 
   const [modalVisible, setModalVisible] = useState(true);
   const [modalText, setModalText] = useState("default");
+  const [modalError, setModalError] = useState(false);
 
-  // Complete this code when REST Api finished ->
-  const playerNamesData = fetch("http://localhost:3000/playerNameData");
-  const playerScoreData = fetch("http://localhost:3000/playerScoreData");
-  // ------------------------------------------->
+  const [playerNamesData, setPlayerNamesData] = useState({});
+  const [playerScoreData, setPlayerScoreData] = useState({});
 
   const display = (resultArr, score) => {
     const newScore = [];
@@ -83,7 +82,7 @@ const Logic = (props) => {
     let err3 = false;
     calc.forEach((cur) => {
       if (cur === undefined) {
-        console.log("❌ : This player doesnt exist");
+        console.log("❌ : This player doesn't exist");
         err3 = "err3";
       } else {
         console.log("✅ : This player exist");
@@ -97,7 +96,7 @@ const Logic = (props) => {
 
     // Are players odd?
     if (calc.length % 2 === 0) {
-      console.log("✅ : Players amount arent odd");
+      console.log("✅ : Players amount aren't odd");
     } else {
       console.log("❌ : Players amount are odd");
       endl();
@@ -129,8 +128,8 @@ const Logic = (props) => {
         timesExisted.push([score, 1]);
       }
     });
-    timesExisted.forEach((exsisted) => {
-      if (exsisted[1] % 2 !== 0) {
+    timesExisted.forEach((existed) => {
+      if (existed[1] % 2 !== 0) {
         console.log("❌ : Odd amount of tier(s)");
         console.info("🗂 : Troubleshooted Code [err4]");
         err4 = true;
@@ -173,7 +172,7 @@ const Logic = (props) => {
   };
 
   const main = function (players) {
-    let finishedEqulazing = false;
+    let finishedEqualling = false;
     let timesEqualized = 0;
     let processingPlayers;
     let checkForError = checkForImpossible(players);
@@ -200,9 +199,9 @@ const Logic = (props) => {
       return false;
     }
 
-    while (finishedEqulazing === false && timesEqualized <= 200) {
+    while (finishedEqualling === false && timesEqualized <= 200) {
       processingPlayers = randomizer(players);
-      finishedEqulazing = checkScore(processingPlayers);
+      finishedEqualling = checkScore(processingPlayers);
       timesEqualized++;
     }
     console.info(
@@ -210,7 +209,7 @@ const Logic = (props) => {
         timesEqualized === 1 ? "iteration" : "iterations"
       }.`
     );
-    display(processingPlayers, finishedEqulazing);
+    display(processingPlayers, finishedEqualling);
   };
 
   const startSystem = (event) => {
@@ -252,6 +251,34 @@ const Logic = (props) => {
   }, []);
 
   useEffect(() => {
+    // Fetch player data
+    (async () => {
+      const data = await fetch(
+        "https://apis.ssdevelopers.xyz/system13/getRealNameList"
+      );
+      const response = await data.json();
+      setPlayerNamesData(response.playersList);
+    })();
+    (async () => {
+      const data = await fetch(
+        "https://apis.ssdevelopers.xyz/system13/getPlayersList"
+      )
+        .then((response) => {
+          if (response.status === 500) {
+            setModalError(true);
+            setModalText("500");
+          }
+          return response;
+        })
+        .catch(() => {
+          setModalError(true);
+          setModalText("521");
+        });
+      console.log(data);
+      const response = await data.json();
+      setPlayerScoreData(response.playersList);
+    })();
+
     boldEndl();
   }, []);
 
@@ -283,9 +310,10 @@ const Logic = (props) => {
         </button>
       </form>
       <Modal
-        liftingModalCancle={liftingModalVisible}
+        liftingModalCancel={liftingModalVisible}
         isVisible={modalVisible}
         text={modalText}
+        errorModal={modalError}
       />
     </div>
   );

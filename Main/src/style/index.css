@@ -130,18 +130,132 @@ body {
 
 /* line 39, src/sass/components/_modal.scss */
 .overlay {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
-  z-index: 5; }
+  z-index: 9;
+  overflow: hidden; }
 
-/* line 49, src/sass/components/_modal.scss */
+/* line 50, src/sass/components/_modal.scss */
 .show-modal {
   visibility: visible;
   opacity: 1; }
+
+/* line 1, src/sass/components/_other.scss */
+.other {
+  padding: 1rem;
+  margin: 3rem 5rem 3rem 3rem; }
+  /* line 6, src/sass/components/_other.scss */
+  .other h1 {
+    font-size: 5rem;
+    padding-bottom: 3rem; }
+  /* line 11, src/sass/components/_other.scss */
+  .other__List {
+    height: 60vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 0.7fr;
+    grid-template-areas: "Portal DevNews League";
+    grid-gap: 2rem; }
+    /* line 20, src/sass/components/_other.scss */
+    .other__List--Portal {
+      grid-area: Portal;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../img/valorant4.png");
+      transition: all 0.3s;
+      border-radius: 1.1rem;
+      padding: 2.5rem; }
+      /* line 5, src/sass/abstracts/_mixins.scss */
+      .other__List--Portal:hover {
+        transform: scale(1.03); }
+      /* line 9, src/sass/abstracts/_mixins.scss */
+      .other__List--Portal h3 {
+        font-size: 5rem; }
+      /* line 12, src/sass/abstracts/_mixins.scss */
+      .other__List--Portal p {
+        font-size: 1.5rem; }
+    /* line 28, src/sass/components/_other.scss */
+    .other__List--DevNews {
+      grid-area: DevNews;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../img/Developer.jpg");
+      border-radius: 1.1rem;
+      background-size: cover;
+      background-position-x: 100;
+      transition: all 0.3s;
+      border-radius: 1.1rem;
+      padding: 2.5rem; }
+      /* line 5, src/sass/abstracts/_mixins.scss */
+      .other__List--DevNews:hover {
+        transform: scale(1.03); }
+      /* line 9, src/sass/abstracts/_mixins.scss */
+      .other__List--DevNews h3 {
+        font-size: 5rem; }
+      /* line 12, src/sass/abstracts/_mixins.scss */
+      .other__List--DevNews p {
+        font-size: 1.5rem; }
+    /* line 40, src/sass/components/_other.scss */
+    .other__List--ValoLeague {
+      grid-area: League;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../img/jett.jpg");
+      border-radius: 1.1rem;
+      background-size: 100%;
+      background-position-y: 50;
+      transition: all 0.3s;
+      border-radius: 1.1rem;
+      padding: 2.5rem; }
+      /* line 5, src/sass/abstracts/_mixins.scss */
+      .other__List--ValoLeague:hover {
+        transform: scale(1.03); }
+      /* line 9, src/sass/abstracts/_mixins.scss */
+      .other__List--ValoLeague h3 {
+        font-size: 5rem; }
+      /* line 12, src/sass/abstracts/_mixins.scss */
+      .other__List--ValoLeague p {
+        font-size: 1.5rem; }
+
+/* line 1, src/sass/layout/_header.scss */
+.hero {
+  text-align: center;
+  width: 100vw;
+  height: 80vh;
+  background-color: #101010;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../img/vw.png");
+  background-size: 100%;
+  background-position-y: 50; }
+  /* line 14, src/sass/layout/_header.scss */
+  .hero__content {
+    font-size: 5rem;
+    margin: 1.5rem;
+    display: inline-block;
+    position: absolute;
+    left: 5%;
+    top: 20%;
+    text-align: left; }
+    /* line 23, src/sass/layout/_header.scss */
+    .hero__content p {
+      font-size: 2rem;
+      margin-top: 5%;
+      margin-bottom: 5%; }
+    /* line 28, src/sass/layout/_header.scss */
+    .hero__content button {
+      border-radius: 0.9rem;
+      background-color: #fa4454;
+      font-size: 2rem;
+      padding: 1.5rem;
+      margin-top: 2rem;
+      font-weight: 400;
+      transition: all 0.2s;
+      border: none; }
+      /* line 38, src/sass/layout/_header.scss */
+      .hero__content button:hover {
+        background: #ff3747;
+        transform: scale(1.1); }
+      /* line 42, src/sass/layout/_header.scss */
+      .hero__content button:active {
+        background-color: #b1333e;
+        transform: scale(0.9); }
 
 /* line 1, src/sass/layout/_navigation.scss */
 .nav {
@@ -263,14 +377,15 @@ footer {
   grid-template-areas: "attack defend start";
   justify-content: space-between;
   padding-top: 2rem;
-  margin-bottom: 2rem; }
+  margin-bottom: 2rem;
+  background-color: #303030; }
 
-/* line 11, src/sass/pages/_system.scss */
+/* line 12, src/sass/pages/_system.scss */
 .attackers-wrapper {
   grid-area: attack;
   text-align: left;
   overflow: hidden; }
-  /* line 16, src/sass/pages/_system.scss */
+  /* line 17, src/sass/pages/_system.scss */
   .attackers-wrapper .attackers__label {
     display: flex;
     justify-content: left;
@@ -281,7 +396,7 @@ footer {
     width: 90%;
     margin: auto;
     border-radius: 1.1rem 1.1rem 0 0; }
-  /* line 28, src/sass/pages/_system.scss */
+  /* line 29, src/sass/pages/_system.scss */
   .attackers-wrapper .attackers {
     background-color: #202020;
     width: 90%;
@@ -294,10 +409,10 @@ footer {
     /* IE and Edge */
     scrollbar-width: none;
     /* Firefox */ }
-    /* line 36, src/sass/pages/_system.scss */
+    /* line 37, src/sass/pages/_system.scss */
     .attackers-wrapper .attackers::-webkit-scrollbar {
       display: none; }
-    /* line 42, src/sass/pages/_system.scss */
+    /* line 43, src/sass/pages/_system.scss */
     .attackers-wrapper .attackers__row {
       padding: 2.25rem 4rem;
       display: flex;
@@ -305,15 +420,15 @@ footer {
       align-items: center;
       border-bottom: 0.1rem solid rgba(105, 105, 105, 0.596);
       font-size: 1.7rem; }
-      /* line 50, src/sass/pages/_system.scss */
+      /* line 51, src/sass/pages/_system.scss */
       .attackers-wrapper .attackers__row--label {
         font-weight: 600; }
 
-/* line 57, src/sass/pages/_system.scss */
+/* line 58, src/sass/pages/_system.scss */
 .defenders-wrapper {
   grid-area: defend;
   text-align: center; }
-  /* line 61, src/sass/pages/_system.scss */
+  /* line 62, src/sass/pages/_system.scss */
   .defenders-wrapper .defenders__label {
     display: flex;
     justify-content: left;
@@ -324,7 +439,7 @@ footer {
     margin: auto;
     padding: 6% 0 0 5%;
     border-radius: 1.1rem 1.1rem 0 0; }
-  /* line 77, src/sass/pages/_system.scss */
+  /* line 78, src/sass/pages/_system.scss */
   .defenders-wrapper .defenders {
     background-color: #202020;
     width: 90%;
@@ -337,10 +452,10 @@ footer {
     /* IE and Edge */
     scrollbar-width: none;
     /* Firefox */ }
-    /* line 85, src/sass/pages/_system.scss */
+    /* line 86, src/sass/pages/_system.scss */
     .defenders-wrapper .defenders::-webkit-scrollbar {
       display: none; }
-    /* line 91, src/sass/pages/_system.scss */
+    /* line 92, src/sass/pages/_system.scss */
     .defenders-wrapper .defenders__row {
       padding: 2.25rem 4rem;
       display: flex;
@@ -348,29 +463,29 @@ footer {
       align-items: center;
       border-bottom: 0.1rem solid rgba(105, 105, 105, 0.596);
       font-size: 1.7rem; }
-      /* line 99, src/sass/pages/_system.scss */
+      /* line 100, src/sass/pages/_system.scss */
       .defenders-wrapper .defenders__row--label {
         font-weight: 600; }
 
-/* line 133, src/sass/pages/_system.scss */
+/* line 134, src/sass/pages/_system.scss */
 .start {
   color: black; }
-  /* line 135, src/sass/pages/_system.scss */
+  /* line 136, src/sass/pages/_system.scss */
   .start__wrapper {
     grid-area: start;
     background-color: #202020;
     border-radius: 1.1rem; }
-  /* line 141, src/sass/pages/_system.scss */
+  /* line 142, src/sass/pages/_system.scss */
   .start__text {
     padding: 5% 0 5% 5%;
     border-bottom: 1px solid rgba(105, 105, 105, 0.596); }
-    /* line 145, src/sass/pages/_system.scss */
+    /* line 146, src/sass/pages/_system.scss */
     .start__text h1 {
       font-size: 4rem; }
-    /* line 148, src/sass/pages/_system.scss */
+    /* line 149, src/sass/pages/_system.scss */
     .start__text p {
       font-size: 1.5rem; }
-  /* line 153, src/sass/pages/_system.scss */
+  /* line 154, src/sass/pages/_system.scss */
   .start__form {
     display: grid;
     margin: 2rem;
@@ -380,19 +495,19 @@ footer {
     grid-template-rows: 2.5fr 0.6fr;
     grid-template-areas: "playerleft playerright" "submit submit";
     background-color: #303030; }
-    /* line 165, src/sass/pages/_system.scss */
+    /* line 166, src/sass/pages/_system.scss */
     .start__form button {
       padding-left: 2%;
       grid-area: submit;
       margin: 0 0 5% 5%;
       width: 90%; }
-    /* line 172, src/sass/pages/_system.scss */
+    /* line 173, src/sass/pages/_system.scss */
     .start__form--left {
       padding: 2rem;
       grid-area: playerleft;
       display: flex;
       flex-direction: column; }
-      /* line 178, src/sass/pages/_system.scss */
+      /* line 179, src/sass/pages/_system.scss */
       .start__form--left input {
         border: none;
         height: 3rem;
@@ -403,16 +518,16 @@ footer {
         background-color: #303030;
         color: white;
         border: 1px #4d4d4d solid; }
-        /* line 189, src/sass/pages/_system.scss */
+        /* line 190, src/sass/pages/_system.scss */
         .start__form--left input:focus {
           padding: 2rem; }
-    /* line 194, src/sass/pages/_system.scss */
+    /* line 195, src/sass/pages/_system.scss */
     .start__form--right {
       padding: 2rem;
       grid-area: playerright;
       display: flex;
       flex-direction: column; }
-      /* line 200, src/sass/pages/_system.scss */
+      /* line 201, src/sass/pages/_system.scss */
       .start__form--right input {
         border: none;
         height: 3rem;
@@ -423,7 +538,7 @@ footer {
         background-color: #303030;
         color: white;
         border: 1px #4d4d4d solid; }
-        /* line 211, src/sass/pages/_system.scss */
+        /* line 212, src/sass/pages/_system.scss */
         .start__form--right input:focus {
           padding: 2rem; }
 
