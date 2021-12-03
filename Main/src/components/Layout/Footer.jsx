@@ -1,5 +1,5 @@
 import React from "react";
-import "../../style/index.css";
+import "../../sass/style.css";
 
 const Footer = () => (
   <footer className="dark-footer">

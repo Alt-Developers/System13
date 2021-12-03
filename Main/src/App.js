@@ -1,13 +1,13 @@
 import React, { Fragment } from "react";
 import { Route } from "react-router-dom";
 
-import Navigation from "./components/Layout/Navigation.jsx";
-import Footer from "./components/Layout/Footer.jsx";
-import System13 from "./components/System13/System13.jsx";
-import Github from "./components/Github/Github.jsx";
-import Home from "./components/Home/Home.jsx";
+import Navigation from "./components/Layout/Navigation";
+import Footer from "./components/Layout/Footer";
+import System13 from "./pages/System13";
+import Github from "./pages/Github";
+import Home from "./pages/Home";
 
-import "./style/index.css";
+import "./sass/style.css";
 
 function App() {
   return (

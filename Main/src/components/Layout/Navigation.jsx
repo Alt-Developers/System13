@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import "../../style/index.css";
+import "../../sass/style.css";
+import systemLogo from "../../assets/img/systemLogo.png";
 
 const Navigation = () => {
   const curRoute = useLocation();
@@ -8,8 +9,8 @@ const Navigation = () => {
   return (
     <nav className="nav">
       <div className="nav__logo">
-        <a href="https://ssdevelopers.xyz/system13" className="u-remove-a-eff">
-          <img src="./logo.png" alt="logo" />
+        <a href="https://system.ssdevelopers.xyz" className="u-remove-a-eff">
+          <img src={systemLogo} alt="logo" />
         </a>
       </div>
       <div

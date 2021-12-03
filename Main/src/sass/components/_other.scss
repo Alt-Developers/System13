@@ -20,7 +20,7 @@
     &--Portal {
       grid-area: Portal;
       background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-        url("../img/valorant4.png");
+        url("../assets/img/valorantOther.png");
       transition: all 0.3s;
 
       @include othersContent;
@@ -28,7 +28,7 @@
     &--DevNews {
       grid-area: DevNews;
       background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-        url("../img/Developer.jpg");
+        url("../assets/img/developerAtNight.jpg");
       border-radius: 1.1rem;
       background-size: cover;
       background-position-x: 100;
@@ -40,7 +40,7 @@
     &--ValoLeague {
       grid-area: League;
       background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-        url("../img/jett.jpg");
+        url("../assets/img/jett.jpg");
       border-radius: 1.1rem;
       background-size: 100%;
       background-position-y: 50;

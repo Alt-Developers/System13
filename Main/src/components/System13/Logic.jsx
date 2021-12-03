@@ -19,8 +19,8 @@ const Logic = (props) => {
   const [modalText, setModalText] = useState("default");
   const [modalError, setModalError] = useState(false);
 
-  const [playerNamesData, setPlayerNamesData] = useState({});
-  const [playerScoreData, setPlayerScoreData] = useState({});
+  const [playerNamesData, setPlayerNamesData] = useState();
+  const [playerScoreData, setPlayerScoreData] = useState();
 
   const display = (resultArr, score) => {
     const newScore = [];
@@ -215,7 +215,7 @@ const Logic = (props) => {
   const startSystem = (event) => {
     event.preventDefault();
     console.clear();
-    boldEndl();
+    console.warn("Start System ===============");
     const players = [
       playerInpRef1.current.value,
       playerInpRef2.current.value,
@@ -251,6 +251,7 @@ const Logic = (props) => {
   }, []);
 
   useEffect(() => {
+    console.warn("Server Connection ==========");
     // Fetch player data
     (async () => {
       const data = await fetch(
@@ -258,6 +259,7 @@ const Logic = (props) => {
       );
       const response = await data.json();
       setPlayerNamesData(response.playersList);
+      console.log("✅ : Player names data fetched");
     })();
     (async () => {
       const data = await fetch(
@@ -268,18 +270,20 @@ const Logic = (props) => {
             setModalError(true);
             setModalText("500");
           }
+          if (response.status === 503) {
+            setModalError(true);
+            setModalText("503");
+          }
           return response;
         })
         .catch(() => {
           setModalError(true);
           setModalText("521");
         });
-      console.log(data);
       const response = await data.json();
       setPlayerScoreData(response.playersList);
+      console.log("✅ : Player score data fetched");
     })();
-
-    boldEndl();
   }, []);
 
   return (

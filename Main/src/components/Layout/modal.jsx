@@ -62,6 +62,7 @@ const Modal = (props) => {
   let modalBtn;
 
   switch (props.text) {
+    // System13 error vvv
     case "err0":
       modalH = "Odd amount of players";
       modalP = "For system13 to randomize the team players needs to be even";
@@ -88,18 +89,23 @@ const Modal = (props) => {
       modalP = "Apparently this team cant be randomized";
       modalBtn = "Try again?";
       break;
+    // Server side errors vvv
     case "500":
       modalH = "Internal server error";
       modalP =
         "The server returned an error code of 500. Please try again in a few seconds";
-      modalBtn = "I understand";
       break;
     case "521":
       modalH = "Database seems to be down";
       modalP =
         "The server didn't respond at all. Please come back later or try refreshing";
-      modalBtn = "I understand";
       break;
+    case "503":
+      modalH = "Database down for maintenance";
+      modalP =
+        "The server is currently unavailable due to temporary overload or server maintenance";
+      break;
+    // Reminder modal
     default:
       modalH = "Reminder";
       modalP =
