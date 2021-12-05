@@ -40,8 +40,17 @@ const Navigation = () => {
           Github
         </NavLink>
       </div>
+      <div
+        className={`nav__4 nav__center ${
+          curRoute.pathname === "/profile" ? "active" : ""
+        }`}
+      >
+        <NavLink to="/profile" className="u-remove-a-eff">
+          Profile
+        </NavLink>
+      </div>
       <a href="https://ssdevelopers.xyz" className="u-remove-a-eff">
-        <div className="nav__4 nav__center nav__btn">Explore More</div>
+        <div className="nav__5 nav__center nav__btn">Explore More</div>
       </a>
     </nav>
   );

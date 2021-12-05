@@ -1,5 +1,6 @@
 .result {
-  width: 100%;
+  margin-left: 0.3vw;
+  width: 98vw;
   display: grid;
   grid-template-columns: 1fr 1fr 2fr 1rem;
   grid-template-areas: "attack defend start";

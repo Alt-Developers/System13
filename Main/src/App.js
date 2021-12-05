@@ -6,8 +6,7 @@ import Footer from "./components/Layout/Footer";
 import System13 from "./pages/System13";
 import Github from "./pages/Github";
 import Home from "./pages/Home";
-
-import "./sass/style.css";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
@@ -22,6 +21,9 @@ function App() {
       </Route>
       <Route path="/github">
         <Github />
+      </Route>
+      <Route path="/profile">
+        <Profile />
       </Route>
 
       <Footer />

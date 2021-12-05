@@ -5,39 +5,20 @@ import { motion } from "framer-motion";
 const SubModal = (props) => {
   return (
     <motion.section
-      className="modal warning"
-      initial={{ x: "-27vw", y: "-30vh" }}
+      className={"modal warning"}
+      initial={{ x: "-27vw", y: "-25vh" }}
       animate={
         props.isVisible
-          ? {
-              y: "-25vh",
-              x: "-27vw",
-              opacity: 1,
-              zIndex: 10,
-            }
-          : {
-              y: "-35vh",
-              x: "-27vw",
-              opacity: 0,
-              zIndex: -5,
-            }
+          ? { scale: 1, y: "-25vh", x: "-27vw", opacity: 1 }
+          : { y: "-25vh", x: "-100vw", opacity: 0 }
       }
-      transition={{ type: "spring", duration: 0.3 }}
+      transition={{ ease: "anticipate", duration: 0.6 }}
     >
       <h3 className="modal-header">{props.modalH}</h3>
       <p className="modal-info">{props.modalP}</p>
-      {!props.errorModal && (
-        <motion.button
-          className="btn-understand btn"
-          onClick={props.liftingModalCancel}
-          transition={{ ease: "anticipate", duration: 0.3 }}
-          initial={{ scale: 1 }}
-          animate={!props.errorModal ? {} : { scale: 0, opacity: 0 }}
-          // exit={{ scale: 0 }}
-        >
-          {props.modalBtn}
-        </motion.button>
-      )}
+      <button className="btn-understand btn" onClick={props.liftingModalCancel}>
+        {props.modalBtn}
+      </button>
     </motion.section>
   );
 };

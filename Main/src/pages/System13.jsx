@@ -26,16 +26,33 @@ const System13 = function (props) {
   });
 
   return (
-    <section className="result">
-      <Attackers atkPlayers={resultsState.atk} />
-      <Defenders defPlayers={resultsState.def} />
-      <Logic
-        // Lifts the results and dispatches to Reducer
-        liftResults={(atk, def) =>
-          dispatchResults({ type: "RESULTS", def, atk })
-        }
-      />
-    </section>
+    <React.Fragment>
+      <section className="result">
+        <Attackers atkPlayers={resultsState.atk} />
+        <Defenders defPlayers={resultsState.def} />
+        <Logic
+          liftResults={(atk, def) =>
+            dispatchResults({ type: "RESULTS", def, atk })
+          }
+        />
+      </section>
+      {/* <section className="info">
+        <div className="info-con">
+          <div className="info-con__addPlayers">
+            <h1>Want to add players?</h1>
+          </div>
+          <div className="info-con__addPlayers">
+            <h1>Want to add players?</h1>
+          </div>
+          <div className="info-con__addPlayers">
+            <h1>Want to add players?</h1>
+          </div>
+          <div className="info-con__addPlayers">
+            <h1>Want to add players?</h1>
+          </div>
+        </div>
+      </section> */}
+    </React.Fragment>
   );
 };
 

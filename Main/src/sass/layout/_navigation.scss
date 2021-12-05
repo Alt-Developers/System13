@@ -9,8 +9,8 @@
 
   // Setup Grid
   display: grid;
-  grid-template-columns: 4fr 1fr 1fr 1fr 1.5fr;
-  grid-template-areas: "logo 1 2 3 Explore";
+  grid-template-columns: 4fr 1fr 1fr 1fr 1fr 1.5fr;
+  grid-template-areas: "logo 1 2 3 4 Explore";
   align-items: center;
   grid-gap: 1rem;
 
@@ -62,6 +62,15 @@
     }
   }
   &__4 {
+    grid-area: "4";
+    & > {
+      transition: all 0.2s;
+    }
+    & > :hover {
+      color: $nav-background-red-1;
+    }
+  }
+  &__5 {
     grid-area: "Explore";
     display: flex;
     justify-content: center;

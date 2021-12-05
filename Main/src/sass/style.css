@@ -18,6 +18,56 @@ body {
   color: white;
   list-style: none; }
 
+.login {
+  height: 90vh;
+  background-image: linear-gradient(to bottom right, #233329, #dc3d4b);
+  position: relative;
+  overflow: hidden; }
+  .login-con {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: #202020;
+    border-radius: 1.1rem;
+    height: 60vh;
+    width: 60vw;
+    padding: 3rem; }
+  .login-text h1 {
+    font-size: 4rem; }
+  .login-text p {
+    padding: 0 1rem 4rem 0;
+    font-size: 1.5rem; }
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; }
+    .login-form input {
+      width: 40%;
+      padding: 1rem;
+      background-color: #303030;
+      color: white;
+      border: 1px #4d4d4d solid;
+      border-radius: 0.5rem; }
+    .login-form__submit {
+      background-color: #fa4454;
+      width: 10rem;
+      height: 100%;
+      border: none;
+      position: absolute;
+      border-radius: 0 0.5rem 0.5rem 0;
+      transition: all 0.2s;
+      right: 0;
+      top: 0;
+      color: white;
+      font-size: 4rem; }
+      .login-form__submit:hover {
+        width: 12rem; }
+      .login-form__submit:focus {
+        width: 100%;
+        border-radius: 0.5rem; }
+
 .learn-more h3 {
   font-size: 5rem;
   margin-bottom: 2rem; }
@@ -220,8 +270,8 @@ body {
   font-weight: 600;
   transition: all 10s;
   display: grid;
-  grid-template-columns: 4fr 1fr 1fr 1fr 1.5fr;
-  grid-template-areas: "logo 1 2 3 Explore";
+  grid-template-columns: 4fr 1fr 1fr 1fr 1fr 1.5fr;
+  grid-template-areas: "logo 1 2 3 4 Explore";
   align-items: center;
   grid-gap: 1rem; }
   .nav__center {
@@ -253,6 +303,12 @@ body {
     .nav__3 > :hover {
       color: #fa4454; }
   .nav__4 {
+    grid-area: "4"; }
+    .nav__4 > {
+      transition: all 0.2s; }
+    .nav__4 > :hover {
+      color: #fa4454; }
+  .nav__5 {
     grid-area: "Explore";
     display: flex;
     justify-content: center;
@@ -263,12 +319,12 @@ body {
     margin-right: 2rem;
     transition: all 0.4s;
     background-color: #404040; }
-    .nav__4:hover {
+    .nav__5:hover {
       background-color: #fff;
       box-shadow: #fff 0 0 10px;
       transform: scale(1.05);
       color: #272727; }
-    .nav__4:active {
+    .nav__5:active {
       transform: scale(0.9);
       box-shadow: #272727 0 0 10px; }
 
@@ -300,7 +356,8 @@ footer {
   height: 81.5vh; }
 
 .result {
-  width: 100%;
+  margin-left: 0.3vw;
+  width: 98vw;
   display: grid;
   grid-template-columns: 1fr 1fr 2fr 1rem;
   grid-template-areas: "attack defend start";
