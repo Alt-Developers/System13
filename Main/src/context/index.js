@@ -6,7 +6,6 @@ const counterReducer = (state = { isLoggedIn: false }, action) => {
       isLoggedIn: true,
     };
   }
-
   return state;
 };
 

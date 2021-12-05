@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
-import "../../sass/style.css";
 import systemLogo from "../../assets/img/systemLogo.png";
+import "../../sass/style.css";
 
 const Navigation = () => {
   const curRoute = useLocation();

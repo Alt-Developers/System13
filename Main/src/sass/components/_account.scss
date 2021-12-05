@@ -1,0 +1,135 @@
+.login {
+  height: 90vh;
+  background-image: linear-gradient(to bottom right, #313131, $btn-red-1);
+  position: relative;
+  overflow: hidden;
+
+  &-con {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    background-color: $gray-dark-2;
+    border-radius: 1.1rem;
+    height: 60vh;
+    width: 60vw;
+    padding: 3rem;
+  }
+
+  &-text {
+    h1 {
+      font-size: 4rem;
+    }
+    p {
+      padding: 0 1rem 4rem 0;
+      font-size: 1.5rem;
+    }
+  }
+
+  &-form {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    input {
+      width: 40%;
+      padding: 1rem;
+      background-color: #303030;
+      color: white;
+      border: 1px rgb(77, 77, 77) solid;
+      border-radius: 0.5rem;
+    }
+
+    &__submit {
+      background-color: $nav-background-red-1;
+      width: 10rem;
+      height: 100%;
+      border: none;
+      position: absolute;
+      border-radius: 0 0.5rem 0.5rem 0;
+      transition: all 0.2s;
+      right: 0;
+      top: 0;
+
+      color: white;
+      font-size: 4rem;
+
+      &:hover {
+        width: 12rem;
+      }
+
+      &:focus {
+        width: 100%;
+        border-radius: 0.5rem;
+      }
+    }
+
+    &__signup {
+      color: #b3b3b3;
+      font-size: 1.4rem;
+      border-radius: 0.2rem;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+.account {
+  background-image: linear-gradient(to bottom right, #313131, $btn-red-1);
+  padding: 3rem;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  // grid-template-rows: 1fr 1fr;
+  grid-template-areas:
+    "acc addPlayer"
+    "acc addPlayer";
+  gap: 2rem;
+
+  &__profile {
+    &-con {
+      display: flex;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+
+    background-color: $gray-dark-2;
+    padding: 3rem;
+    border-radius: 1.1rem;
+    grid-area: "acc";
+
+    height: fit-content;
+    img {
+      border-radius: 50%;
+      height: 20rem;
+      width: auto;
+    }
+    button {
+      width: 100%;
+      margin-top: 2rem;
+    }
+    &--text {
+      padding-left: 3rem;
+      h1 {
+        font-size: 6rem;
+        font-weight: 700;
+      }
+      p {
+        font-size: 1.7rem;
+      }
+    }
+  }
+
+  &__addPlayer {
+    background-color: $gray-dark-2;
+    border-radius: 1.1rem;
+    padding: 3rem;
+
+    h2 {
+      font-size: 3rem;
+    }
+  }
+}

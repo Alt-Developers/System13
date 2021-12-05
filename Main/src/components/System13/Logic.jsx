@@ -267,8 +267,8 @@ const Logic = (props) => {
       )
         .then((response) => {
           if (response.status === 500) {
-            // setModalError(true);
-            // setModalText("500");
+            setModalError(true);
+            setModalText("500");
           }
           if (response.status === 503) {
             setModalError(true);
