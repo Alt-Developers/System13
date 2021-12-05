@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -6,26 +6,37 @@ import { motion } from "framer-motion";
 const Profile = (props) => {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
-  const [enteredEmail, setEnteredEmail] = useState();
-  const [enteredPassword, setEnteredPassword] = useState();
+  const [enteredEmail, setEnteredEmail] = useState("");
+  const [enteredPassword, setEnteredPassword] = useState("");
+  const [canSubmit, setCanSubmit] = useState(false);
 
   const loginSubmitHandler = async (event) => {
     event.preventDefault();
-
-    console.log(enteredEmail, enteredPassword);
-    // UNFINISHED CODE || DEBUGGING
-    // await fetch("https://apis.ssdevelopers.xyz/auth/login", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-type": "application/json",
-    //   },
-    //   body: JSON.stringify({
-    //     email: enteredEmail,
-    //     pass: enteredPassword,
-    //   }),
-    // });
-    ////////////////////////////
-    dispatch({ type: "LOGIN" });
+    // const validPassword = enteredPassword.test(
+    //   // Minimum eight characters, at least one letter and one number
+    //   /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/g
+    // );
+    if (enteredEmail !== "" && enteredPassword !== "") {
+      // UNFINISHED CODE || DEBUGGING
+      await fetch("https://apis.ssdevelopers.xyz/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify({
+          email: enteredEmail.trim(),
+          pass: enteredPassword,
+        }),
+      })
+        .then((data) => data.json())
+        .then((data) => {
+          if (data.message === "you have successfully logged in") {
+            dispatch({ type: "LOGIN" });
+          }
+        });
+      ////////////////////////////
+    } else {
+    }
   };
 
   const emailInputHandler = (event) => {
@@ -34,6 +45,14 @@ const Profile = (props) => {
   const passwordInputHandler = (event) => {
     setEnteredPassword(event.target.value);
   };
+
+  useEffect(() => {
+    if (enteredEmail !== "" && enteredPassword !== "") {
+      setCanSubmit(true);
+    } else {
+      setCanSubmit(false);
+    }
+  }, [enteredEmail, enteredPassword]);
 
   return (
     <React.Fragment>
@@ -60,7 +79,7 @@ const Profile = (props) => {
                 placeholder="email"
               />
               <input
-                type="text"
+                type="password"
                 value={enteredPassword}
                 placeholder="password"
                 onChange={passwordInputHandler}
@@ -71,7 +90,13 @@ const Profile = (props) => {
               >
                 Don't have an account?
               </NavLink>
-              <motion.button type="submit" className="login-form__submit">
+              <motion.button
+                type="submit"
+                className={`${
+                  canSubmit ? "login-form__submit" : "login-form__cantSubmit"
+                }`}
+                disabled={!canSubmit}
+              >
                 &raquo;
               </motion.button>
             </form>

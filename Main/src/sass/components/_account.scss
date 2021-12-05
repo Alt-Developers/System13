@@ -65,6 +65,22 @@
       }
     }
 
+    &__cantSubmit {
+      background-color: #616161;
+      width: 10rem;
+      height: 100%;
+      border: none;
+      position: absolute;
+      border-radius: 0 0.5rem 0.5rem 0;
+      transition: all 0.2s;
+      right: 0;
+      top: 0;
+      cursor: not-allowed;
+
+      color: white;
+      font-size: 4rem;
+    }
+
     &__signup {
       color: #b3b3b3;
       font-size: 1.4rem;
