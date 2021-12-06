@@ -6,6 +6,11 @@ const counterReducer = (state = { isLoggedIn: false }, action) => {
       isLoggedIn: true,
     };
   }
+  if (action.type === "LOGOUT") {
+    return {
+      isLoggedIn: false,
+    };
+  }
   return state;
 };
 

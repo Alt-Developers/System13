@@ -1,125 +1,52 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
-import { motion } from "framer-motion";
+import Login from "../components/Account/Login";
+import Players from "../components/Account/Players";
 
 const Profile = (props) => {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
-  const [enteredEmail, setEnteredEmail] = useState("");
-  const [enteredPassword, setEnteredPassword] = useState("");
-  const [canSubmit, setCanSubmit] = useState(false);
 
-  const loginSubmitHandler = async (event) => {
-    event.preventDefault();
-    // const validPassword = enteredPassword.test(
-    //   // Minimum eight characters, at least one letter and one number
-    //   /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/g
-    // );
-    if (enteredEmail !== "" && enteredPassword !== "") {
-      // UNFINISHED CODE || DEBUGGING
-      await fetch("https://apis.ssdevelopers.xyz/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({
-          email: enteredEmail.trim(),
-          pass: enteredPassword,
-        }),
-      })
-        .then((data) => data.json())
-        .then((data) => {
-          if (data.message === "you have successfully logged in") {
-            dispatch({ type: "LOGIN" });
-          }
-        });
-      ////////////////////////////
-    } else {
-    }
+  const DUMMY_USERDATA = {
+    email: "jiratchutrakul@gmail.com",
+    name: "Jirat Chutrakul",
+    accType: "Administrator Account",
+    profilePic:
+      "https://yt3.ggpht.com/ytc/AKedOLQnp52grHdSYHky8B9cw3EqZxTX7kK8grKXmbXY8A=s176-c-k-c0x00ffffff-no-rj",
   };
-
-  const emailInputHandler = (event) => {
-    setEnteredEmail(event.target.value);
-  };
-  const passwordInputHandler = (event) => {
-    setEnteredPassword(event.target.value);
-  };
-
-  useEffect(() => {
-    if (enteredEmail !== "" && enteredPassword !== "") {
-      setCanSubmit(true);
-    } else {
-      setCanSubmit(false);
-    }
-  }, [enteredEmail, enteredPassword]);
 
   return (
     <React.Fragment>
-      {!isLoggedIn && (
-        <div className="login">
-          <motion.section
-            className="login-con"
-            animate={
-              isLoggedIn
-                ? { opacity: 0, x: "-60%", y: "-50%" }
-                : { opacity: 1, x: "-50%", y: "-50%" }
-            }
-            transition={{ ease: "easeOut", duration: 0.3 }}
-          >
-            <div className="login-text">
-              <h1>Log In to SS Account</h1>
-              <p>To unlock more features for System13</p>
-            </div>
-            <form className="login-form" onSubmit={loginSubmitHandler}>
-              <input
-                type="email"
-                value={enteredEmail}
-                onChange={emailInputHandler}
-                placeholder="email"
-              />
-              <input
-                type="password"
-                value={enteredPassword}
-                placeholder="password"
-                onChange={passwordInputHandler}
-              />
-              <NavLink
-                to="/signup"
-                className="u-remove-a-eff login-form__signup"
-              >
-                Don't have an account?
-              </NavLink>
-              <motion.button
-                type="submit"
-                className={`${
-                  canSubmit ? "login-form__submit" : "login-form__cantSubmit"
-                }`}
-                disabled={!canSubmit}
-              >
-                &raquo;
-              </motion.button>
-            </form>
-          </motion.section>
-        </div>
-      )}
+      {!isLoggedIn && <Login />}
       {isLoggedIn && (
         <section className="account">
           <div className="account__profile">
             <div className="account__profile-con">
-              <img
-                src="https://yt3.ggpht.com/ytc/AKedOLQnp52grHdSYHky8B9cw3EqZxTX7kK8grKXmbXY8A=s176-c-k-c0x00ffffff-no-rj"
-                alt="User"
-              />
+              <img src={DUMMY_USERDATA.profilePic} alt="User" />
               <div className="account__profile--text">
-                <h1>Jirat Chutrakul's</h1>
-                <p>Administrator Account</p>
+                <h1>{DUMMY_USERDATA.name}</h1>
+                <p>{DUMMY_USERDATA.accType}</p>
               </div>
             </div>
-            <button className="btn">Edit Information</button>
+            <button
+              className="btn"
+              onClick={() => {
+                dispatch({ type: "LOGOUT" });
+              }}
+            >
+              Logout
+            </button>
           </div>
-          <div className="account__addPlayer">
-            <h2>Add player to System13</h2>
+          <div className="account__right">
+            <div className="account__players">
+              <h2>Add player to System13</h2>
+              <p>to your account</p>
+              <Players />
+            </div>
+            <div className="account__existing">
+              <h2>Existing Players</h2>
+              <p>In your account</p>
+            </div>
           </div>
         </section>
       )}

@@ -102,7 +102,7 @@
   // grid-template-rows: 1fr 1fr;
   grid-template-areas:
     "acc addPlayer"
-    "acc addPlayer";
+    "acc existing";
   gap: 2rem;
 
   &__profile {
@@ -139,13 +139,83 @@
     }
   }
 
-  &__addPlayer {
+  &__right {
+    grid-area: "addPlayer";
+  }
+
+  &__players {
     background-color: $gray-dark-2;
     border-radius: 1.1rem;
     padding: 3rem;
+    height: fit-content;
 
     h2 {
       font-size: 3rem;
     }
+
+    p {
+      font-size: 1.5rem;
+    }
   }
+
+  &__addPlayer {
+    background-color: $gray-dark-1;
+    border-radius: 1.1rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    width: fit-content;
+    height: fit-content;
+    padding: 2rem;
+    position: relative;
+    transition: all 0.2s;
+
+    input {
+      width: 40%;
+      padding: 1rem;
+      background-color: transparent;
+      color: white;
+      border: 3px rgba(255, 255, 255, 0.4) solid;
+      border-radius: 0.5rem;
+      margin: 1rem;
+    }
+
+    button {
+      background-color: #41e86e;
+      width: 7rem;
+      height: 100%;
+      border: none;
+      position: absolute;
+      border-radius: 0 0.5rem 0.5rem 0;
+      transition: all 0.2s;
+      right: 0;
+      top: 0;
+
+      color: white;
+      font-size: 4rem;
+
+      &:hover {
+        width: 10rem;
+      }
+    }
+  }
+
+  &__existing {
+    background-color: $gray-dark-2;
+    border-radius: 1.1rem;
+    padding: 3rem;
+    height: fit-content;
+    margin-top: 2rem;
+
+    h2 {
+      font-size: 3rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.notValid {
+  animation: shake 0.7s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 }
