@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
+import { useSelector, useDispatch } from "react-redux";
 
 // import { FullNamesList, playerList } from "./Constants";
 import Modal from "../Layout/Modal.jsx";
@@ -21,6 +22,9 @@ const Logic = (props) => {
 
   const [playerNamesData, setPlayerNamesData] = useState();
   const [playerScoreData, setPlayerScoreData] = useState();
+
+  const userInfo = useSelector((state) => state.userInfo);
+  const dispatch = useDispatch();
 
   const display = (resultArr, score) => {
     const newScore = [];
@@ -289,7 +293,10 @@ const Logic = (props) => {
   return (
     <div className="start__wrapper">
       <div className="start__text">
-        <h1>Welcome to System13</h1>
+        <h1>
+          Welcome to System13
+          {userInfo.firstName ? `, ${userInfo.firstName}` : ""}
+        </h1>
         <p>To start input all players that are playing</p>
         <p>Not all fields need to be filled</p>
       </div>

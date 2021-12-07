@@ -1,5 +1,4 @@
-import React, { useRef, useCallback, useState } from "react";
-import Modal from "../Layout/Modal";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
 
 const Players = (props) => {
@@ -7,29 +6,27 @@ const Players = (props) => {
   const nameRef = useRef("");
   const tierRef = useRef("");
 
-  const submitHandler = (event) => {
+  const submitHandler = async (event) => {
     event.preventDefault();
     const name = nameRef.current.value;
     const tier = tierRef.current.value;
     const codename = codenameRef.current.value;
 
-    if (!name) {
-      return;
-    }
-    if (!tier) {
-      return;
-    }
-    if (!codename) {
-      return;
-    }
+    if (!name) return;
+    if (!tier) return;
+    if (codename.length !== 3) return;
 
-    const player = {
-      name: name.trim(),
-      tier: tier.trim(),
-      codename: codename.slice(0, 3).toUpperCase(),
-    };
-    // SEND TO BACKEND
-    console.log(player);
+    await fetch("http://apis.ssdevelopers.xyz/system13/addPlayer", {
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify({
+        realName: name.trim(),
+        score: tier.trim(),
+        codeName: codename.slice(0, 3).toUpperCase(),
+      }),
+    })
+      .then((data) => data.json())
+      .then((data) => console.log(data));
 
     nameRef.current.value = "";
     tierRef.current.value = "";

@@ -1,19 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 import Login from "../components/Account/Login";
 import Players from "../components/Account/Players";
+import { accountActions } from "../context";
 
 const Profile = (props) => {
-  const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
-
-  const DUMMY_USERDATA = {
-    email: "jiratchutrakul@gmail.com",
-    name: "Jirat Chutrakul",
-    accType: "Administrator Account",
-    profilePic:
-      "https://yt3.ggpht.com/ytc/AKedOLQnp52grHdSYHky8B9cw3EqZxTX7kK8grKXmbXY8A=s176-c-k-c0x00ffffff-no-rj",
-  };
+  const userInfo = useSelector((state) => state.userInfo);
+  const dispatch = useDispatch();
 
   return (
     <React.Fragment>
@@ -22,16 +16,18 @@ const Profile = (props) => {
         <section className="account">
           <div className="account__profile">
             <div className="account__profile-con">
-              <img src={DUMMY_USERDATA.profilePic} alt="User" />
+              <img src={userInfo.img} alt="User" />
               <div className="account__profile--text">
-                <h1>{DUMMY_USERDATA.name}</h1>
-                <p>{DUMMY_USERDATA.accType}</p>
+                <h1>
+                  {userInfo.firstName} {userInfo.lastName}
+                </h1>
+                <p>{userInfo.bio}</p>
               </div>
             </div>
             <button
               className="btn"
               onClick={() => {
-                dispatch({ type: "LOGOUT" });
+                dispatch(accountActions.logout());
               }}
             >
               Logout

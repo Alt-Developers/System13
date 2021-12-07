@@ -33,6 +33,93 @@ body {
   color: white;
   list-style: none; }
 
+.account {
+  background-image: linear-gradient(to bottom right, #313131, #dc3d4b);
+  padding: 3rem;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "acc right";
+  gap: 2rem; }
+  .account__profile {
+    background-color: #202020;
+    padding: 3rem;
+    border-radius: 1.1rem;
+    grid-area: "acc";
+    height: fit-content; }
+    .account__profile-con {
+      display: flex;
+      align-items: center;
+      margin-bottom: 3rem; }
+    .account__profile img {
+      border-radius: 50%;
+      height: 20rem;
+      width: 20rem;
+      object-fit: cover; }
+    .account__profile button {
+      width: 100%;
+      margin-top: 2rem; }
+    .account__profile--text {
+      padding-left: 3rem; }
+      .account__profile--text h1 {
+        font-size: 6rem;
+        font-weight: 700; }
+      .account__profile--text p {
+        font-size: 1.7rem; }
+  .account__right {
+    grid-area: "right"; }
+  .account__players {
+    background-color: #202020;
+    border-radius: 1.1rem;
+    padding: 3rem;
+    height: fit-content; }
+    .account__players h2 {
+      font-size: 3rem; }
+    .account__players p {
+      font-size: 1.5rem; }
+  .account__addPlayer {
+    background-color: #303030;
+    border-radius: 1.1rem;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    width: fit-content;
+    height: fit-content;
+    padding: 2rem;
+    position: relative;
+    transition: all 0.2s; }
+    .account__addPlayer input {
+      width: 40%;
+      padding: 1rem;
+      background-color: transparent;
+      color: white;
+      border: 3px rgba(255, 255, 255, 0.4) solid;
+      border-radius: 0.5rem;
+      margin: 1rem; }
+    .account__addPlayer button {
+      background-color: #41e86e;
+      width: 7rem;
+      height: 100%;
+      border: none;
+      position: absolute;
+      border-radius: 0 0.5rem 0.5rem 0;
+      transition: all 0.2s;
+      right: 0;
+      top: 0;
+      color: white;
+      font-size: 4rem; }
+      .account__addPlayer button:hover {
+        width: 10rem; }
+  .account__existing {
+    background-color: #202020;
+    border-radius: 1.1rem;
+    padding: 3rem;
+    height: fit-content;
+    margin-top: 2rem; }
+    .account__existing h2 {
+      font-size: 3rem; }
+    .account__existing p {
+      font-size: 1.5rem; }
+
 .login {
   height: 90vh;
   background-image: linear-gradient(to bottom right, #313131, #dc3d4b);
@@ -101,95 +188,6 @@ body {
       border-radius: 0.2rem; }
       .login-form__signup:hover {
         text-decoration: underline; }
-
-.account {
-  background-image: linear-gradient(to bottom right, #313131, #dc3d4b);
-  padding: 3rem;
-  height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-areas: "acc addPlayer" "acc existing";
-  gap: 2rem; }
-  .account__profile {
-    background-color: #202020;
-    padding: 3rem;
-    border-radius: 1.1rem;
-    grid-area: "acc";
-    height: fit-content; }
-    .account__profile-con {
-      display: flex;
-      align-items: center;
-      margin-bottom: 3rem; }
-    .account__profile img {
-      border-radius: 50%;
-      height: 20rem;
-      width: auto; }
-    .account__profile button {
-      width: 100%;
-      margin-top: 2rem; }
-    .account__profile--text {
-      padding-left: 3rem; }
-      .account__profile--text h1 {
-        font-size: 6rem;
-        font-weight: 700; }
-      .account__profile--text p {
-        font-size: 1.7rem; }
-  .account__right {
-    grid-area: "addPlayer"; }
-  .account__players {
-    background-color: #202020;
-    border-radius: 1.1rem;
-    padding: 3rem;
-    height: fit-content; }
-    .account__players h2 {
-      font-size: 3rem; }
-    .account__players p {
-      font-size: 1.5rem; }
-  .account__addPlayer {
-    background-color: #303030;
-    border-radius: 1.1rem;
-    margin-top: 1rem;
-    margin-bottom: 2rem;
-    width: fit-content;
-    height: fit-content;
-    padding: 2rem;
-    position: relative;
-    transition: all 0.2s; }
-    .account__addPlayer input {
-      width: 40%;
-      padding: 1rem;
-      background-color: transparent;
-      color: white;
-      border: 3px rgba(255, 255, 255, 0.4) solid;
-      border-radius: 0.5rem;
-      margin: 1rem; }
-    .account__addPlayer button {
-      background-color: #41e86e;
-      width: 7rem;
-      height: 100%;
-      border: none;
-      position: absolute;
-      border-radius: 0 0.5rem 0.5rem 0;
-      transition: all 0.2s;
-      right: 0;
-      top: 0;
-      color: white;
-      font-size: 4rem; }
-      .account__addPlayer button:hover {
-        width: 10rem; }
-  .account__existing {
-    background-color: #202020;
-    border-radius: 1.1rem;
-    padding: 3rem;
-    height: fit-content;
-    margin-top: 2rem; }
-    .account__existing h2 {
-      font-size: 3rem; }
-    .account__existing p {
-      font-size: 1.5rem; }
-
-.notValid {
-  animation: shake 0.7s cubic-bezier(0.36, 0.07, 0.19, 0.97) both; }
 
 .learn-more h3 {
   font-size: 5rem;

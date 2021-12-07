@@ -1,23 +1,20 @@
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
+import { accountActions } from "../../context";
 import { useState, useEffect } from "react";
 
 const Login = (props) => {
-  const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
+  const dispatch = useDispatch();
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
   const [canSubmit, setCanSubmit] = useState(false);
 
   const loginSubmitHandler = async (event) => {
     event.preventDefault();
-    // const validPassword = enteredPassword.test(
-    //   // Minimum eight characters, at least one letter and one number
-    //   /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/g
-    // );
+
     if (enteredEmail !== "" && enteredPassword !== "") {
-      // UNFINISHED CODE || DEBUGGING
       await fetch("https://apis.ssdevelopers.xyz/auth/login", {
         method: "POST",
         headers: {
@@ -30,11 +27,19 @@ const Login = (props) => {
       })
         .then((data) => data.json())
         .then((data) => {
-          if (data.message === "you have successfully logged in") {
-            dispatch({ type: "LOGIN" });
+          console.log(data);
+          if (data.status === "LOGGEDIN") {
+            dispatch(
+              accountActions.login({
+                firstName: data.firstName,
+                lastName: data.lastName,
+                email: data.email,
+                img: data.img,
+                bio: data.bio,
+              })
+            );
           }
         });
-      ////////////////////////////
     } else {
     }
   };
