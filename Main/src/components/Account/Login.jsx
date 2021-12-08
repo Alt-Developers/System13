@@ -74,6 +74,7 @@ const Login = (props) => {
           <h1>Log In to SS Account</h1>
           <p>To unlock more features for System13</p>
         </div>
+
         <form className="login-form" onSubmit={loginSubmitHandler}>
           <input
             type="email"

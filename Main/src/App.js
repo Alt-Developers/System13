@@ -7,6 +7,7 @@ import System13 from "./pages/System13";
 import Github from "./pages/Github";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
+import Signup from "./components/Account/Signup";
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
       </Route>
       <Route path="/profile">
         <Profile />
+      </Route>
+      <Route path="/signup">
+        <Signup />
       </Route>
 
       <Footer />

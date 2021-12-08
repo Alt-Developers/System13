@@ -144,6 +144,7 @@ body {
   .login-form {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     gap: 2rem; }
     .login-form input {
       width: 40%;
@@ -188,6 +189,11 @@ body {
       border-radius: 0.2rem; }
       .login-form__signup:hover {
         text-decoration: underline; }
+
+.break {
+  flex-basis: 100%;
+  height: 0;
+  width: 50rem; }
 
 .learn-more h3 {
   font-size: 5rem;
