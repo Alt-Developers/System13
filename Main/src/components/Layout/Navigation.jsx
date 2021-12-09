@@ -18,7 +18,7 @@ const Navigation = () => {
           curRoute.pathname === "/home" ? "active" : ""
         }`}
       >
-        <NavLink to="/home" className="u-remove-a-eff">
+        <NavLink to="/" className="u-remove-a-eff">
           Home
         </NavLink>
       </div>

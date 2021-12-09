@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Route } from "react-router-dom";
+import { Route, Routes, Redirect } from "react-router-dom";
 
 import Navigation from "./components/Layout/Navigation";
 import Footer from "./components/Layout/Footer";
@@ -13,23 +13,13 @@ function App() {
   return (
     <Fragment>
       <Navigation />
-
-      <Route path="/home">
-        <Home />
-      </Route>
-      <Route path="/system">
-        <System13 />
-      </Route>
-      <Route path="/github">
-        <Github />
-      </Route>
-      <Route path="/profile">
-        <Profile />
-      </Route>
-      <Route path="/signup">
-        <Signup />
-      </Route>
-
+        <Routes>
+          <Route path="/" exact element={<Home />} />
+          <Route path="system" element={<System13 />} />
+          <Route path="github" element={<Github />} />
+          <Route path="profile" element={<Profile />} />
+          <Route path="signup" element={<Signup />} />
+        </Routes>
       <Footer />
     </Fragment>
   );

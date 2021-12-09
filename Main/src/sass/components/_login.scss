@@ -19,7 +19,13 @@
     height: 60vh;
     width: 60vw;
     padding: 3rem;
-    overflow: hidden;
+    overflow: scroll;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      width: 0;  /* Remove scrollbar space */
+      background: transparent;  /* Optional: just make scrollbar invisible */
+  }
   }
 
   &-text {

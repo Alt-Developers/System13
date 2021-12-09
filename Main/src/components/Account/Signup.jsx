@@ -1,12 +1,12 @@
 import { Formik, Form, Field } from "formik";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import { NavLink, useHistory } from "react-router-dom";
+import { NavLink, useNavigate  } from "react-router-dom";
 
 const Signup = (props) => {
   const [canSubmit, setCanSubmit] = useState(false);
   const [image, setImage] = useState();
-  const routeHistory = useHistory();
+  const routeHistory = useNavigate();
 
   return (
     <div className="login">

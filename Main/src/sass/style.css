@@ -139,7 +139,13 @@ body {
     height: 60vh;
     width: 60vw;
     padding: 3rem;
-    overflow: hidden; }
+    overflow: scroll;
+    overflow-y: scroll; }
+    .login-con::-webkit-scrollbar {
+      width: 0;
+      /* Remove scrollbar space */
+      background: transparent;
+      /* Optional: just make scrollbar invisible */ }
   .login-text h1 {
     font-size: 4rem; }
   .login-text p {
