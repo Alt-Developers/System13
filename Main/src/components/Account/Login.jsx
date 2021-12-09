@@ -81,12 +81,14 @@ const Login = (props) => {
             value={enteredEmail}
             onChange={emailInputHandler}
             placeholder="email"
+            className="login-form__input"
           />
           <input
             type="password"
             value={enteredPassword}
             placeholder="password"
             onChange={passwordInputHandler}
+            className="login-form__input"
           />
           <NavLink to="/signup" className="u-remove-a-eff login-form__signup">
             Don't have an account?
