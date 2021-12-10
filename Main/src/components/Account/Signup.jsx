@@ -9,10 +9,10 @@ const Signup = (props) => {
   const routeHistory = useNavigate();
 
   return (
-    <div className="login">
-      <motion.section className="login-con">
-        <div className="login-left">
-          <div className="login-text">
+    <div className="signup">
+      <motion.section className="signup-con">
+        <div className="signup-left">
+          <div className="signup-text">
             <h1>Create your SS Account</h1>
             <p>To unlock more features for System13</p>
           </div>
@@ -46,7 +46,6 @@ const Signup = (props) => {
                 signupData.append("email", values.email);
                 signupData.append("pass", values.password);
                 signupData.append("image", image);
-                console.log("Not imaged");
 
                 await fetch("https://apis.ssdevelopers.xyz/auth/signup", {
                   method: "POST",
@@ -62,40 +61,40 @@ const Signup = (props) => {
             }}
           >
             {({ isSubmitting }) => (
-              <Form className="login-form">
-                <div className="login-formWrapper">
+              <Form className="signup-form">
+                <div className="signup-formWrapper">
                   <Field
                     type="text"
                     name="firstname"
                     placeholder="firstname"
-                    className="login-form__input"
+                    className="signup-form__input"
                   />
                   <Field
                     type="text"
                     name="lastname"
                     placeholder="lastname"
-                    className="login-form__input"
+                    className="signup-form__input"
                   />
                   <Field
                     type="text"
                     name="email"
                     placeholder="email"
-                    className="login-form__input"
+                    className="signup-form__input"
                   />
                   <Field
                     type="password"
                     name="password"
                     placeholder="password"
-                    className="login-form__input"
+                    className="signup-form__input"
                   />
                   <NavLink
                     to="/login"
-                    className="u-remove-a-eff login-form__signup"
+                    className="u-remove-a-eff signup-form__signup"
                   >
                     Already have an account?
                   </NavLink>
                 </div>
-                <button className="login-form__imgWrapper">
+                <button className="signup-form__imgWrapper">
                   {!image && <i className="bx bx-image-add"></i>}
                   {image && (
                     <img
@@ -113,7 +112,7 @@ const Signup = (props) => {
                     onChange={(event) => {
                       setImage(event.currentTarget.files[0]);
                     }}
-                    className="login-form__img"
+                    className="signup-form__img"
                   />
                 </button>
 

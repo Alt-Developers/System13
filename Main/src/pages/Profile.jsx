@@ -42,6 +42,10 @@ const Profile = (props) => {
             <div className="account__existing">
               <h2>Existing Players</h2>
               <p>In your account</p>
+              <ul className="account__existing--list">
+                <li><h3 style={{fontWeight : "600", fontSize : "1.7rem"}}>Name &#8212; Codename</h3><h2 style={{fontWeight : "600" , fontSize : "1.7rem"}}>Tier</h2></li>
+                <li><h3>Bogie</h3><h2>4</h2></li>
+              </ul>
             </div>
           </div>
         </section>

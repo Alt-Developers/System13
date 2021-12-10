@@ -36,22 +36,6 @@ const System13 = function (props) {
           }
         />
       </section>
-      {/* <section className="info">
-        <div className="info-con">
-          <div className="info-con__addPlayers">
-            <h1>Want to add players?</h1>
-          </div>
-          <div className="info-con__addPlayers">
-            <h1>Want to add players?</h1>
-          </div>
-          <div className="info-con__addPlayers">
-            <h1>Want to add players?</h1>
-          </div>
-          <div className="info-con__addPlayers">
-            <h1>Want to add players?</h1>
-          </div>
-        </div>
-      </section> */}
     </React.Fragment>
   );
 };
