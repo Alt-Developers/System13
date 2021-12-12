@@ -63,6 +63,9 @@
   }
   &__4 {
     grid-area: "4";
+    display: grid;
+    align-self: center;
+
     & > {
       transition: all 0.2s;
     }

@@ -13,13 +13,13 @@ function App() {
   return (
     <Fragment>
       <Navigation />
-        <Routes>
-          <Route path="/" exact element={<Home />} />
-          <Route path="system" element={<System13 />} />
-          <Route path="github" element={<Github />} />
-          <Route path="profile" element={<Profile />} />
-          <Route path="signup" element={<Signup />} />
-        </Routes>
+      <Routes>
+        <Route path="/" exact element={<Home />} />
+        <Route path="system" element={<System13 />} />
+        <Route path="github" element={<Github />} />
+        <Route path="profile" element={<Profile />} />
+        <Route path="signup" element={<Signup />} />
+      </Routes>
       <Footer />
     </Fragment>
   );

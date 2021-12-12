@@ -1,16 +1,55 @@
 import { Formik, Form, Field } from "formik";
 import { motion } from "framer-motion";
+import { useRef } from "react";
 import { useState } from "react";
-import { NavLink, useNavigate  } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const Signup = (props) => {
   const [canSubmit, setCanSubmit] = useState(false);
-  const [image, setImage] = useState();
+  const [image, setImage] = useState(null);
   const routeHistory = useNavigate();
+  const submitRef = useRef();
+  const curRoute = useLocation();
+
+  const sendReq = async (values) => {
+    if (canSubmit) {
+      const signupData = new FormData();
+
+      if (image) {
+        signupData.append("firstName", values.firstname);
+        signupData.append("lastName", values.lastname);
+        signupData.append("email", values.email);
+        signupData.append("pass", values.password);
+        signupData.append("image", image);
+      } else {
+        signupData.append("firstName", values.firstname);
+        signupData.append("lastName", values.lastname);
+        signupData.append("email", values.email);
+        signupData.append("pass", values.password);
+      }
+
+      // DANGEROUS CODE //
+      await fetch("https://apis.ssdevelopers.xyz/auth/signup", {
+        method: "POST",
+        body: signupData,
+      }).then((res) => {
+        if (res.status === "200") {
+          routeHistory.push("/login");
+          submitRef.current.blur();
+        }
+      });
+      //////////////////
+    }
+  };
 
   return (
-    <div className="signup">
-      <motion.section className="signup-con">
+    <motion.div
+      className="signup"
+      initial={{ opacity: 0, x: -5 }}
+      animate={{ opacity: 1, x: 0 }}
+    >
+      <section className="signup-con">
         <div className="signup-left">
           <div className="signup-text">
             <h1>Create your SS Account</h1>
@@ -37,27 +76,10 @@ const Signup = (props) => {
                 setCanSubmit(true);
               }
             }}
-            onSubmit={async (values, { setSubmitting }) => {
-              if (canSubmit) {
-                const signupData = new FormData();
-
-                signupData.append("firstName", values.firstname);
-                signupData.append("lastName", values.lastname);
-                signupData.append("email", values.email);
-                signupData.append("pass", values.password);
-                signupData.append("image", image);
-
-                await fetch("https://apis.ssdevelopers.xyz/auth/signup", {
-                  method: "POST",
-                  body: signupData,
-                }).then((res) => {
-                  if (res.status === "200") {
-                    routeHistory.push("/login");
-                  }
-                });
-              }
-
-              setSubmitting(false);
+            onSubmit={(values, { setSubmitting }) => {
+              sendReq(values);
+              console.log("SUBMITTED");
+              curRoute.push("/profile");
             }}
           >
             {({ isSubmitting }) => (
@@ -88,13 +110,13 @@ const Signup = (props) => {
                     className="signup-form__input"
                   />
                   <NavLink
-                    to="/login"
+                    to="/profile"
                     className="u-remove-a-eff signup-form__signup"
                   >
                     Already have an account?
                   </NavLink>
                 </div>
-                <button className="signup-form__imgWrapper">
+                <button className="signup-form__imgWrapper" type="button">
                   {!image && <i className="bx bx-image-add"></i>}
                   {image && (
                     <img
@@ -122,6 +144,7 @@ const Signup = (props) => {
                     canSubmit ? "login-form__submit" : "login-form__cantSubmit"
                   }`}
                   disabled={isSubmitting}
+                  ref={submitRef}
                 >
                   &raquo;
                 </button>
@@ -129,8 +152,8 @@ const Signup = (props) => {
             )}
           </Formik>
         </div>
-      </motion.section>
-    </div>
+      </section>
+    </motion.div>
   );
 };
 

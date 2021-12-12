@@ -1,20 +1,25 @@
+import { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch /* useSelector */ } from "react-redux";
+import { SpinnerCircularSplit } from "spinners-react";
+
 import { accountActions } from "../../context";
-import { useState, useEffect } from "react";
 
 const Login = (props) => {
-  const isLoggedIn = useSelector((state) => state.isLoggedIn);
+  // const isLoggedIn = useSelector((state) => state.isLoggedIn);
   const dispatch = useDispatch();
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
   const [canSubmit, setCanSubmit] = useState(false);
+  const [isLoading, setIsLoading] = useState(null);
+  const submitRef = useRef();
 
   const loginSubmitHandler = async (event) => {
     event.preventDefault();
 
     if (enteredEmail !== "" && enteredPassword !== "") {
+      setIsLoading(true);
       await fetch("https://apis.ssdevelopers.xyz/auth/login", {
         method: "POST",
         headers: {
@@ -25,22 +30,37 @@ const Login = (props) => {
           pass: enteredPassword,
         }),
       })
+        .then((data) => {
+          switch (data.status) {
+            case 521:
+              throw new Error("Server is down");
+            case 401:
+              throw new Error("Not authenticated");
+            case 403:
+              throw new Error("Not authorized");
+            default:
+              return data;
+          }
+        })
         .then((data) => data.json())
         .then((data) => {
           console.log(data);
-          if (data.status === "LOGGEDIN") {
-            dispatch(
-              accountActions.login({
-                firstName: data.firstName,
-                lastName: data.lastName,
-                email: data.email,
-                img: data.img,
-                bio: data.bio,
-              })
-            );
-          }
+          dispatch(
+            accountActions.login({
+              token: data.token,
+              firstName: data.firstName,
+              lastName: data.lastName,
+              email: data.email,
+              img: `https://apis.ssdevelopers.xyz/${data.img}`,
+            })
+          );
+        })
+        .catch((err) => {
+          // Display some error message
+          console.log(err);
+          submitRef.current.blur();
+          setIsLoading(false);
         });
-    } else {
     }
   };
 
@@ -60,13 +80,21 @@ const Login = (props) => {
   }, [enteredEmail, enteredPassword]);
 
   return (
-    <div className="login">
+    <motion.div
+      className="login"
+      initial={{ opacity: 0, x: -5 }}
+      animate={{ opacity: 1, x: 0 }}
+    >
       <motion.section
-        className="login-con"
+        className={`login-con`}
+        initial={{ x: "-50%", y: "-50%" }}
         animate={
-          isLoggedIn
-            ? { opacity: 0, x: "-60%", y: "-50%" }
-            : { opacity: 1, x: "-50%", y: "-50%" }
+          !isLoading && isLoading !== null
+            ? {
+                x: ["-40%", "-60%", "-45%", "-55%", "-50%"],
+                y: "-50%",
+              }
+            : { x: "-50%", y: "-50%" }
         }
         transition={{ ease: "easeOut", duration: 0.3 }}
       >
@@ -99,12 +127,16 @@ const Login = (props) => {
               canSubmit ? "login-form__submit" : "login-form__cantSubmit"
             }`}
             disabled={!canSubmit}
+            ref={submitRef}
           >
-            &raquo;
+            {!isLoading && <>&raquo;</>}
+            {isLoading && (
+              <SpinnerCircularSplit color="#fff" thickness="150" speed="150" />
+            )}
           </motion.button>
         </form>
       </motion.section>
-    </div>
+    </motion.div>
   );
 };
 

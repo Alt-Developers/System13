@@ -1,22 +1,23 @@
 import { createSlice, configureStore } from "@reduxjs/toolkit";
 
-const initialState = {
+const initialAccountState = {
   isLoggedIn: false,
   userInfo: {
     firstName: "",
     lastName: "",
     email: "",
-    img: "",
-    bio: "",
+    img: "Main/src/assets/img/defaultProfile.jpg",
+    token: "",
   },
 };
 const accountSlice = createSlice({
   name: "account",
-  initialState,
+  initialState: initialAccountState,
   reducers: {
     login(state, action) {
       state.isLoggedIn = true;
       state.userInfo = action.payload;
+      localStorage.setItem("accToken", state.userInfo.token);
 
       if (state.userInfo.lastName.length > 7) {
         const shortLastName = state.userInfo.lastName.slice(0, 2);
@@ -26,7 +27,9 @@ const accountSlice = createSlice({
     },
     logout(state) {
       state.isLoggedIn = false;
-      state.userInfo = initialState.userInfo;
+      state.userInfo = initialAccountState.userInfo;
+
+      localStorage.removeItem("accToken");
     },
   },
 });

@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import Login from "../components/Account/Login";
 import Players from "../components/Account/Players";
 import { accountActions } from "../context";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Profile = (props) => {
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
@@ -10,10 +11,14 @@ const Profile = (props) => {
   const dispatch = useDispatch();
 
   return (
-    <React.Fragment>
+    <AnimatePresence>
       {!isLoggedIn && <Login />}
       {isLoggedIn && (
-        <section className="account">
+        <motion.section
+          className="account"
+          initial={{ opacity: 0, x: -5 }}
+          animate={{ opacity: 1, x: 0 }}
+        >
           <div className="account__profile">
             <div className="account__profile-con">
               <img src={userInfo.img} alt="User" />
@@ -21,7 +26,7 @@ const Profile = (props) => {
                 <h1>
                   {userInfo.firstName} {userInfo.lastName}
                 </h1>
-                <p>{userInfo.bio}</p>
+                <p>SS Account</p>
               </div>
             </div>
             <button
@@ -43,14 +48,24 @@ const Profile = (props) => {
               <h2>Existing Players</h2>
               <p>In your account</p>
               <ul className="account__existing--list">
-                <li><h3 style={{fontWeight : "600", fontSize : "1.7rem"}}>Name &#8212; Codename</h3><h2 style={{fontWeight : "600" , fontSize : "1.7rem"}}>Tier</h2></li>
-                <li><h3>Bogie</h3><h2>4</h2></li>
+                <li>
+                  <h3 style={{ fontWeight: "600", fontSize: "1.7rem" }}>
+                    Name &#8212; Codename
+                  </h3>
+                  <h2 style={{ fontWeight: "600", fontSize: "1.7rem" }}>
+                    Tier
+                  </h2>
+                </li>
+                <li>
+                  <h3>Bogie</h3>
+                  <h2>4</h2>
+                </li>
               </ul>
             </div>
           </div>
-        </section>
+        </motion.section>
       )}
-    </React.Fragment>
+    </AnimatePresence>
   );
 };
 
