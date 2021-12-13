@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { Route, Routes, Redirect } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 
 import Navigation from "./components/Layout/Navigation";
 import Footer from "./components/Layout/Footer";
@@ -8,6 +8,7 @@ import Github from "./pages/Github";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Signup from "./components/Account/Signup";
+import Starting from "./components/System13/Starting";
 
 function App() {
   return (

@@ -4,42 +4,36 @@ import { useRef } from "react";
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import { SpinnerCircularSplit } from "spinners-react";
 
 const Signup = (props) => {
   const [canSubmit, setCanSubmit] = useState(false);
   const [image, setImage] = useState(null);
-  const routeHistory = useNavigate();
+  const navigate = useNavigate();
   const submitRef = useRef();
   const curRoute = useLocation();
+  const [isLoading, setIsLoading] = useState(null);
 
   const sendReq = async (values) => {
     if (canSubmit) {
+      setIsLoading(true);
       const signupData = new FormData();
-
+      signupData.append("firstName", values.firstname);
+      signupData.append("lastName", values.lastname);
+      signupData.append("email", values.email);
+      signupData.append("pass", values.password);
       if (image) {
-        signupData.append("firstName", values.firstname);
-        signupData.append("lastName", values.lastname);
-        signupData.append("email", values.email);
-        signupData.append("pass", values.password);
         signupData.append("image", image);
-      } else {
-        signupData.append("firstName", values.firstname);
-        signupData.append("lastName", values.lastname);
-        signupData.append("email", values.email);
-        signupData.append("pass", values.password);
       }
 
-      // DANGEROUS CODE //
       await fetch("https://apis.ssdevelopers.xyz/auth/signup", {
         method: "POST",
         body: signupData,
-      }).then((res) => {
-        if (res.status === "200") {
-          routeHistory.push("/login");
-          submitRef.current.blur();
-        }
       });
-      //////////////////
+      // UNFINISHED : Existing account validation
+
+      navigate("../profile");
+      setIsLoading(false);
     }
   };
 
@@ -111,7 +105,7 @@ const Signup = (props) => {
                   />
                   <NavLink
                     to="/profile"
-                    className="u-remove-a-eff signup-form__signup"
+                    className="u-remove-a-eff login-form__signup"
                   >
                     Already have an account?
                   </NavLink>
@@ -146,7 +140,14 @@ const Signup = (props) => {
                   disabled={isSubmitting}
                   ref={submitRef}
                 >
-                  &raquo;
+                  {!isLoading && <>&raquo;</>}
+                  {isLoading && (
+                    <SpinnerCircularSplit
+                      color="#fff"
+                      thickness="150"
+                      speed="150"
+                    />
+                  )}
                 </button>
               </Form>
             )}

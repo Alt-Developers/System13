@@ -254,163 +254,6 @@ body {
   border-radius: 1.1rem;
   object-fit: cover; }
 
-.learn-more h3 {
-  font-size: 5rem;
-  margin-bottom: 2rem; }
-
-.learn-more p {
-  font-size: 2rem; }
-
-.learn-more__odd {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 5rem;
-  grid-template-areas: "big1 p1";
-  padding: 4rem 4rem 4rem 4rem; }
-  .learn-more__odd img {
-    border-radius: 1.1rem;
-    width: 100%; }
-  .learn-more__odd .big1 {
-    grid-area: big1; }
-  .learn-more__odd .p1 {
-    padding-top: 3rem;
-    grid-area: p1; }
-
-.learn-more__even {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 5rem;
-  grid-template-areas: "p2 big2";
-  background-color: #404040;
-  padding: 4rem 4rem 4rem 4rem; }
-  .learn-more__even img {
-    border-radius: 1.1rem;
-    width: 100%; }
-  .learn-more__even .big2 {
-    grid-area: big2; }
-  .learn-more__even .p2 {
-    padding-top: 3rem;
-    grid-area: p2; }
-
-.btn {
-  color: #fff;
-  text-decoration: none;
-  background-color: #404040;
-  border: none;
-  width: 40rem;
-  height: 5rem;
-  border-radius: 1.1rem;
-  margin-top: 5rem;
-  transition: all 0.4s; }
-  .btn:hover {
-    color: #272727;
-    background-color: #fff;
-    transform: scale(1.05);
-    box-shadow: white 0px 0px 10px; }
-  .btn:active {
-    box-shadow: black 0px 0px 10px;
-    transform: scale(0.9); }
-
-.dark-btn {
-  background-color: #202020; }
-
-.hidden {
-  display: none; }
-
-.modal {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 55%;
-  background-color: #101010;
-  padding: 6rem;
-  border-radius: 1.1rem;
-  z-index: 10;
-  text-align: left; }
-  .modal__img {
-    position: absolute;
-    top: 17%;
-    right: 10%;
-    width: 25%;
-    height: 70%; }
-  .modal h3 {
-    font-size: 4rem;
-    color: #fa4454;
-    padding-bottom: 2rem; }
-  .modal p {
-    font-size: 2rem; }
-
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 9;
-  overflow: hidden; }
-
-.show-modal {
-  visibility: visible;
-  opacity: 1; }
-
-.other {
-  padding: 1rem;
-  margin: 3rem 5rem 3rem 3rem; }
-  .other h1 {
-    font-size: 5rem;
-    padding-bottom: 3rem; }
-  .other__List {
-    height: 60vh;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 0.7fr;
-    grid-template-areas: "Portal DevNews League";
-    grid-gap: 2rem; }
-    .other__List--Portal {
-      grid-area: Portal;
-      background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../assets/img/valorantOther.png");
-      transition: all 0.3s;
-      border-radius: 1.1rem;
-      padding: 2.5rem; }
-      .other__List--Portal:hover {
-        transform: scale(1.03); }
-      .other__List--Portal h3 {
-        font-size: 5rem; }
-      .other__List--Portal p {
-        font-size: 1.5rem; }
-    .other__List--DevNews {
-      grid-area: DevNews;
-      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../assets/img/developerAtNight.jpg");
-      border-radius: 1.1rem;
-      background-size: cover;
-      background-position-x: 100;
-      transition: all 0.3s;
-      border-radius: 1.1rem;
-      padding: 2.5rem; }
-      .other__List--DevNews:hover {
-        transform: scale(1.03); }
-      .other__List--DevNews h3 {
-        font-size: 5rem; }
-      .other__List--DevNews p {
-        font-size: 1.5rem; }
-    .other__List--ValoLeague {
-      grid-area: League;
-      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../assets/img/jett.jpg");
-      border-radius: 1.1rem;
-      background-size: 100%;
-      background-position-y: 50;
-      transition: all 0.3s;
-      border-radius: 1.1rem;
-      padding: 2.5rem; }
-      .other__List--ValoLeague:hover {
-        transform: scale(1.03); }
-      .other__List--ValoLeague h3 {
-        font-size: 5rem; }
-      .other__List--ValoLeague p {
-        font-size: 1.5rem; }
-
 .signup {
   height: 90vh;
   background-image: linear-gradient(to bottom right, #313131, #dc3d4b);
@@ -521,6 +364,134 @@ body {
 .previewImg {
   border-radius: 1.1rem;
   object-fit: cover; }
+
+.starting {
+  height: 100vh;
+  margin: 5rem;
+  border-radius: 2rem;
+  background-color: #202020;
+  padding: 3rem; }
+  .starting h1 {
+    font-size: 6rem; }
+  .starting h3 {
+    font-size: 4rem;
+    font-weight: 500; }
+
+.learn-more h3 {
+  font-size: 5rem;
+  margin-bottom: 2rem; }
+
+.learn-more p {
+  font-size: 2rem; }
+
+.learn-more__odd {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5rem;
+  grid-template-areas: "big1 p1";
+  padding: 4rem 4rem 4rem 4rem; }
+  .learn-more__odd img {
+    border-radius: 1.1rem;
+    width: 100%; }
+  .learn-more__odd .big1 {
+    grid-area: big1; }
+  .learn-more__odd .p1 {
+    padding-top: 3rem;
+    grid-area: p1; }
+
+.learn-more__even {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 5rem;
+  grid-template-areas: "p2 big2";
+  background-color: #404040;
+  padding: 4rem 4rem 4rem 4rem; }
+  .learn-more__even img {
+    border-radius: 1.1rem;
+    width: 100%; }
+  .learn-more__even .big2 {
+    grid-area: big2; }
+  .learn-more__even .p2 {
+    padding-top: 3rem;
+    grid-area: p2; }
+
+.btn {
+  color: #fff;
+  text-decoration: none;
+  background-color: #404040;
+  border: none;
+  width: 40rem;
+  height: 5rem;
+  border-radius: 1.1rem;
+  margin-top: 5rem;
+  transition: all 0.4s; }
+  .btn:hover {
+    color: #272727;
+    background-color: #fff;
+    transform: scale(1.05);
+    box-shadow: white 0px 0px 10px; }
+  .btn:active {
+    box-shadow: black 0px 0px 10px;
+    transform: scale(0.9); }
+
+.dark-btn {
+  background-color: #202020; }
+
+.other {
+  padding: 1rem;
+  margin: 3rem 5rem 3rem 3rem; }
+  .other h1 {
+    font-size: 5rem;
+    padding-bottom: 3rem; }
+  .other__List {
+    height: 60vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 0.7fr;
+    grid-template-areas: "Portal DevNews League";
+    grid-gap: 2rem; }
+    .other__List--Portal {
+      grid-area: Portal;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../assets/img/valorantOther.png");
+      transition: all 0.3s;
+      border-radius: 1.1rem;
+      padding: 2.5rem; }
+      .other__List--Portal:hover {
+        transform: scale(1.03); }
+      .other__List--Portal h3 {
+        font-size: 5rem; }
+      .other__List--Portal p {
+        font-size: 1.5rem; }
+    .other__List--DevNews {
+      grid-area: DevNews;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../assets/img/developerAtNight.jpg");
+      border-radius: 1.1rem;
+      background-size: cover;
+      background-position-x: 100;
+      transition: all 0.3s;
+      border-radius: 1.1rem;
+      padding: 2.5rem; }
+      .other__List--DevNews:hover {
+        transform: scale(1.03); }
+      .other__List--DevNews h3 {
+        font-size: 5rem; }
+      .other__List--DevNews p {
+        font-size: 1.5rem; }
+    .other__List--ValoLeague {
+      grid-area: League;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../assets/img/jett.jpg");
+      border-radius: 1.1rem;
+      background-size: 100%;
+      background-position-y: 50;
+      transition: all 0.3s;
+      border-radius: 1.1rem;
+      padding: 2.5rem; }
+      .other__List--ValoLeague:hover {
+        transform: scale(1.03); }
+      .other__List--ValoLeague h3 {
+        font-size: 5rem; }
+      .other__List--ValoLeague p {
+        font-size: 1.5rem; }
 
 .hero {
   text-align: center;
@@ -649,6 +620,21 @@ footer {
 
 .dark-footer {
   background-color: #202020; }
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  padding: 0 0 2rem 0;
+  border-radius: 1.1rem;
+  overflow: hidden;
+  background-color: #202020;
+  height: 30rem;
+  width: fit-content; }
+  .modal__header {
+    font-size: 3rem;
+    padding: 2rem;
+    background-color: #fa4454; }
 
 .pdf-embedded {
   width: 100%;

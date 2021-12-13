@@ -10,17 +10,18 @@
 @import "base/typography";
 @import "base/utilities";
 
-@import "components/account";
-@import "components/login";
+@import "components/Account/account";
+@import "components/Account/login";
+@import "components/Account/signup";
+@import "components/System13/Starting";
 @import "components/learnmore";
 @import "components/button";
-@import "components/modal";
 @import "components/other";
-@import "components/signup";
 
 @import "layout/header";
 @import "layout/navigation";
 @import "layout/footer";
+@import "layout/modal";
 
 @import "pages/docs";
 @import "pages/system";

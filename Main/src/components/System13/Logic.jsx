@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
 // import { FullNamesList, playerList } from "./Constants";
 import Modal from "../Layout/Modal.jsx";
@@ -24,7 +24,6 @@ const Logic = (props) => {
   const [playerScoreData, setPlayerScoreData] = useState();
 
   const userInfo = useSelector((state) => state.userInfo);
-  const dispatch = useDispatch();
 
   const display = (resultArr, score) => {
     const newScore = [];

@@ -1,13 +1,12 @@
 import { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useDispatch /* useSelector */ } from "react-redux";
+import { useDispatch } from "react-redux";
 import { SpinnerCircularSplit } from "spinners-react";
 
 import { accountActions } from "../../context";
 
 const Login = (props) => {
-  // const isLoggedIn = useSelector((state) => state.isLoggedIn);
   const dispatch = useDispatch();
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
@@ -44,7 +43,6 @@ const Login = (props) => {
         })
         .then((data) => data.json())
         .then((data) => {
-          console.log(data);
           dispatch(
             accountActions.login({
               token: data.token,
@@ -56,8 +54,6 @@ const Login = (props) => {
           );
         })
         .catch((err) => {
-          // Display some error message
-          console.log(err);
           submitRef.current.blur();
           setIsLoading(false);
         });

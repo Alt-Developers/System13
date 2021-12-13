@@ -1,12 +1,10 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import { NavLink, useLocation } from "react-router-dom";
 import systemLogo from "../../assets/img/systemLogo.png";
 import "../../sass/style.css";
 
 const Navigation = () => {
   const curRoute = useLocation();
-  const userInfo = useSelector((state) => state.userInfo);
 
   return (
     <nav className="nav">
