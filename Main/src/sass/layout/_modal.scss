@@ -1,8 +1,7 @@
 .modal {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: 25vh;
+  left: 23vw;
   padding: 0 0 2rem 0;
   border-radius: 1.1rem;
   overflow: hidden;
@@ -29,13 +28,26 @@
     font-size: 2rem;
   }
 
-  button,
-  a {
+  button {
     position: absolute;
     bottom: 2rem;
     right: 2rem;
     width: 20rem;
     background-color: $gray-dark-1;
+  }
+
+  &__link {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    width: 20rem;
+    background-color: $gray-dark-1;
+
+    p {
+      font-size: 1rem;
+      justify-content: center;
+      text-align: center;
+    }
   }
 }
 

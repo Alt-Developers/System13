@@ -19,6 +19,7 @@ const modalSlice = createSlice({
   reducers: {
     close(state) {
       state.isOpen = false;
+      state.info.button = false;
       state.info.navlink = { to: null, text: "Okay..." };
     },
     open(state, action) {
@@ -77,7 +78,7 @@ const modalSlice = createSlice({
         case "notLoggedIn":
           state.info.header = "Please login to SS Account";
           state.info.text = "Login to your SS account to unlock System13";
-          state.info.navlink = { to: "/profile", text: "Okay..." };
+          state.info.navlink = { to: "/profile", text: "Login" };
           break;
         // Reminder modal
         default:
