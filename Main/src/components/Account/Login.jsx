@@ -1,62 +1,44 @@
 import { useState, useEffect, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { SpinnerCircularSplit } from "spinners-react";
 
-import { accountActions } from "../../context";
+import { authenticateAccount } from "../../context/authenticateActions";
 
 const Login = (props) => {
   const dispatch = useDispatch();
+  const failedAuth = useSelector((state) => state.account.failedAuth);
+
   const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
   const [canSubmit, setCanSubmit] = useState(false);
   const [isLoading, setIsLoading] = useState(null);
+
   const submitRef = useRef();
+
+  useEffect(() => {
+    if (failedAuth) {
+      submitRef.current.blur();
+      setIsLoading(false);
+    }
+  }, [failedAuth]);
+
+  useEffect(() => {
+    if (enteredEmail !== "" && enteredPassword !== "") {
+      setCanSubmit(true);
+    } else {
+      setCanSubmit(false);
+    }
+  }, [enteredEmail, enteredPassword]);
 
   const loginSubmitHandler = async (event) => {
     event.preventDefault();
-
     if (enteredEmail !== "" && enteredPassword !== "") {
       setIsLoading(true);
-      await fetch("https://apis.ssdevelopers.xyz/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({
-          email: enteredEmail.trim(),
-          pass: enteredPassword,
-        }),
-      })
-        .then((data) => {
-          switch (data.status) {
-            case 521:
-              throw new Error("Server is down");
-            case 401:
-              throw new Error("Not authenticated");
-            case 403:
-              throw new Error("Not authorized");
-            default:
-              return data;
-          }
-        })
-        .then((data) => data.json())
-        .then((data) => {
-          dispatch(
-            accountActions.login({
-              token: data.token,
-              firstName: data.firstName,
-              lastName: data.lastName,
-              email: data.email,
-              img: `https://apis.ssdevelopers.xyz/${data.img}`,
-            })
-          );
-        })
-        .catch((err) => {
-          submitRef.current.blur();
-          setIsLoading(false);
-        });
+      dispatch(
+        authenticateAccount({ email: enteredEmail, pass: enteredPassword })
+      );
     }
   };
 
@@ -66,14 +48,6 @@ const Login = (props) => {
   const passwordInputHandler = (event) => {
     setEnteredPassword(event.target.value);
   };
-
-  useEffect(() => {
-    if (enteredEmail !== "" && enteredPassword !== "") {
-      setCanSubmit(true);
-    } else {
-      setCanSubmit(false);
-    }
-  }, [enteredEmail, enteredPassword]);
 
   return (
     <motion.div

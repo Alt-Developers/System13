@@ -1,5 +1,7 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { authenticateAccount } from "./context/authenticateActions";
 
 import Navigation from "./components/Layout/Navigation";
 import Footer from "./components/Layout/Footer";
@@ -9,10 +11,22 @@ import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Signup from "./components/Account/Signup";
 import Starting from "./components/System13/Starting";
+import Modal from "./components/Layout/Modal";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (localStorage.getItem("accToken")) {
+      dispatch(
+        authenticateAccount({ token: localStorage.getItem("accToken") })
+      );
+    }
+  }, [dispatch]);
+
   return (
     <Fragment>
+      <Modal />
       <Navigation />
       <Routes>
         <Route path="/" exact element={<Home />} />

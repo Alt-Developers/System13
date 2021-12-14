@@ -1,8 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
-import { useSelector } from "react-redux";
-
-// import { FullNamesList, playerList } from "./Constants";
-import Modal from "../Layout/Modal.jsx";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { modalActions } from "../../context/modalSlice";
 
 const Logic = (props) => {
   const playerInpRef1 = useRef("");
@@ -16,14 +15,12 @@ const Logic = (props) => {
   const playerInpRef9 = useRef("");
   const playerInpRef10 = useRef("");
 
-  const [modalVisible, setModalVisible] = useState(true);
-  const [modalText, setModalText] = useState("default");
-  const [modalError, setModalError] = useState(false);
-
   const [playerNamesData, setPlayerNamesData] = useState();
   const [playerScoreData, setPlayerScoreData] = useState();
 
-  const userInfo = useSelector((state) => state.userInfo);
+  const userInfo = useSelector((state) => state.account.userInfo);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const display = (resultArr, score) => {
     const newScore = [];
@@ -181,24 +178,19 @@ const Logic = (props) => {
     let checkForError = checkForImpossible(players);
 
     if (checkForError === "err1") {
-      setModalText("err1");
-      setModalVisible(true);
+      dispatch(modalActions.open("err1"));
       return false;
     } else if (checkForError === "err2") {
-      setModalText("err2");
-      setModalVisible(true);
+      dispatch(modalActions.open("err2"));
       return false;
     } else if (checkForError === "err0") {
-      setModalText("err0");
-      setModalVisible(true);
+      dispatch(modalActions.open("err0"));
       return false;
     } else if (checkForError === "err3") {
-      setModalText("err3");
-      setModalVisible(true);
+      dispatch(modalActions.open("err3"));
       return false;
     } else if (checkForError === "err4") {
-      setModalText("err4");
-      setModalVisible(true);
+      dispatch(modalActions.open("err4"));
       return false;
     }
 
@@ -237,57 +229,58 @@ const Logic = (props) => {
       );
 
     if (players.length === 0) {
-      setModalText({
-        modalH: "No players?",
-        modalP: "System13 can't randomize a team without players",
-        modalBtn: "Okay...",
-      });
-      setModalVisible(true);
+      dispatch(modalActions.open("noP"));
     } else {
       main(players);
     }
     boldEndl();
   };
 
-  const liftingModalVisible = useCallback(() => {
-    setModalVisible(false);
-  }, []);
-
   useEffect(() => {
     console.warn("Server Connection ==========");
-    // Fetch player data
-    (async () => {
-      const data = await fetch(
-        "https://apis.ssdevelopers.xyz/system13/getRealNameList"
-      );
-      const response = await data.json();
-      setPlayerNamesData(response.playersList);
-      console.log("✅ : Player names data fetched");
-    })();
-    (async () => {
-      const data = await fetch(
-        "https://apis.ssdevelopers.xyz/system13/getPlayersList"
-      )
-        .then((response) => {
-          if (response.status === 500) {
-            setModalError(true);
-            setModalText("500");
+    if (localStorage.getItem("accToken")) {
+      (async () => {
+        const data = await fetch(
+          "https://apis.ssdevelopers.xyz/system13/getRealNameList",
+          {
+            headers: {
+              Authorization: "Bearer " + localStorage.getItem("accToken"),
+            },
           }
-          if (response.status === 503) {
-            setModalError(true);
-            setModalText("503");
+        );
+        const response = await data.json();
+        setPlayerNamesData(response.playersList);
+        console.log("✅ : Player names data fetched");
+      })();
+      (async () => {
+        const data = await fetch(
+          "https://apis.ssdevelopers.xyz/system13/getPlayersList",
+          {
+            headers: {
+              Authorization: "Bearer " + localStorage.getItem("accToken"),
+            },
           }
-          return response;
-        })
-        .catch(() => {
-          setModalError(true);
-          setModalText("521");
-        });
-      const response = await data.json();
-      setPlayerScoreData(response.playersList);
-      console.log("✅ : Player score data fetched");
-    })();
-  }, []);
+        )
+          .then((response) => {
+            if (response.status === 500) {
+              dispatch(modalActions.open("500"));
+            }
+            if (response.status === 503) {
+              dispatch(modalActions.open("503"));
+            }
+            return response;
+          })
+          .catch(() => {
+            dispatch(modalActions.open("521"));
+          });
+        const response = await data.json();
+        setPlayerScoreData(response.playersList);
+        console.log("✅ : Player score data fetched");
+      })();
+    } else {
+      navigate("../profile");
+    }
+  }, [navigate, dispatch]);
 
   return (
     <div className="start__wrapper">
@@ -319,12 +312,6 @@ const Logic = (props) => {
           Start the randomization!
         </button>
       </form>
-      <Modal
-        liftingModalCancel={liftingModalVisible}
-        isVisible={modalVisible}
-        text={modalText}
-        errorModal={modalError}
-      />
     </div>
   );
 };

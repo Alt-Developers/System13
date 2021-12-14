@@ -1,10 +1,10 @@
 import { useSelector, useDispatch } from "react-redux";
-import { accountActions } from "../../../context";
+import { accountActions } from "../../../context/accountSlice";
 import Players from "./Players";
 import { motion } from "framer-motion";
 
 const Account = (props) => {
-  const userInfo = useSelector((state) => state.userInfo);
+  const userInfo = useSelector((state) => state.account.userInfo);
   const dispatch = useDispatch();
 
   return (
