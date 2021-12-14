@@ -644,7 +644,8 @@ footer {
   .modal p {
     padding: 2rem;
     font-size: 2rem; }
-  .modal button {
+  .modal button,
+  .modal a {
     position: absolute;
     bottom: 2rem;
     right: 2rem;

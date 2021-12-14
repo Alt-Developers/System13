@@ -5,7 +5,11 @@ const initialModalState = {
   info: {
     header: "default",
     text: "default",
-    button: false,
+    button: null,
+    navlink: {
+      to: null,
+      text: null,
+    },
   },
 };
 
@@ -15,6 +19,7 @@ const modalSlice = createSlice({
   reducers: {
     close(state) {
       state.isOpen = false;
+      state.info.navlink = { to: null, text: "Okay..." };
     },
     open(state, action) {
       switch (action.payload) {
@@ -68,6 +73,11 @@ const modalSlice = createSlice({
           state.info.header = "No players?";
           state.info.text = "System13 can't randomize a team without players";
           state.info.button = "Okay...";
+          break;
+        case "notLoggedIn":
+          state.info.header = "Please login to SS Account";
+          state.info.text = "Login to your SS account to unlock System13";
+          state.info.navlink = { to: "/profile", text: "Okay..." };
           break;
         // Reminder modal
         default:

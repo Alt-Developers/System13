@@ -238,7 +238,8 @@ const Logic = (props) => {
 
   useEffect(() => {
     console.warn("Server Connection ==========");
-    if (localStorage.getItem("accToken")) {
+    const token = localStorage.getItem("accToken");
+    if (token && token !== undefined) {
       (async () => {
         const data = await fetch(
           "https://apis.ssdevelopers.xyz/system13/getRealNameList",
@@ -268,6 +269,9 @@ const Logic = (props) => {
             if (response.status === 503) {
               dispatch(modalActions.open("503"));
             }
+            if (response.status === 403) {
+              dispatch(modalActions.open("403"));
+            }
             return response;
           })
           .catch(() => {
@@ -278,7 +282,7 @@ const Logic = (props) => {
         console.log("✅ : Player score data fetched");
       })();
     } else {
-      navigate("../profile");
+      dispatch(modalActions.open("notLoggedIn"));
     }
   }, [navigate, dispatch]);
 
