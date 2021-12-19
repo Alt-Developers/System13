@@ -5,6 +5,7 @@ const initialModalState = {
   info: {
     header: "default",
     text: "default",
+    icon: "bx bxs-bell",
     button: null,
     navlink: {
       to: null,
@@ -59,16 +60,24 @@ const modalSlice = createSlice({
           state.info.header = "Internal server error";
           state.info.text =
             "The server returned an error code of 500. Please try again in a few seconds";
+          state.info.navlink = { to: "/", text: "Back home" };
+          state.info.icon = "bx bx-error";
           break;
         case "521":
           state.info.header = "Database seems to be down";
           state.info.text =
             "The server didn't respond at all. Please come back later or try refreshing";
+          state.info.navlink = { to: "/", text: "Back home" };
+          state.info.icon = "bx bx-error";
+
           break;
         case "503":
           state.info.header = "Database down for maintenance";
           state.info.text =
             "The server is currently unavailable due to temporary overload or server maintenance";
+          state.info.navlink = { to: "/", text: "Back home" };
+          state.info.icon = "bx bx-error";
+
           break;
         case "noP":
           state.info.header = "No players?";

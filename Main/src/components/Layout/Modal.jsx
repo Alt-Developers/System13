@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { modalActions } from "../../context/modalSlice";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import { useRef } from "react";
 import { AnimatePresence } from "framer-motion";
 
@@ -46,7 +45,7 @@ const Modal = (props) => {
               className="modal__header"
               style={{ backgroundColor: "#fa4454" }}
             >
-              <i class="bx bxs-bell"></i>
+              <i className={info.icon}></i>
               <h1>{info.header}</h1>
             </div>
             <p>{info.text}</p>

@@ -18,7 +18,11 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (localStorage.getItem("accToken")) {
+    const token = localStorage.getItem("accToken");
+    if (token === undefined) {
+      localStorage.removeItem("accToken");
+    }
+    if (token) {
       dispatch(
         authenticateAccount({ token: localStorage.getItem("accToken") })
       );

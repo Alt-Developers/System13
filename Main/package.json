@@ -1,5 +1,5 @@
 {
-  "name": "react-the-complete-guide",
+  "name": "system-thirteen",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -42,7 +42,7 @@
   },
   "main": "index.js",
   "devDependencies": {},
-  "author": "",
+  "author": "Jirat Chutrakul",
   "license": "ISC",
-  "description": ""
+  "description": "This the dependencies needed for developing system13"
 }
