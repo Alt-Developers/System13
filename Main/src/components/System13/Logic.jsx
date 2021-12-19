@@ -238,8 +238,11 @@ const Logic = (props) => {
 
   useEffect(() => {
     console.warn("Server Connection ==========");
-    const token = localStorage.getItem("accToken");
+    const token = localStorage.getItem("accToken")
+      ? localStorage.getItem("accToken")
+      : localStorage.removeItem("accToken");
     if (token && token !== undefined) {
+      console.log("✅ : User is logged in");
       (async () => {
         const data = await fetch(
           "https://apis.ssdevelopers.xyz/system13/getRealNameList",
