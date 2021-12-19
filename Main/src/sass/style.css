@@ -283,10 +283,16 @@ body {
     grid-template-areas: "left right"; }
     .signup-formWrapper {
       grid-area: "left";
-      gap: 1rem;
       display: flex;
-      flex-direction: column;
-      margin-bottom: 2rem; }
+      margin-bottom: 2rem;
+      gap: 1rem;
+      flex-direction: column; }
+      .signup-formWrapper i {
+        align-self: center;
+        justify-self: center;
+        text-align: center;
+        width: 100%;
+        font-size: 10rem; }
     .signup-form__input {
       width: 80%;
       padding: 1rem;
@@ -364,6 +370,10 @@ body {
 .previewImg {
   border-radius: 1.1rem;
   object-fit: cover; }
+
+.profilePicLeft {
+  flex-direction: row;
+  gap: 0; }
 
 .starting {
   height: 100vh;

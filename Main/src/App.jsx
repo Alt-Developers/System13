@@ -12,6 +12,7 @@ import Profile from "./pages/Profile";
 import Signup from "./components/Account/Signup";
 // import Starting from "./components/System13/Starting";
 import Modal from "./components/Layout/Modal";
+import ChangeProfilePic from "./components/Account/Logged In/ProfilePic";
 
 function App() {
   const dispatch = useDispatch();
@@ -34,6 +35,10 @@ function App() {
         <Route path="github" element={<Github />} />
         <Route path="profile" element={<Profile />} />
         <Route path="signup" element={<Signup />} />
+        <Route
+          path="/profile/changeProfilePicture"
+          element={<ChangeProfilePic />}
+        />
       </Routes>
       <Footer />
     </Fragment>

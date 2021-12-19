@@ -26,10 +26,13 @@ const Signup = (props) => {
         signupData.append("image", image);
       }
 
-      await fetch("https://apis.ssdevelopers.xyz/auth/signup", {
-        method: "POST",
-        body: signupData,
-      });
+      await fetch(
+        /* "https://apis.ssdevelopers.xyz/auth/signup" */ "http://localhost:80/auth/signup",
+        {
+          method: "POST",
+          body: signupData,
+        }
+      );
       // UNFINISHED : Existing account validation
 
       navigate("../profile");

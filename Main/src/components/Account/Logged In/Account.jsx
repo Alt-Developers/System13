@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { accountActions } from "../../../context/accountSlice";
 import Players from "./Players";
 import { motion } from "framer-motion";
+import { Link, Route } from "react-router-dom";
 
 const Account = (props) => {
   const userInfo = useSelector((state) => state.account.userInfo);
@@ -31,6 +32,7 @@ const Account = (props) => {
         >
           Logout
         </button>
+        <Link to="/profile/changeProfilePicture">Change profile pic </Link>
       </div>
       <div className="account__right">
         <div className="account__players">
