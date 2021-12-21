@@ -1,7 +1,10 @@
 import React, { useRef } from "react";
 import { motion } from "framer-motion";
+import { useDispatch } from "react-redux";
+import { modalActions } from "../../../context/modalSlice";
 
 const Players = (props) => {
+  const dispatch = useDispatch();
   const codenameRef = useRef("");
   const nameRef = useRef("");
   const tierRef = useRef("");
@@ -12,13 +15,16 @@ const Players = (props) => {
     const tier = tierRef.current.value;
     const codename = codenameRef.current.value;
 
-    if (!name) return;
-    if (!tier) return;
-    if (codename.length !== 3) return;
+    if (!name) dispatch(modalActions.open("addPEmpName"));
+    if (!tier) dispatch(modalActions.open("addPEmpTier"));
+    if (codename.length !== 3) dispatch(modalActions.open("addPEmpCodename"));
 
     await fetch("http://apis.ssdevelopers.xyz/system13/addPlayer", {
       method: "POST",
-      headers: { "Content-type": "application/json" },
+      headers: {
+        "Content-type": "application/json",
+        Authorization: "Bearer " + localStorage.getItem("accToken"),
+      },
       body: JSON.stringify({
         realName: name.trim(),
         score: tier.trim(),

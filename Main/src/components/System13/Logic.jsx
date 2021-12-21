@@ -253,6 +253,7 @@ const Logic = (props) => {
           }
         );
         const response = await data.json();
+        console.log(response.playersList);
         setPlayerNamesData(response.playersList);
         console.log("✅ : Player names data fetched");
       })();
@@ -281,6 +282,7 @@ const Logic = (props) => {
             dispatch(modalActions.open("521"));
           });
         const response = await data.json();
+        console.log(response.playersList);
         setPlayerScoreData(response.playersList);
         console.log("✅ : Player score data fetched");
       })();

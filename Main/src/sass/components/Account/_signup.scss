@@ -157,7 +157,9 @@
   object-fit: cover;
 }
 
-.profilePicLeft {
-  flex-direction: row;
-  gap: 0;
+.profilePic {
+  &Left {
+    flex-direction: row;
+    gap: 0;
+  }
 }

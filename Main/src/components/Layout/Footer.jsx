@@ -1,5 +1,5 @@
 import React from "react";
-import "../../sass/style.css";
+import { Link } from "react-router-dom";
 
 const Footer = () => (
   <footer className="dark-footer">
@@ -8,19 +8,16 @@ const Footer = () => (
       <a href="https://ssdevelopers.xyz">
         <li>Portals</li>
       </a>
-      <a href="./index.html">
+      <Link to="/">
         <li>Home</li>
-      </a>
-      <a href="./github.html">
+      </Link>
+      <Link to="/github">
         <li>GitHub</li>
-      </a>
-      <a href="./docs.html">
-        <li>Documentation</li>
-      </a>
-      <a href="./system.html">
+      </Link>
+      <Link to="/system">
         <li>System</li>
-      </a>
-      <li>Version 2.1</li>
+      </Link>
+      <li>Version 3.0</li>
     </ul>
   </footer>
 );

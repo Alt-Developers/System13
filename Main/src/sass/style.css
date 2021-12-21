@@ -62,6 +62,31 @@ body {
     .account__profile button {
       width: 100%;
       margin-top: 2rem; }
+    .account__profile a {
+      overflow: hidden;
+      border-radius: 50%;
+      transition: all 0.2s;
+      position: relative; }
+      .account__profile a span {
+        position: absolute;
+        left: 40%;
+        top: 40%;
+        font-size: 5rem;
+        color: #fff;
+        opacity: 0;
+        z-index: 2;
+        transition: all 0.1s;
+        transition-delay: 0.1s; }
+      .account__profile a img {
+        transition: all 0.2s; }
+      .account__profile a:hover > img {
+        filter: blur(11px); }
+      .account__profile a:hover > span {
+        opacity: 1; }
+      .account__profile a:hover {
+        transform: scale(1.05); }
+      .account__profile a:active {
+        transform: scale(0.9); }
     .account__profile--text {
       padding-left: 3rem; }
       .account__profile--text h1 {
@@ -666,7 +691,7 @@ footer {
     width: 20rem;
     background-color: #303030; }
     .modal__link p {
-      font-size: 1rem;
+      font-size: 1.5rem;
       justify-content: center;
       text-align: center; }
 

@@ -1,5 +1,7 @@
 .account {
   background-image: linear-gradient(to bottom right, #313131, $btn-red-1);
+  // background-image: src("Main/src/assets/img/elainaWallpaper.jpg");
+
   padding: 3rem;
   height: 100vh;
   display: grid;
@@ -32,6 +34,42 @@
     button {
       width: 100%;
       margin-top: 2rem;
+    }
+    a {
+      overflow: hidden;
+      border-radius: 50%;
+      transition: all 0.2s;
+      position: relative;
+
+      span {
+        position: absolute;
+        left: 40%;
+        top: 40%;
+        font-size: 5rem;
+        color: #fff;
+        opacity: 0;
+        z-index: 2;
+        transition: all 0.1s;
+        transition-delay: 0.1s;
+      }
+
+      img {
+        transition: all 0.2s;
+      }
+
+      &:hover > img {
+        filter: blur(11px);
+      }
+      &:hover > span {
+        opacity: 1;
+      }
+
+      &:hover {
+        transform: scale(1.05);
+      }
+      &:active {
+        transform: scale(0.9);
+      }
     }
     &--text {
       padding-left: 3rem;

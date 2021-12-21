@@ -2,11 +2,31 @@ import { useSelector, useDispatch } from "react-redux";
 import { accountActions } from "../../../context/accountSlice";
 import Players from "./Players";
 import { motion } from "framer-motion";
-import { Link, Route } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import ExistingPlayerItem from "./ExistingPlayerItem";
+import { useState } from "react";
+import { SpinnerCircularSplit } from "spinners-react";
 
 const Account = (props) => {
   const userInfo = useSelector((state) => state.account.userInfo);
   const dispatch = useDispatch();
+
+  const [existingPlayer, setExistingPlayer] = useState();
+
+  useEffect(() => {
+    (async () => {
+      await fetch("https://apis.ssdevelopers.xyz/system13/getUserPlayer", {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("accToken"),
+        },
+      })
+        .then((data) => data.json())
+        .then((data) => {
+          setExistingPlayer(data.userPlayer);
+        });
+    })();
+  }, []);
 
   return (
     <motion.section
@@ -16,7 +36,12 @@ const Account = (props) => {
     >
       <div className="account__profile">
         <div className="account__profile-con">
-          <img src={userInfo.img} alt="User" />
+          <Link to="/profile/changeProfilePicture">
+            <span>
+              <i className="bx bxs-image-add"></i>
+            </span>
+            <img src={userInfo.img} alt="User" />
+          </Link>
           <div className="account__profile--text">
             <h1>
               {userInfo.firstName} {userInfo.lastName}
@@ -32,7 +57,6 @@ const Account = (props) => {
         >
           Logout
         </button>
-        <Link to="/profile/changeProfilePicture">Change profile pic </Link>
       </div>
       <div className="account__right">
         <div className="account__players">
@@ -50,10 +74,19 @@ const Account = (props) => {
               </h3>
               <h2 style={{ fontWeight: "600", fontSize: "1.7rem" }}>Tier</h2>
             </li>
-            <li>
-              <h3>Bogie</h3>
-              <h2>4</h2>
-            </li>
+            {existingPlayer ? (
+              existingPlayer.map((player) => (
+                <ExistingPlayerItem
+                  key={Math.random()}
+                  name={player.realName}
+                  tier={player.score}
+                />
+              ))
+            ) : (
+              <li style={{ display: "flex", justifyContent: "center" }}>
+                <SpinnerCircularSplit color="#fff" />
+              </li>
+            )}
           </ul>
         </div>
       </div>

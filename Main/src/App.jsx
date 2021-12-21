@@ -10,7 +10,6 @@ import Github from "./pages/Github";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Signup from "./components/Account/Signup";
-// import Starting from "./components/System13/Starting";
 import Modal from "./components/Layout/Modal";
 import ChangeProfilePic from "./components/Account/Logged In/ProfilePic";
 

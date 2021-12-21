@@ -8,7 +8,6 @@ const initialAccountState = {
     lastName: "",
     email: "",
     img: "Main/src/assets/img/defaultProfile.jpg",
-    token: "",
   },
 };
 

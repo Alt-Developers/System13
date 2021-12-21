@@ -2,7 +2,7 @@ import { Formik, Form, Field } from "formik";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { SpinnerCircularSplit } from "spinners-react";
 import { useSelector } from "react-redux";
@@ -25,8 +25,8 @@ const ChangeProfilePic = (props) => {
 
       if (token && token !== undefined) {
         await fetch(
-          // "https://apis.ssdevelopers.xyz/auth/updateUserProfilePicture",
-          "http://localhost:80/auth/updateUserProfilePicture",
+          "https://apis.ssdevelopers.xyz/auth/updateUserProfilePicture",
+          // "http://localhost:80/auth/updateUserProfilePicture",
           {
             method: "POST",
             body: changeImgData,
@@ -79,11 +79,15 @@ const ChangeProfilePic = (props) => {
                   <div className="signup-formWrapper profilePicLeft">
                     <img
                       src={userInfo.img}
-                      height="250px"
-                      width="250px"
+                      style={{
+                        objectFit: "cover",
+                        height: "25rem",
+                        width: "25rem",
+                      }}
                       className="previewImg"
+                      alt="user profile preview"
                     ></img>
-                    <i class="bx bxs-chevron-right rightArrow"></i>
+                    <i className="bx bxs-chevron-right rightArrow"></i>
                   </div>
                   <button className="signup-form__imgWrapper" type="button">
                     {!image && <i className="bx bx-image-add"></i>}

@@ -69,7 +69,6 @@ const modalSlice = createSlice({
             "The server didn't respond at all. Please come back later or try refreshing";
           state.info.navlink = { to: "/", text: "Back home" };
           state.info.icon = "bx bx-error";
-
           break;
         case "503":
           state.info.header = "Database down for maintenance";
@@ -88,6 +87,21 @@ const modalSlice = createSlice({
           state.info.header = "Please login to SS Account";
           state.info.text = "Login to your SS account to unlock System13";
           state.info.navlink = { to: "/profile", text: "Login" };
+          break;
+        case "addPEmpName":
+          state.info.header = "Player name missing";
+          state.info.text = "Please enter all fields to add your player";
+          state.info.button = "Okay...";
+          break;
+        case "addPEmpTier":
+          state.info.header = "Tier missing";
+          state.info.text = "Please enter all fields to add your player";
+          state.info.button = "Okay...";
+          break;
+        case "addPEmpCodename":
+          state.info.header = "Invalid player codename length";
+          state.info.text = "Player codenames must be 3 characters long";
+          state.info.button = "Okay...";
           break;
         // Reminder modal
         default:
