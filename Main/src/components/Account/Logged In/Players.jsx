@@ -19,7 +19,7 @@ const Players = (props) => {
     if (!tier) dispatch(modalActions.open("addPEmpTier"));
     if (codename.length !== 3) dispatch(modalActions.open("addPEmpCodename"));
 
-    await fetch("http://apis.ssdevelopers.xyz/system13/addPlayer", {
+    await fetch("https://apis.ssdevelopers.xyz/system13/addPlayer", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -32,7 +32,6 @@ const Players = (props) => {
       }),
     })
       .then((data) => data.json())
-      .then((data) => console.log(data));
 
     nameRef.current.value = "";
     tierRef.current.value = "";

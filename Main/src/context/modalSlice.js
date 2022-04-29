@@ -103,6 +103,11 @@ const modalSlice = createSlice({
           state.info.text = "Player codenames must be 3 characters long";
           state.info.button = "Okay...";
           break;
+          case "valErr":
+            state.info.header = "Validation Failed";
+            state.info.text = "Invalid email or password";
+            state.info.button = "Okay...";
+            break;
         // Reminder modal
         default:
           state.info.header = "Reminder";

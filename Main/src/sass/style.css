@@ -815,7 +815,7 @@ footer {
     border-radius: 1.1rem;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 2.5fr 0.6fr;
-    grid-template-areas: "playerleft playerright" "submit submit";
+    grid-template-areas: "playerleft playerright" "submit submit";
     background-color: #303030; }
     .start__form button {
       padding-left: 2%;

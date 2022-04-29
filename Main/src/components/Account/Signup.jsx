@@ -5,16 +5,19 @@ import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { SpinnerCircularSplit } from "spinners-react";
+import { useDispatch } from "react-redux";
+import { modalActions } from "../../context/modalSlice";
 
-const Signup = (props) => {
+const Signup = props => {
   const [canSubmit, setCanSubmit] = useState(false);
   const [image, setImage] = useState(null);
   const navigate = useNavigate();
   const submitRef = useRef();
   const curRoute = useLocation();
   const [isLoading, setIsLoading] = useState(null);
+  const dispatch = useDispatch();
 
-  const sendReq = async (values) => {
+  const sendReq = async values => {
     if (canSubmit) {
       setIsLoading(true);
       const signupData = new FormData();
@@ -29,11 +32,16 @@ const Signup = (props) => {
       await fetch("https://apis.ssdevelopers.xyz/auth/signup", {
         method: "POST",
         body: signupData,
+      }).then(response => {
+        if (response.status === 422) {
+          dispatch(modalActions.open("valErr"));
+          setIsLoading(false);
+        } else {
+          navigate("../profile");
+          setIsLoading(false);
+          return response;
+        }
       });
-      // UNFINISHED : Existing account validation
-
-      navigate("../profile");
-      setIsLoading(false);
     }
   };
 
@@ -41,8 +49,7 @@ const Signup = (props) => {
     <motion.div
       className="signup"
       initial={{ opacity: 0, x: -5 }}
-      animate={{ opacity: 1, x: 0 }}
-    >
+      animate={{ opacity: 1, x: 0 }}>
       <section className="signup-con">
         <div className="signup-left">
           <div className="signup-text">
@@ -57,7 +64,7 @@ const Signup = (props) => {
               password: "",
               image: "",
             }}
-            validate={(values) => {
+            validate={values => {
               if (values.firstname === "") {
                 setCanSubmit(false);
               } else if (values.lastname === "") {
@@ -74,8 +81,7 @@ const Signup = (props) => {
               sendReq(values);
               console.log("SUBMITTED");
               curRoute.push("/profile");
-            }}
-          >
+            }}>
             {({ isSubmitting }) => (
               <Form className="signup-form">
                 <div className="signup-formWrapper">
@@ -105,8 +111,7 @@ const Signup = (props) => {
                   />
                   <NavLink
                     to="/profile"
-                    className="u-remove-a-eff login-form__signup"
-                  >
+                    className="u-remove-a-eff login-form__signup">
                     Already have an account?
                   </NavLink>
                 </div>
@@ -125,7 +130,7 @@ const Signup = (props) => {
                     type="file"
                     name="image"
                     accept="image/*"
-                    onChange={(event) => {
+                    onChange={event => {
                       setImage(event.currentTarget.files[0]);
                     }}
                     className="signup-form__img"
@@ -138,8 +143,7 @@ const Signup = (props) => {
                     canSubmit ? "login-form__submit" : "login-form__cantSubmit"
                   }`}
                   disabled={isSubmitting}
-                  ref={submitRef}
-                >
+                  ref={submitRef}>
                   {!isLoading && <>&raquo;</>}
                   {isLoading && (
                     <SpinnerCircularSplit

@@ -34,10 +34,11 @@ const ChangeProfilePic = (props) => {
               Authorization: "Bearer " + localStorage.getItem("accToken"),
             },
           }
-        );
-
-        navigate("../profile");
-        setIsLoading(false);
+        ).then(() => {
+          console.log("SENT")
+          navigate("../profile");
+          setIsLoading(false);
+        });
       }
     }
   };
@@ -70,7 +71,6 @@ const ChangeProfilePic = (props) => {
               }}
               onSubmit={(values, { setSubmitting }) => {
                 sendReq(values);
-                console.log("SUBMITTED");
                 curRoute.push("/profile");
               }}
             >
